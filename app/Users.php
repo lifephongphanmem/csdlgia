@@ -20,7 +20,6 @@ class Users extends Model
         'level',
         'sadmin',
         'permission',
-        'pldv',
         'emailxt',
         'question',
         'answer',

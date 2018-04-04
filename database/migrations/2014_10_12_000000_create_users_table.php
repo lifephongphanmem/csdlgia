@@ -18,16 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('username')->unique();
             $table->string('password')->nullable();
-            $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('status')->nullable();
             $table->string('maxa')->nullable();
             $table->string('mahuyen')->nullable();
-            $table->string('cqcq')->nullable();
             $table->string('level')->nullable();
             $table->string('sadmin')->nullable();
             $table->text('permission')->nullable();
-            $table->string('pldv')->nullable();
             $table->string('emailxt')->nullable();
             $table->string('question')->nullable();
             $table->string('answer')->nullable();

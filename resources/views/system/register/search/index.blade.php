@@ -62,19 +62,19 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-		{!! Form::open(['url'=>'/search_register','id' => 'form-seachregister', 'class'=>'form-horizontal form-validate']) !!}
+		{!! Form::open(['url'=>'/searchtkdangky','id' => 'form-seachregister', 'class'=>'form-horizontal form-validate']) !!}
 	<h3>Kiểm tra tài khoản</h3>
 	<p>Nhập mã số thuế và dịch vụ cung cấp của doanh nghiệp để kiểm tra tài khoản</p>
 	<div class="form-group">
 		<div class="input-icon">
 			<i class="fa fa-user"></i>
-			<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Mã số thuế đơn vị" name="masothue" id="masothue" required/>
+			<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Mã số thuế đơn vị" name="maxa" id="maxa" required/>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="input-icon">
 			<i class="fa fa-envelope"></i>
-			<select class="form-control required" name="pl" id="pl">
+			<select class="form-control required" name="level" id="level">
 				@if(canGeneral('dvlt','dvlt'))
 				<option value="DVLT">Dịch vụ lưu trú</option>
 				@endif

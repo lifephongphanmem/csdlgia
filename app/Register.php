@@ -9,7 +9,8 @@ class Register extends Model
     protected $table = 'register';
     protected $fillable = [
         'id',
-        'masothue',
+        'maxa',
+        'mahuyen',
         'tendn',
         'diachi',
         'tel',
@@ -19,21 +20,15 @@ class Register extends Model
         'chucdanh',
         'nguoiky',
         'noidknopthue',
-        'setting',
-        'dvxk',
-        'dvxb',
-        'dvxtx',
-        'dvk',
-        'toado',
+        'settingdvvt',
         'ghichu',
-        'trangthai',
         'tailieu',
         'giayphepkd',
         'username',
         'password',
-        'pl',
+        'level',
+        'trangthai',
         'lydo',
-        'cqcq',
-        'ma'
+        'ma',
     ];
 }

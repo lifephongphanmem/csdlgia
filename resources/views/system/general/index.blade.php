@@ -26,8 +26,18 @@
                     <div class="caption">
                     </div>
                     <div class="actions">
-                        <a href="{{url('cau_hinh_he_thong/'.$model->id.'/edit')}}" class="btn btn-default btn-sm">
+                        @if(count($model) >0)
+                            <a href="{{url('general/'.$model->id.'/edit')}}" class="btn btn-default btn-sm">
                             <i class="fa fa-edit"></i> Chỉnh sửa </a>
+                            @if(session('admin')->username=='minhtran')
+                                <a href="{{url('setting')}}" class="btn btn-default btn-sm">
+                                    <i class="icon-settings"></i> Setting</a>
+                            @endif
+                        @else
+                            <a href="{{url('general/create')}}" class="btn btn-default btn-sm">
+                                <i class="fa fa-plus"></i> Thêm mới</a>
+                        @endif
+
                         <!--a href="" class="btn btn-default btn-sm">
                             <i class="fa fa-print"></i> Print </a-->
 
@@ -38,46 +48,55 @@
                         <tbody>
                         <tr>
                             <td style="width:15%">
-                                <b>Đơn vị quản lý</b>
+                                <b>Bản quyền thuộc về</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{{$model->tendv}}
+                                <span class="text-muted">Công ty TNHH phát triển phần mềm Cuộc Sống
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td style="width:15%">
-                                <b>Mã quan hệ ngân sách</b>
+                                <b>Địa chỉ</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{{$model->maqhns}}
+                                <span class="text-muted">
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td style="width:15%">
-                                <b>Địa chỉ </b>
+                                <b>Mã số thuế </b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{{$model->diachi}}
+                                <span class="text-muted">
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td style="width:15%">
-                                <b>Số hồ sơ nhận </b>
+                                <b>Số đăng ký bản quyền</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{{$model->sohsnhan}}
+                                <span class="text-muted">
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td style="width:15%">
-                                <b>Thông tin liên lạc </b>
+                                <b>Cấp cho đơn vị</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{!! nl2br(e($model->ttlh)) !!}
+                                <span class="text-muted">
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%">
+                                <b>Thông tin hợp đồng</b>
+                            </td>
+                            <td style="width:35%">
+                                <span class="text-muted">
                                 </span>
                             </td>
                         </tr>

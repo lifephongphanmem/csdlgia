@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Register;
+use App\Town;
+use App\Users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -73,6 +77,111 @@ class AjaxController extends Controller
             if ($ngaynhap >= $ngayht) {
                 $result['status'] = 'success';
             }
+        }
+        die(json_encode($result));
+    }
+
+    public function checkusername(Request $request){
+        $result = array(
+            'message' => 'error',
+            'status' => 'fail',
+        );
+        if (!Session::has('admin')) {
+            $result = array(
+                'status' => 'fail',
+            );
+            die(json_encode($result));
+        }
+        //dd($request);
+        $inputs = $request->all();
+
+        if (isset($inputs['username'])) {
+            $model = Users::where('username',$inputs['username'])->count();
+            if ($model == 0) {
+                $result['status'] = 'success';
+            }
+        }
+        die(json_encode($result));
+    }
+
+    public function checkmaqhns(Request $request){
+        $result = array(
+            'message' => 'error',
+            'status' => 'fail',
+        );
+        if (!Session::has('admin')) {
+            $result = array(
+                'status' => 'fail',
+            );
+            die(json_encode($result));
+        }
+        $inputs = $request->all();
+        if (isset($inputs['maqhns'])) {
+            if($inputs['pl'] == 'district')
+                $model = District::where('mahuyen',$inputs['maqhns'])->count();
+            elseif($inputs['pl'] == 'town')
+                $model = Town::where('maxa',$inputs['maqhns'])->count();
+            else
+                $model = 0;
+            if ($model == 0) {
+                $result['status'] = 'success';
+            }
+        }
+        die(json_encode($result));
+    }
+
+    public function checkmasothue(Request $request){
+        $result = array(
+            'message' => 'error',
+            'status' => 'fail',
+        );
+        if (!Session::has('admin')) {
+            $result = array(
+                'status' => 'fail',
+            );
+            die(json_encode($result));
+        }
+        $inputs = $request->all();
+        if (isset($inputs['maqhns'])) {
+            if($inputs['pl'] == 'district')
+                $model = District::where('mahuyen',$inputs['maqhns'])->count();
+            elseif($inputs['pl'] == 'town')
+                $model = Town::where('maxa',$inputs['maqhns'])->count();
+            else
+                $model = 0;
+            if ($model == 0) {
+                $result['status'] = 'success';
+            }
+        }
+        die(json_encode($result));
+    }
+
+    public function registerthongtin(Request $request){
+        $result = array(
+            'status' => 'fail',
+            'message' => 'error',
+        );
+        if(!Session::has('admin')) {
+            $result = array(
+                'status' => 'fail',
+                'message' => 'permission denied',
+            );
+            die(json_encode($result));
+        }
+        //dd($request);
+        $inputs = $request->all();
+
+        if(isset($inputs['id'])){
+
+            $modelhs = Register::where('id',$inputs['id'])
+                ->first();
+
+            $result['message'] = '<div class="form-group" id="tttralai"> ';
+            $result['message'] .= '<label style="color: blue"><b>'.$modelhs->tendn.'</b> - Mã số thuế: <b>'.$modelhs->maxa.'</b></label>';
+            $result['message'] .= '<input type="text" id="idhs" name="idhs" value="'.$inputs['id'].'">';
+            $result['message'] .= '</div>';
+
+            $result['status'] = 'success';
         }
         die(json_encode($result));
     }

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ url('css/style-responsive.css') }}">
 </head>
 <body id="error-page" class="animated bounceInLeft">
-<div id="error-page-content"><h1>Lỗi</h1><h2>Mã đăng ký tài khoản không đúng!!!</h2>
+<div id="error-page-content"><h1>Lỗi</h1><h2>Mã đăng ký tài khoản không đúng hoặc tài khoản đang chờ xét duyệt!!!</h2>
     <p>Liên hệ với quản trị hệ thống để biết thêm chi tiết</p>
     <p><a href='{{ url('search_register/show') }}'>Bấm vào đây</a> để quay lại trang nhập mã đăng ký.</p>
     <p><a href='{{ url('/') }}'>Bấm vào đây</a> để quay lại trang chủ.</p>

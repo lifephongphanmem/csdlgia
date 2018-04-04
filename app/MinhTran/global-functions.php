@@ -5,51 +5,18 @@ function getPermissionDefault($level) {
     $roles['T'] = array(
         'dvlt' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
-        'dvvtxk' => array(
+        'dvvt' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
-            'approve'=> 1
-        ),
-        'dvvtxb' => array(
-            'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
-            'approve'=> 1
-        ),
-        'dvvtxtx' => array(
-            'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
-            'approve'=> 1
-        ),
-        'dvvtch' => array(
-            'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
         'dvgs' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
         'dvtacn' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
         'kkdvlt' => array(
@@ -89,67 +56,34 @@ function getPermissionDefault($level) {
         ),
         'kkdvgs' => array(
             'index' => 1,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
             'approve'=> 1
         ),
         'kkdvtacn' => array(
             'index' => 1,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
             'approve'=> 1
         ),
     );
     $roles['H'] = array(
         'dvlt' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
-        'dvvtxk' => array(
+        'dvvt' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
-            'approve'=> 1
-        ),
-        'dvvtxb' => array(
-            'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
-            'approve'=> 1
-        ),
-        'dvvtxtx' => array(
-            'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
-            'approve'=> 1
-        ),
-        'dvvtch' => array(
-            'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
         'dvgs' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
         'dvtacn' => array(
             'index' => 1,
-            'create' => 0,
-            'edit' => 0,
-            'delete' => 0,
             'approve'=> 1
         ),
         'kkdvlt' => array(
@@ -194,7 +128,6 @@ function getPermissionDefault($level) {
             'delete' => 0,
             'approve'=> 1
         ),
-
         'kkdvtacn' => array(
             'index' => 1,
             'create' => 0,
@@ -209,6 +142,7 @@ function getPermissionDefault($level) {
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
+            'approve'=> 1
         ),
         'kkdvlt' => array(
             'index' => 1,
@@ -219,11 +153,12 @@ function getPermissionDefault($level) {
         ),
     );
     $roles['DVVT'] = array(
-        'dvvtxk' => array(
+        'dvvt' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
+            'approve'=> 1
         ),
         'kkdvvtxk' => array(
             'index' => 1,
@@ -232,12 +167,6 @@ function getPermissionDefault($level) {
             'delete' => 1,
             'approve'=> 1
         ),
-        'dvvtxb' => array(
-            'index' => 1,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
-        ),
         'kkdvvtxb' => array(
             'index' => 1,
             'create' => 1,
@@ -245,24 +174,12 @@ function getPermissionDefault($level) {
             'delete' => 1,
             'approve'=> 1
         ),
-        'dvvtxtx' => array(
-            'index' => 1,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
-        ),
         'kkdvvtxtx' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
             'approve'=> 1
-        ),
-        'dvvtch' => array(
-            'index' => 1,
-            'create' => 1,
-            'edit' => 1,
-            'delete' => 1,
         ),
         'kkdvvtch' => array(
             'index' => 1,
@@ -278,6 +195,7 @@ function getPermissionDefault($level) {
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
+            'approve'=> 1
         ),
         'kkdvgs' => array(
             'index' => 1,
@@ -348,8 +266,15 @@ function can($module = null, $action = null)
 function canGeneral($module = null, $action =null)
 {
     $model = \App\GeneralConfigs::first();
-    $setting = json_decode($model->setting, true);
-
+    if(count($model)> 0)
+        $setting = json_decode($model->setting, true);
+    else {
+        $per = '{"dvlt":{"dvlt":"1"},
+                "dvvt":{"vtxk":"1","vtxb":"1","vtxtx":"1","vtch":"1"},
+                "dvgs":{"dvgs":"1"},
+                "dvtacn":{"dvtacn":"1"}}';
+        $setting = json_decode($per, true);
+    }
     if(isset($setting[$module][$action]) && $setting[$module][$action] ==1 )
         return true;
     else

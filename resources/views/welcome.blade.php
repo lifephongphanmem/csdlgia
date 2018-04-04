@@ -41,13 +41,11 @@
     <br>
     <br>
     <h1><b>PHẦN MỀM CƠ SỞ DỮ LIỆU VỀ GIÁ</b></h1>
-    <h5><b><i>(Phân hệ quản lý giá dịch vụ)</i></b></h5>
-
     <br>
 </div>
 <div class="row mbxl">
     <a href="{{ url('/login') }}" class="btn btn-primary btn-lg">Đăng nhập tài khoản</a>&nbsp;
-    <a href="{{ url('/search_register') }}"> <h5 style="color: blue"><i><u> Kiểm tra tài khoản đã đăng ký</u></i></h5></a>
+    <a href="{{ url('/searchtkdangky') }}"> <h5 style="color: blue"><i><u> Kiểm tra tài khoản đã đăng ký</u></i></h5></a>
 
 
 </div>

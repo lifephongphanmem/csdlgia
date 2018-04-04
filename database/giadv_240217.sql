@@ -166,7 +166,7 @@ INSERT INTO `cbkkgdvlt` (`id`, `mahs`, `macskd`, `masothue`, `ngaynhap`, `socv`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cskddvlt`
+-- Table structure for table `cskd`
 --
 
 CREATE TABLE `cskddvlt` (
@@ -185,7 +185,7 @@ CREATE TABLE `cskddvlt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cskddvlt`
+-- Dumping data for table `cskd`
 --
 
 INSERT INTO `cskddvlt` (`id`, `macskd`, `masothue`, `tencskd`, `loaihang`, `diachikd`, `telkd`, `toado`, `link`, `cqcq`, `created_at`, `updated_at`) VALUES
@@ -1273,7 +1273,7 @@ ALTER TABLE `cbkkgdvlt`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cskddvlt`
+-- Indexes for table `cskd`
 --
 ALTER TABLE `cskddvlt`
   ADD PRIMARY KEY (`id`);
@@ -1531,7 +1531,7 @@ ALTER TABLE `cbkkdvvtxtx`
 ALTER TABLE `cbkkgdvlt`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `cskddvlt`
+-- AUTO_INCREMENT for table `cskd`
 --
 ALTER TABLE `cskddvlt`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

@@ -15,7 +15,8 @@ class CreateRegisterTable extends Migration
     {
         Schema::create('register', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('masothue',30)->nullable();
+            $table->string('maxa',30)->nullable();
+            $table->string('mahuyen')->nullable();
             $table->string('tendn')->nullable();
             $table->string('diachi')->nullable();
             $table->string('tel')->nullable();
@@ -25,21 +26,15 @@ class CreateRegisterTable extends Migration
             $table->string('chucdanh')->nullable();
             $table->string('nguoiky')->nullable();
             $table->string('noidknopthue')->nullable();
-            $table->text('setting')->nullable();
-            $table->boolean('dvxk');
-            $table->boolean('dvxb');
-            $table->boolean('dvxtx');
-            $table->boolean('dvk');
-            $table->string('toado')->nullable();
+            $table->text('settingdvvt')->nullable();
             $table->string('ghichu')->nullable();
-            $table->string('trangthai')->nullable();
             $table->string('tailieu')->nullable();
             $table->string('giayphepkd')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
-            $table->string('pl')->nullable();
-            $table->text('lydo');
-            $table->string('cqcq')->nullable();
+            $table->string('level')->nullable();
+            $table->string('trangthai')->nullable();
+            $table->text('lydo')->nullable();
             $table->string('ma')->nullable();
             $table->timestamps();
         });

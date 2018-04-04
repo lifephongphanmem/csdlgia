@@ -19,7 +19,7 @@
 <body id="error-page" class="animated bounceInLeft">
 <div id="error-page-content"><h1>Lỗi</h1><h2>Đăng ký không thành công</h2>
     <p>Thông tin đăng ký đã có! Bạn cần kiểm tra lại!!!</p>
-    <p><a href='{{ url('users/register/pl=dich_vu_luu_tru')}}'>Bấm vào đây</a> để quay lại</p></div>
+    <p><a href='{{ url('register?&level=DVLT')}}'>Bấm vào đây</a> để quay lại</p></div>
 <script src="{{ url('js/jquery-1.9.1.js') }}"></script>
 <script src="{{ url('js/jquery-migrate-1.2.1.min.js') }}"></script>
 <script src="{{ url('js/jquery-ui.js') }}"></script>

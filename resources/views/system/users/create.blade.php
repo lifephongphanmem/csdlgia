@@ -157,6 +157,7 @@
                             $('input[name="username"]').val('');
                             $('input[name="username"]').focus();
                         }
+
                     }
 
                 });

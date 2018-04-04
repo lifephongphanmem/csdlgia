@@ -19,7 +19,7 @@
 <body id="error-page" class="animated bounceInLeft">
 <div id="error-page-content"><h1>Trả lại</h1><h2>Tài khoản bị trả lại!!! </h2>
     <p><h4>Lý do: <b>{{$lydo}}</b></h4></p>
-    <p><a href="{{url('search_register/show')}}">Bấm vào đây </a> để chỉnh sửa thông tin đăng ký <p>
+    <p><a href="{{url('searchtkdangky/show')}}">Bấm vào đây </a> để chỉnh sửa thông tin đăng ký <p>
 
     <p><a href='{{ url('/') }}'>Bấm vào đây</a> để quay lại trang chủ.</p>
 

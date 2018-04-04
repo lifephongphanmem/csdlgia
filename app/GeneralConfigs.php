@@ -10,23 +10,17 @@ class GeneralConfigs extends Model
     protected $fillable = [
         'id',
         'maqhns',
-        'tendonvilt',
-        'tendonvivt',
+        'tendonvi',
         'diachi',
-        'teldv',
+        'tel',
         'thutruong',
         'ketoan',
         'nguoilapbieu',
-        'namhethong',
-        'sodvlt',
-        'sodvvt',
-        'ttlhlt',
-        'ttlhlt',
         'setting',
-        'urlwebcb',
-        'thoihan_lt',
-        'thoihan_vt',
-        'thoihan_ct'
-
+        'thongtinhd',
+        'thoihanlt',
+        'thoihanvt',
+        'thoihangs',
+        'thoihantacn'
     ];
 }

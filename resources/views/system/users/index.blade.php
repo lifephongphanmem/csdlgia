@@ -82,24 +82,6 @@
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box">
-                <div class="portlet-title">
-                    <div class="caption">
-                    </div>
-                    <div class="actions">
-                        <!--a href="{{url('users/create')}}" class="btn btn-default btn-sm">
-                            <i class="fa fa-plus"></i> Thêm mới </a-->
-                        <button id="btnMultiLockUser" type="button" onclick="multiLock()" class="btn btn-default btn-sm" data-target="#lockuser-modal-confirm" data-toggle="modal"><i class="fa fa-lock"></i>&nbsp;
-                            Khóa</button>
-                        <button id="btnMultiUnLockUser" type="button" onclick="multiUnLock()" class="btn btn-default btn-sm" data-target="#unlockuser-modal-confirm" data-toggle="modal"><i class="fa fa-unlock"></i>&nbsp;
-                            Mở khóa</button>
-                        @if($pl != 'QL')
-                        <a href="{{url('users/print/pl='.$pl)}}" class="btn btn-default btn-sm" target="_blank">
-                            <i class="fa fa-print"></i> Print </a>
-                        @endif
-                    </div>
-
-                </div>
-
                 <div class="portlet-body">
                     @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin =='sa')
                         <div class="row">
@@ -132,9 +114,6 @@
                     <table class="table table-striped table-bordered table-hover" id="sample_3">
                         <thead>
                         <tr>
-                            <th class="table-checkbox">
-                                <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/>
-                            </th>
                             <th style="text-align: center" width="2%">STT</th>
                             <th style="text-align: center">Tên tài khoản</th>
                             <th style="text-align: center" width="10%">Username</th>
@@ -146,9 +125,6 @@
                         <tbody>
                         @foreach($model as $key=>$tt)
                         <tr class="odd gradeX">
-                            <td>
-                                <input type="checkbox" class="checkboxes" value="{{$tt->id}}" name="ck_value" id="ck_value"/>
-                            </td>
                             <td style="text-align: center">{{$key + 1}}</td>
                             <td>{{$tt->name}}</td>
                             <td class="active">{{$tt->username}}</td>

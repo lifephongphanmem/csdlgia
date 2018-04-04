@@ -23,9 +23,9 @@
             document.getElementById("iddelete").value=id;
         }
         $(function(){
-            $('#phanloai').change(function() {
+            $('#level').change(function() {
                 var current_path_url = '/xetduyet_thaydoi_ttdoanhnghiep?';
-                var pl = '&phanloai='+$('#phanloai').val();
+                var pl = '&level='+$('#level').val();
                 var url = current_path_url+pl;
                 window.location.href = url;
             });
@@ -50,18 +50,18 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <select class="form-control" name="phanloai" id="phanloai">
+                                <select class="form-control" name="level" id="level">
                                     @if(canGeneral('dvlt','dvlt') )
-                                    <option value="DVLT" {{($phanloai == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
+                                    <option value="DVLT" {{($level == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
                                     @endif
                                     @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
-                                    <option value="DVVT" {{($phanloai == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
+                                    <option value="DVVT" {{($level == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
                                     @endif
                                     @if(canGeneral('dvgs','dvgs'))
-                                    <option value="DVGS" {{($phanloai == "DVGS") ? 'selected' : ''}}>Dịch vụ giá sữa</option>
+                                    <option value="DVGS" {{($level == "DVGS") ? 'selected' : ''}}>Dịch vụ giá sữa</option>
                                     @endif
                                     @if(canGeneral('dvtacn','dvtacn'))
-                                    <option value="DVTACN" {{($phanloai == "DVTACN") ? 'selected' : ''}}>Dịch vụ thức ăn chăn nuôi</option>
+                                    <option value="DVTACN" {{($level == "DVTACN") ? 'selected' : ''}}>Dịch vụ thức ăn chăn nuôi</option>
                                     @endif
                                 </select>
                             </div>
@@ -79,6 +79,7 @@
                             <th style="text-align: center">Ngày thay đổi</th>
                             <th style="text-align: center">Tên doanh nghiệp</th>
                             <th style="text-align: center">Mã số thuế</th>
+                            <th style="text-align: center">Trạng thái</th>
                             <th style="text-align: center" width="25%">Thao tác</th>
                         </tr>
                         </thead>
@@ -86,13 +87,24 @@
                         @foreach($model as $key=>$tt)
                             <tr class="odd gradeX">
                                 <td style="text-align: center">{{$key + 1}}</td>
-                                <td style="text-align: center">{{getDateTime($tt->created_at)}}</td>
-                                <td class="active" >{{$tt->tendn}}</td>
-                                <td>{{$tt->masothue}}</td>
+                                <td style="text-align: center" width="15%">{{getDateTime($tt->created_at)}}</td>
+                                <td class="active" width="20%">{{$tt->tendn}}</td>
+                                <td width="10%" style="text-align: center"> {{$tt->maxa}}</td>
+                                @if($tt->trangthai == 'Chờ duyệt')
+                                    <td align="center"><span class="badge badge-warning">{{$tt->trangthai}}</span>
+
+                                    </td>
+                                @elseif($tt->trangthai == 'Bị trả lại')
+                                        <td align="center">
+                                            <span class="badge badge-danger">{{$tt->trangthai}}</span><br>&nbsp;
+                                            Lý do: <b>{{$tt->lydo}}</b>
+                                        </td>
+                                @endif
                                 <td>
                                     <a href="{{url('xetduyet_thaydoi_ttdoanhnghiep/'.$tt->id)}}" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
-                                    <button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
-                                        Xóa</button>
+
+                                    <!--button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
+                                        Xóa</button-->
                                 </td>
                             </tr>
                         @endforeach

@@ -13,7 +13,7 @@
 
 @section('content')
     <h3 class="page-title">
-        Thông tin đơn vị quản lý<small> thêm mới</small>
+        Thông tin đơn vị bản quyền<small> thêm mới</small>
     </h3>
     <!-- END PAGE HEADER-->
 
@@ -26,14 +26,14 @@
                 </div-->
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    {!! Form::open(['url'=>'cau_hinh_he_thong', 'id' => 'create_dmdvql', 'class'=>'horizontal-form']) !!}
+                    {!! Form::open(['url'=>'general', 'id' => 'create_general', 'class'=>'horizontal-form']) !!}
                         <meta name="csrf-token" content="{{ csrf_token() }}" />
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Tên đơn vị<span class="require">*</span></label>
-                                        <input type="text" class="form-control required" name="tendv" id="tendv" autofocus/>
+                                        <label class="control-label">Cấp bản quyền cho đơn vị<span class="require">*</span></label>
+                                        <input type="text" class="form-control required" name="tendonvi" id="tendonvi" autofocus/>
                                     </div>
                                 </div>
                                 <!--/span-->
@@ -48,43 +48,49 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Phân loại quản lý<span class="require">*</span></label>
-                                        <select class="form-control" name="plql" id="plql">
-                                            <option value="TC">Tài Chính</option>
-                                            <option value="VT">Vận Tải</option>
-                                            <option value="CT">Công Thương</option>
-                                        </select>
+                                        <label class="control-label">Địa chỉ<span class="require">*</span></label>
+                                        <input type="text" class="form-control required" name="diachi" id="diachi"/>
                                     </div>
                                 </div>
+                                <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Địa chỉ trụ sở</label>
-                                        <input type="text" class="form-control" name="diachi" id="diachi">
+                                        <label class="control-label">Số điện thoại<span class="require">*</span></label>
+                                        <input type="text" class="form-control required" name="tel" id="tel">
                                     </div>
                                 </div>
+                                <!--/span-->
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Cấp đơn vị</label>
-                                        <select class="form-control" name="level" id="level">
-                                            <option value="T">Cấp Tỉnh</option>
-                                            <option value="H">Cấp quận huyện</option>
-                                        </select>
+                                        <label class="control-label">Thủ trưởng<span class="require">*</span></label>
+                                        <input type="text" class="form-control required" name="thutruong" id="thutruong"/>
                                     </div>
                                 </div>
+                                <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Số hồ sơ đã nhận</label>
-                                        {!!Form::text('sohsnhan', '0', array('id' => 'sohsnhan','class' => 'form-control','data-mask'=>'fdecimal','style'=>'text-align: right'))!!}
+                                        <label class="control-label">Kế toán<span class="require">*</span></label>
+                                        <input type="text" class="form-control required" name="ketoan" id="ketoan">
                                     </div>
                                 </div>
+                                <!--/span-->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Người lập biểu<span class="require">*</span></label>
+                                        <input type="text" class="form-control required" name="nguoilapbieu" id="nguoilapbieu"/>
+                                    </div>
+                                </div>
+                                <!--/span-->
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label">Thông tin liên hệ </label>
-                                        <textarea id="ttlh" class="form-control" name="ttlh" cols="10" rows="5"
+                                        <label class="control-label">Thông tin hợp đồng</label>
+                                        <textarea id="thongtinhd" class="form-control" name="thongtinhd" cols="10" rows="5"
                                                   placeholder="Thông tin, số điện thoại liên lạc với các bộ phận"></textarea>
                                     </div>
                                 </div>
@@ -92,40 +98,42 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Email quản lý<span class="require">*</span></label>
-                                        <input type="text" class="form-control required" name="email" id="email">
+                                        <label class="control-label">Thời hạn trả hồ sơ lưu trú<span class="require">*</span></label>
+                                        {!!Form::text('thoihanlt', '0', array('id' => 'thoihanlt','class' => 'form-control','data-mask'=>'fdecimal','style'=>'text-align: right'))!!}
                                     </div>
                                 </div>
+                                <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Email quản trị<span class="require">*</span></label>
-                                        <input type="text" class="form-control required" name="emailqt" id="emailqt">
+                                        <label class="control-label">Thời hạn trả hồ sơ vận tải<span class="require">*</span></label>
+                                        {!!Form::text('thoihanvt', '0', array('id' => 'thoihanvt','class' => 'form-control','data-mask'=>'fdecimal','style'=>'text-align: right'))!!}
                                     </div>
                                 </div>
-
+                                <!--/span-->
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Username<span class="require">*</span></label>
-                                        <input type="text" class="form-control required" name="taikhoan" id="taikhoan">
+                                        <label class="control-label">Thời hạn trả hồ sơ giá sữa<span class="require">*</span></label>
+                                        {!!Form::text('thoihangs', '0', array('id' => 'thoihangs','class' => 'form-control','data-mask'=>'fdecimal','style'=>'text-align: right'))!!}
                                     </div>
                                 </div>
+                                <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Mật khẩu<span class="require">*</span></label>
-                                        {!!Form::text('password', null, array('id' => 'password','class' => 'form-control required'))!!}
+                                        <label class="control-label">Thời hạn trả hồ sơ thức ăn chăn nuôi<span class="require">*</span></label>
+                                        {!!Form::text('thoihantacn', '0', array('id' => 'thoihantacn','class' => 'form-control','data-mask'=>'fdecimal','style'=>'text-align: right'))!!}
                                     </div>
                                 </div>
+                                <!--/span-->
                             </div>
-
                         </div>
                     <!-- END FORM-->
                 </div>
             </div>
 
             <div style="text-align: center">
-                <a href="{{url('danh_muc_don_vi_quan_ly')}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
+                <a href="{{url('general')}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
                 <button type="reset" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;Nhập lại</button>
                 <button type="submit" class="btn green" onclick="validateForm()"><i class="fa fa-check"></i> Hoàn thành</button>
             </div>
@@ -136,7 +144,7 @@
     <script type="text/javascript">
         function validateForm(){
 
-            var validator = $("#create_dmdvql").validate({
+            var validator = $("#create_general").validate({
                 rules: {
                     ten :"required"
                 },
@@ -145,48 +153,6 @@
                 }
             });
         }
-    </script>
-    <script>
-        $('input[name="taikhoan"]').change(function(){
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                type: 'GET',
-                url: '/checktaikhoan',
-                data: {
-                    _token: CSRF_TOKEN,
-                    user:$(this).val()
-                },
-                success: function (respond) {
-                    if(respond != 'ok'){
-                        toastr.error("Bạn cần nhập lại username", "Username nhập vào đã tồn tại!!!");
-                        $('input[name="taikhoan"]').val('');
-                        $('input[name="taikhoan"]').focus();
-                    }else
-                        toastr.success("Username sử dụng được!", "Thành công!");
-                }
-
-            });
-        });
-        $('input[name="maqhns"]').change(function(){
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                type: 'GET',
-                url: '/checkmaqhns',
-                data: {
-                    _token: CSRF_TOKEN,
-                    maqhns:$(this).val()
-                },
-                success: function (respond) {
-                    if(respond != 'ok'){
-                        toastr.error("Bạn cần nhập lại mã quan hệ ngân sách", "Mã quan hệ ngân sách nhập vào đã tồn tại!!!");
-                        $('input[name="maqhns"]').val('');
-                        $('input[name="maqhns"]').focus();
-                    }else
-                        toastr.success("Mã quan hệ ngân sách sử dụng được!", "Thành công!");
-                }
-
-            });
-        });
     </script>
     @include('includes.script.create-header-scripts')
 @stop

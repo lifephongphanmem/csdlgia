@@ -127,18 +127,18 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="form-group">
 						<div class="col-md-12" align="center">
 							@if(canGeneral('dvlt','dvlt'))
-							<a class="btn btn-primary" data-toggle="modal" href="{{url('register/dich_vu_luu_tru')}}">
+							<a class="btn btn-primary" data-toggle="modal" href="{{url('dangkytaikhoan?&level=DVLT')}}">
 								Dịch vụ lưu trú </a>
 							@endif
 							@if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
-							<a class="btn btn-success" data-toggle="modal" href="{{url('register/dich_vu_van_tai')}}">
+							<a class="btn btn-success" data-toggle="modal" href="{{url('dangkytaikhoan?&level=DVVT')}}">
 								Dịch vụ vận tải </a>
 							@endif
 							@if(canGeneral('dvgs','dvgs'))
-							<a class="btn btn-warning" data-toggle="modal" href="{{url('dangkydichvugiasua')}}">Dịch vụ giá sữa</a>
+							<a class="btn btn-warning" data-toggle="modal" href="{{url('dangkytaikhoan?&level=DVGS')}}">Dịch vụ giá sữa</a>
 							@endif
 							@if(canGeneral('dvtacn','dvtacn'))
-								<a class="btn btn-info" data-toggle="modal" href="{{url('dangkydichvuthucanchannuoi')}}">Thức ăn chăn nuôi</a>
+								<a class="btn btn-info" data-toggle="modal" href="{{url('dangkytaikhoan?&level=DVTACN')}}">Thức ăn chăn nuôi</a>
 							@endif
 						</div>
 					</div>

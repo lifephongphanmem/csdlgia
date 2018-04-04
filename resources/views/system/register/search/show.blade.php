@@ -62,7 +62,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-		{!! Form::open(['url'=>'/search_register/show','id' => 'form-registershow', 'class'=>'form-horizontal form-validate']) !!}
+		{!! Form::open(['url'=>'/searchtkdangky/show','id' => 'form-registershow', 'class'=>'form-horizontal form-validate']) !!}
 	<h3>Mã đang ký tài khoản?</h3>
 	<p>
 		Bạn cần nhập mã đăng ký tài khoản để chỉnh sửa thông tin tài khoản!!

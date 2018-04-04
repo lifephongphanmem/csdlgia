@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\DmDvQl;
 use App\GeneralConfigs;
 use App\Users;
 use Illuminate\Http\Request;
@@ -15,20 +14,11 @@ class GeneralConfigsController extends Controller
     public function index()
     {
         if (Session::has('admin')) {
-            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'savt' || session('admin')->sadmin == 'sa') {
-                if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
-                    $model = DmDvQl::all();
-                    return view('system.general.indexql')
-                        ->with('model', $model)
-                        ->with('pageTitle', 'Cấu hình hệ thống');
-                } else {
-                    $model = DmDvQl::where('maqhns', session('admin')->cqcq)
-                        ->first();
-                    return view('system.general.index')
-                        ->with('model', $model)
-                        ->with('pageTitle', 'Cấu hình hệ thống');
-
-                }
+            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'){
+                $model = GeneralConfigs::first();
+                return view('system.general.index')
+                    ->with('model',$model)
+                    ->with('pageTitle', 'Cấu hình hệ thống');
             }else{
                 return view('errors.perm');
             }
@@ -41,7 +31,7 @@ class GeneralConfigsController extends Controller
         if (Session::has('admin')) {
             if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
                 return view('system.general.create')
-                    ->with('pageTitle', 'Thêm mới thông tin cấu hình hệ thống');
+                    ->with('pageTitle', 'Thêm mới thông tin đơn vị được cấp bản quyền');
             }else{
                 return view('errors.perm');
             }
@@ -51,32 +41,14 @@ class GeneralConfigsController extends Controller
 
     public function store(Request $request){
         if (Session::has('admin')) {
-            $input = $request->all();
-
-            $model = new DmDvQl();
-            $model->tendv = $input['tendv'];
-            $model->maqhns = $input['maqhns'];
-            $model->diachi = $input['diachi'];
-            $model->plql = $input['plql'];
-            $model->level = $input['level'];
-            $model->username = $input['taikhoan'];
-            $model->password = md5($input['password']);
-            $model->sohsnhan = $input['sohsnhan'];
-            $model->ttlh = $input['ttlh'];
-            $model->email = $input['email'];
-            $model->emailqt = $input['emailqt'];
-            if($model->save()){
-                $modeluser = new Users();
-                $modeluser->name = $input['tendv'];
-                $modeluser->username = $input['taikhoan'];
-                $modeluser->password = md5($input['password']);
-                $modeluser->status = 'Kích hoạt';
-                $modeluser->level = $input['level'];
-                $modeluser->cqcq = $input['maqhns'];
-                $modeluser->save();
+            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
+                $inputs = $request->all();
+                $model = new GeneralConfigs();
+                $model->create($inputs);
+                return redirect('general');
+            }else{
+                return view('errors.noperm');
             }
-
-            return redirect('cau_hinh_he_thong');
         }else
             return view('errors.notlogin');
     }
@@ -84,17 +56,13 @@ class GeneralConfigsController extends Controller
     public function edit($id)
     {
         if (Session::has('admin')) {
-            $model = DmDvQl::findOrFail($id);
-            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'savt' || session('admin')->sadmin == 'sact') {
-                if(session('admin')->sadmin == 'ssa' || session('admin')->cqcq == $model->maqhns) {
-                    return view('system.general.edit')
-                        ->with('model', $model)
-                        ->with('pageTitle', 'Chỉnh sửa cấu hình hệ thống');
-                }else{
-                    return view('errors.noperm');
-                }
+            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
+                $model = GeneralConfigs::first();
+                return view('system.general.edit')
+                    ->with('model', $model)
+                    ->with('pageTitle', 'Chỉnh sửa cấu hình hệ thống');
             }else{
-                return view('errors.perm');
+                return view('errors.noperm');
             }
 
         }else
@@ -103,26 +71,52 @@ class GeneralConfigsController extends Controller
     public function update(Request $request,$id)
     {
         if (Session::has('admin')) {
-            $input = $request->all();
-            $model = DmDvQl::findOrFail($id);
-            if(session('admin')->sadmin == 'ssa' || session('admin')->cqcq == $model->maqhns) {
-                if (session('admin')->sadmin == 'ssa') {
-                    $model->maqhns = $input['maqhns'];
-                    $model->tendv = $input['tendv'];
-                    $model->plql = $input['plql'];
-                    $model->level = $input['level'];
-                }
-                $model->diachi = $input['diachi'];
-                $model->sohsnhan = $input['sohsnhan'];
-                $model->ttlh = $input['ttlh'];
-                $model->email = $input['email'];
-                $model->emailqt = $input['emailqt'];
-                $model->save();
+            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
+                $inputs = $request->all();
+                $model = GeneralConfigs::findOrFail($id);
+                $model->update($inputs);
+                return redirect('general');
             }else{
                 return view('errors.noperm');
             }
 
-            return redirect('cau_hinh_he_thong');
+        }else
+            return view('errors.notlogin');
+    }
+
+    public function setting()
+    {
+        if (Session::has('admin')) {
+            if(session('admin')->sadmin == 'ssa')
+            {
+                $model = GeneralConfigs::first();
+                $setting = $model->setting;
+
+                return view('system.general.setting')
+                    ->with('model',$model)
+                    ->with('setting',json_decode($setting))
+                    ->with('pageTitle','Cấu hình chức năng chương trình');
+            }else{
+                return view('errors.noperm');
+            }
+
+        }else
+            return view('errors.notlogin');
+    }
+
+    public function updatesetting(Request $request){
+        if (Session::has('admin')) {
+            if(session('admin')->sadmin == 'ssa'){
+                $update = $request->all();
+                $model = GeneralConfigs::first();
+                $update['roles'] = isset($update['roles']) ? $update['roles'] : null;
+                $model->setting = json_encode($update['roles']);
+                $model->save();
+
+                return redirect('general');
+            }else{
+                return view('errors.noperm');
+            }
 
         }else
             return view('errors.notlogin');
