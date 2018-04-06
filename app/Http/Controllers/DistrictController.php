@@ -15,6 +15,10 @@ class DistrictController extends Controller
         if (Session::has('admin')) {
             if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
                 $model = District::all();
+                $a_phanloai = NhomQuanLy();
+                foreach($model as $ct) {
+                    $ct->phanloaiql = $a_phanloai[$ct->phanloaiql];
+                }
                 return view('system.district.index')
                     ->with('model',$model)
                     ->with('pageTitle','Danh mục đơn vị quận/huyện');

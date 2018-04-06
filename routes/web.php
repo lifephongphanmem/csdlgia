@@ -76,6 +76,7 @@ Route::patch('thongtindoanhnghiep/df/{id}','CompanyController@ttdncapnhat');
 Route::get('thongtindoanhnghiep/{id}/chuyen','CompanyController@ttdnchuyen');
 
 include('manage/dvlt.php');
+include('manage/hhdv.php');
 // </editor-fold>//End Manage
 
 

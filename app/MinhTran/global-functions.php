@@ -68,6 +68,103 @@ function getPermissionDefault($level) {
             'delete' => 0,
             'approve'=> 1
         ),
+        'hhtt' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'hhdvtn' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'hhxnk' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'kkgtw' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'kkgdp' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'tsnnnhadat' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'tsnnotokhac' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'gttruocba' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'gthuetn' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'tdgia' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'congbogia' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'ttqd' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0
+        ),
+        'loaidat' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'vitri' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
     );
     $roles['H'] = array(
         'dvlt' => array(
@@ -134,6 +231,103 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1
+        ),
+        'hhtt' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'hhdvtn' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'hhxnk' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'kkgtw' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'kkgdp' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'tsnnnhadat' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'tsnnotokhac' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'gttruocba' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'gthuetn' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1
+        ),
+        'tdgia' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'congbogia' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'ttqd' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0
+        ),
+        'loaidat' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'vitri' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
         ),
     );
     $roles['DVLT'] = array(
@@ -221,6 +415,106 @@ function getPermissionDefault($level) {
             'approve'=> 1
         ),
     );
+    //Phần hàng hóa, dịch vụ
+    $roles['HHDV'] = array(
+        'hhtt' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'hhdvtn' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'hhxnk' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'kkgtw' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'kkgdp' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'tsnnnhadat' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'tsnnotokhac' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'gttruocba' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'gthuetn' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1
+        ),
+        'tdgia' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1,
+        ),
+        'congbogia' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1,
+            'approve'=> 1,
+        ),
+        'ttqd' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0
+        ),
+        'loaidat' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+        'vitri' => array(
+            'index' => 1,
+            'create' => 0,
+            'edit' => 0,
+            'delete' => 0,
+            'approve'=> 1,
+        ),
+    );
     return json_encode($roles[$level]);
 }
 
@@ -232,6 +526,7 @@ function getDayVn($date) {
         $newday='';
     return $newday;
 }
+
 function getDateTime($date) {
     if($date != null)
         $newday = date('d/m/Y H:i:s',strtotime($date));
@@ -266,16 +561,27 @@ function can($module = null, $action = null)
 function canGeneral($module = null, $action =null)
 {
     $model = \App\GeneralConfigs::first();
-    if(count($model)> 0)
+    if (count($model) > 0)
         $setting = json_decode($model->setting, true);
     else {
-        $per = '{"dvlt":{"dvlt":"1"},
-                "dvvt":{"vtxk":"1","vtxb":"1","vtxtx":"1","vtch":"1"},
-                "dvgs":{"dvgs":"1"},
-                "dvtacn":{"dvtacn":"1"}}';
+
+        $per = '{
+         "dvlt":{"dvlt":"1"},
+         "dvvt":{"vtxk":"1","vtxb":"1","vtxtx":"1","vtch":"1"},
+         "hhdv":{"hhtt" :"1","hhdvtn" :"1",
+                "hhxnk" :"1","kkgtw":"1",
+                "kkgdp" :"1","tsnnnhadat" :"1",
+                "tsnnotokhac" :"1","gttruocba" :"1",
+                "gthuetn" :"1","tdgia":"1",
+                "congbogia" :"1","ttqd" :"1",
+                "loaidat" :"1","vitri" :"1"},
+         "dvgs":{"dvgs":"1"},
+         "dvtacn":{"dvtacn":"1"}
+                }';
         $setting = json_decode($per, true);
     }
-    if(isset($setting[$module][$action]) && $setting[$module][$action] ==1 )
+
+    if (isset($setting[$module][$action]) && $setting[$module][$action] == 1)
         return true;
     else
         return false;

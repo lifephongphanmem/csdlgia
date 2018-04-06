@@ -15,6 +15,7 @@ define('LARAVEL_START', microtime(true));
 */
 require __DIR__.'/../app/MinhTran/array_function.php';
 require __DIR__.'/../app/MinhTran/global-functions.php';
+require __DIR__.'/../app/MinhTran/defaut_array_value.php';
 require __DIR__.'/../vendor/autoload.php';
 
 /*

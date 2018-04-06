@@ -45,6 +45,7 @@
                 <div class="portlet-body">
                     <div class="portlet-body">
                         <div class="row">
+                            @include('system.users.includeperms.perm_hhdv')
                             @include('system.users.includeperms.permdvlt')
                             @include('system.users.includeperms.permdvvt')
                             @include('system.users.includeperms.permdvgs')

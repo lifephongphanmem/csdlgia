@@ -50,17 +50,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Phân loại quản lý</label>
-                                        <select class="form-control" name="phanloaiql" id="phanloaiql">
-                                            <option value="TC" {{($model->phanloaiql == 'TC' ? 'selected' : '')}}>Tài Chính</option>
-                                            <option value="VT" {{($model->phanloaiql == 'VT' ? 'selected' : '')}}>Vận Tải</option>
-                                            <option value="CT" {{($model->phanloaiql == 'CT' ? 'selected' : '')}}>Công Thương</option>
-                                        </select>
+                                        {!! Form::select('phanloaiql', NhomQuanLy(),null, array('id'=>'phanloaiql','class'=>'form-control'))!!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Địa chỉ<span class="require">*</span></label>
-                                        {!!Form::text('diachi', null, array('id' => 'diachi','class' => 'form-control required'))!!}
+                                        <label class="control-label">Địa chỉ trụ sở</label>
+                                        {!!Form::text('diachi', null, array('id' => 'diachi','class' => 'form-control'))!!}
                                     </div>
                                 </div>
 

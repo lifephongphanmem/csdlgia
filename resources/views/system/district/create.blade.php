@@ -49,11 +49,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Phân loại quản lý<span class="require">*</span></label>
-                                        <select class="form-control" name="phanloaiql" id="phanloaiql">
-                                            <option value="TC">Tài Chính</option>
-                                            <option value="VT">Vận Tải</option>
-                                            <option value="CT">Công Thương</option>
-                                        </select>
+                                        {!! Form::select('phanloaiql', NhomQuanLy(),null, array('id'=>'phanloaiql','class'=>'form-control'))!!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">

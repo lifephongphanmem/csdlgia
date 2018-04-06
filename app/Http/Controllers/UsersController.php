@@ -354,7 +354,7 @@ class UsersController extends Controller
 
                 $model->permission = json_encode($update['roles']);
                 $model->save();
-                return redirect('users?&phanloai='. $model->level);
+                return redirect('users?&phanloai='.$model->level);
 
             } else
                 dd('Tài khoản không tồn tại');
