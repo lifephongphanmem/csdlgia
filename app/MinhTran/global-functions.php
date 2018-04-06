@@ -426,8 +426,12 @@ function getDateToDb($value){
 }
 
 function getMoneyToDb ($value){
-    $kq = str_replace(',','',$value);
-    $kq = str_replace('.','',$kq);
+    if($value == ''){
+        $kq = 0;
+    }else {
+        $kq = str_replace(',', '', $value);
+        $kq = str_replace('.', '', $kq);
+    }
     return $kq;
 }
 

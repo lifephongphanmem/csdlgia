@@ -23,9 +23,17 @@
 
             $('#namhs').change(function() {
                 var nam = $('#namhs').val();
-                var masothue = $('#masothue').val();
-                var url = '/ke_khai_gia_sua?&masothue='+masothue+'&nam='+nam;
+                var macskd = $('#macskd').val();
+                var trangthai = $('#trangthai').val();
+                var url = '/kekhaigiadvlt?&macskd='+macskd+'&nam='+nam+'&trangthai='+trangthai;
 
+                window.location.href = url;
+            });
+            $('#trangthai').change(function() {
+                var nam = $('#namhs').val();
+                var macskd = $('#macskd').val();
+                var trangthai = $('#trangthai').val();
+                var url = '/kekhaigiadvlt?&macskd='+macskd+'&nam='+nam+'&trangthai='+trangthai;
                 window.location.href = url;
             });
 
@@ -108,9 +116,9 @@
 @section('content')
 
     <h3 class="page-title">
-        Thông tin kê khai giá<small>&nbsp;mặt hàng sữa</small> - {{$modeldn->tendn}}<small>&nbsp;Mã số thuế: {{$modeldn->masothue}}</small>
+        Thông tin kê khai giá<small>&nbsp;dịch vụ lưu trú</small>
+        <p><h5 style="color: blue">{{$modelcskd->tencskd}} - {{$modeldn->tendn}}&nbsp;- Mã số thuế: {{$modeldn->maxa}}</h5></p>
     </h3>
-    <input type="hidden" name="masothue" id="masothue" value="{{$modeldn->masothue}}">
     <!-- END PAGE HEADER-->
     <div class="row">
         <div class="col-md-12">
@@ -118,14 +126,16 @@
             <div class="portlet box">
                 <div class="portlet-title">
                     <div class="actions">
-                        @if(can('kkdvgs','create'))
+                        @if(can('kkdvlt','create'))
                             <!--a href="{{url('ke_khai_dich_vu_luu_tru/co_so_kinh_doanh=/copy')}}" class="btn btn-default btn-sm">
                                 <i class="fa fa-plus"></i> Kê khai giá dịch vụ </a-->
-                                <a href="{{url('ke_khai_gia_sua/masothue='.$modeldn->masothue.'/create')}}" class="btn btn-default btn-sm">
+                                <a href="{{url('kekhaigiadvlt/create?&macskd='.$macskd.'&masothue='.$modeldn->maxa)}}" class="btn btn-default btn-sm">
                                     <i class="fa fa-plus"></i> Kê khai mới </a>
                         @endif
+                            <a href="{{url('thongtincskdkkdvlt')}}" class="btn btn-default btn-sm">
+                                <i class="fa fa-reply"></i> Quay lại </a>
                     </div>
-
+                <input type="hidden" name="macskd" id="macskd" value="{{$macskd}}">
                 </div>
                 <div class="portlet-body">
                     <div class="portlet-body">
@@ -138,6 +148,16 @@
                                         @for($i = $nam_start; $i <= $nam_stop; $i++)
                                             <option value="{{$i}}" {{$i == $nam ? 'selected' : ''}}>Năm {{$i}}</option>
                                         @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select name="trangthai" id="trangthai" class="form-control">
+                                        <option value="chochuyen" {{$trangthai == 'chochuyen' ? 'selected' : ''}}>Hồ sơ chờ chuyển</option>
+                                        <option value="choduyet" {{$trangthai == 'choduyet' ? 'selected' : ''}}>Hồ sơ chờ duyệt</option>
+                                        <option value="bitralai" {{$trangthai == 'bitralai' ? 'selected' : ''}}>Hồ sơ bị trả lại</option>
+                                        <option value="daduyet" {{$trangthai == 'daduyet' ? 'selected' : ''}}>Hồ sơ đã duyệt</option>
                                     </select>
                                 </div>
                             </div>

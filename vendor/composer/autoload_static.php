@@ -334,8 +334,12 @@ class ComposerStaticInitd7de3fb6aaadd474bf447891cb3bef8d
 
     public static $classMap = array (
         'CreateCompanyTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_02_094412_create_company_table.php',
+        'CreateCskddvltTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_05_094257_create_cskddvlt_table.php',
         'CreateDistrictTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_29_163043_create_district_table.php',
         'CreateGeneralConfigsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_14_022915_create_general-configs_table.php',
+        'CreateKkgdvltTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_05_144036_create_kkgdvlt_table.php',
+        'CreateKkgdvltctTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_06_102833_create_kkgdvltct_table.php',
+        'CreateKkgdvltctdfTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_05_232104_create_kkgdvltctdf_table.php',
         'CreateRegisterTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_03_092746_create_register_table.php',
         'CreateTownTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_02_084739_create_town_table.php',
         'CreateTtdntdTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_03_155857_create_ttdntd_table.php',

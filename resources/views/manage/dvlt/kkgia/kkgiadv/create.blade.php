@@ -127,11 +127,12 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvgs/kkgiahh',
+                url: '/kkgdvlt/kkgiaphong',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
                     id: id,
+                    maxa: $('input[name="maxa"]').val()
                 },
                 dataType: 'JSON',
                 success: function (data) {
@@ -140,26 +141,28 @@
                         InputMask();
                     }
                     else
-                        toastr.error("Không thể chỉnh sửa thông tin giá hàng hoá!", "Lỗi!");
+                        toastr.error("Không thể chỉnh sửa thông tin giá phòng nghỉ!", "Lỗi!");
                 }
             })
         }
         function upkkgia(){
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/kkgdvgs/upkkgiahh',
+                url: '/kkgdvlt/upkkgiaphong',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
                     id: $('input[name="idkkgia"]').val(),
                     mucgialk: $('input[name="mucgialk"]').val(),
+                    mucgialkct: $('input[name="mucgialkct"]').val(),
                     mucgiakk: $('input[name="mucgiakk"]').val(),
-                    masothue: $('input[name="masothue"]').val()
+                    mucgiakkct: $('input[name="mucgiakkct"]').val(),
+                    maxa: $('input[name="maxa"]').val()
                 },
                 dataType: 'JSON',
                 success: function (data) {
                     if (data.status == 'success') {
-                        toastr.success("Cập nhật giá hàng hoá thành công", "Thành công!");
+                        toastr.success("Cập nhật giá phòng nghỉ thành công", "Thành công!");
                         $('#dsts').replaceWith(data.message);
                         jQuery(document).ready(function() {
                             TableManaged.init();
@@ -201,23 +204,23 @@
             $('input[name="ngayhieuluc"]').val('');
         }
         function clearForm(){
-            $('#tenhhcreate').val('');
+            $('#loaipcreate').val('');
             $('#qcclcreate').val('');
-            $('#dvtcreate').val('');
+            $('#sohieucreate').val('');
             $('#ghichucreate').val('');
         }
         function createttp(){
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/kkgdvgs/storetthh',
+                url: '/kkgdvlt/storettp',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
-                    tenhh: $('input[name="tenhhcreate"]').val(),
-                    qccl: $('input[name="qcclcreate"]').val(),
-                    dvt: $('input[name="dvtcreate"]').val(),
+                    loaip: $('input[name="loaipcreate"]').val(),
+                    qccl: $('textarea[name="qcclcreate"]').val(),
+                    sohieu: $('textarea[name="sohieucreate"]').val(),
                     ghichu: $('textarea[name="ghichucreate"]').val(),
-                    masothue: $('input[name="masothue"]').val()
+                    maxa: $('input[name="maxa"]').val()
                 },
                 dataType: 'JSON',
                 success: function (data) {
@@ -237,7 +240,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvgs/editthh',
+                url: '/kkgdvlt/editttp',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -246,10 +249,10 @@
                 dataType: 'JSON',
                 success: function (data) {
                     if (data.status == 'success') {
-                        $('#ttedit').replaceWith(data.message);
+                        $('#ttpedit').replaceWith(data.message);
                     }
                     else
-                        toastr.error("Không thể chỉnh sửa thông tin mặt hàng!", "Lỗi!");
+                        toastr.error("Không thể chỉnh sửa thông tin phòng nghỉ!", "Lỗi!");
                 }
             })
         }
@@ -257,21 +260,21 @@
         function updatets() {
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/kkgdvgs/updatehh',
+                url: '/kkgdvlt/updatettp',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
                     id: $('input[name="idedit"]').val(),
-                    tenhh: $('input[name="tenhhedit"]').val(),
-                    qccl: $('input[name="qccledit"]').val(),
-                    dvt: $('input[name="dvtedit"]').val(),
+                    loaip: $('input[name="loaipedit"]').val(),
+                    qccl: $('textarea[name="qccledit"]').val(),
+                    sohieu: $('textarea[name="sohieuedit"]').val(),
                     ghichu: $('textarea[name="ghichuedit"]').val(),
-                    masothue: $('input[name="masothue"]').val()
+                    maxa: $('input[name="maxa"]').val()
                 },
                 dataType: 'JSON',
                 success: function (data) {
                     if (data.status == 'success') {
-                        toastr.success("Chỉnh sửa thông tin hàng hoá thành công", "Thành công!");
+                        toastr.success("Chỉnh sửa thông tin phòng nghỉ thành công", "Thành công!");
                         $('#dsts').replaceWith(data.message);
                         jQuery(document).ready(function() {
                             TableManaged.init();
@@ -289,17 +292,17 @@
         function deleteRow() {
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
-                url: '/kkgdvgs/deletehh',
+                url: '/kkgdvlt/deletettp',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
                     id: $('input[name="iddelete"]').val(),
-                    masothue: $('input[name="masothue"]').val()
+                    maxa: $('input[name="maxa"]').val()
                 },
                 dataType: 'JSON',
                 success: function (data) {
                     //if(data.status == 'success') {
-                    toastr.success("Bạn đã xóa thông tin hàng hoá thành công!", "Thành công!");
+                    toastr.success("Bạn đã xóa thông tin phòng nghỉ thành công!", "Thành công!");
                     $('#dsts').replaceWith(data.message);
                     jQuery(document).ready(function() {
                         TableManaged.init();
@@ -420,38 +423,34 @@
 @stop
 
 @section('content')
+
     <h3 class="page-title">
-        Thông tin kê khai hồ sơ giá mặt hàng sữa<small>&nbsp;{{$modeldn->tendn}}</small>
+        Thông tin kê khai hồ sơ giá <small>&nbsp;dịch vụ lưu trú</small>
+        <p><h5 style="color: blue">{{$modelcskd->tencskd}} - {{$modeldn->tendn}}&nbsp;- Mã số thuế: {{$modeldn->maxa}}</h5></p>
     </h3>
+
     <!-- END PAGE HEADER-->
     <div class="row">
-        {!! Form::open(['url'=>'ke_khai_gia_sua', 'id' => 'create_kkdvgs', 'class'=>'horizontal-form']) !!}
+        {!! Form::open(['url'=>'kekhaigiadvlt', 'id' => 'create_kkdvlt', 'class'=>'horizontal-form']) !!}
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box blue">
                 <div class="portlet-body">
                     <h4 class="form-section" style="color: #0000ff">Thông tin hồ sơ</h4>
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group"><label for="selGender" class="control-label">Thực hiện quy định, căn cứ theo hợp đồng</label>
-                                <div>
-                                    <textarea id="apdungtheott" class="form-control required" name="apdungtheott" cols="30" rows="5"
-                                            >{{isset($modelcb) ? $modelcb->apdungtheott : '' }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Ngày kê khai<span class="require">*</span></label>
-                                {!!Form::text('ngaynhap',$ngaynhap, array('id' => 'ngaynhap','data-inputmask'=>"'alias': 'date'",'class' => 'form-control required','onchange'=>"checkngaykk()"))!!}
+                                <!--input type="date" name="ngaynhap" id="ngaynhap" class="form-control required" autofocus-->
+                                <label class="form-control required" >{{$ngaynhap}}</label>
+                                {!!Form::hidden('ngaynhap',$ngaynhap, array('id' => 'ngaynhap','data-inputmask'=>"'alias': 'date'",'class' => 'form-control required','onchange'=>"checkngaykk()"))!!}
                             </div>
                         </div>
                         <!--/span-->
                         <div class="col-md-6">
-                            <div class="form-group has-error">
+                            <div class="form-group">
                                 <label class="control-label">Ngày thực hiện mức giá kê khai<span class="require">*</span></label>
+                                <!--input type="date" name="ngayhieuluc" id="ngayhieuluc" class="form-control required"-->
                                 {!!Form::text('ngayhieuluc',$ngayhieuluc, array('id' => 'ngayhieuluc','data-inputmask'=>"'alias': 'date'",'class' => 'form-control required','onchange'=>"checkngay()"))!!}
                             </div>
                         </div>
@@ -468,25 +467,53 @@
                             </div>
                         </div>
                         <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Đơn vị tính<span class="require">*</span></label>
+                                <select class="form-control" name="dvt" id="dvt">
+                                    <option value="no" {{isset($modelcb) && $modelcb->dvt == 'no' ? 'selected' : ''}}>--Chọn đơn vị tính--</option>
+                                    <option value="Đồng/giường/ngày đêm" {{isset($modelcb) && $modelcb->dvt == 'Đồng/giường/ngày đêm' ? 'selected' : ''}}>Đồng/giường/ngày đêm</option>
+                                    <option value="Đồng/phòng/ngày đêm" {{isset($modelcb) && $modelcb->dvt == 'Đồng/phòng/ngày đêm' ? 'selected' : ''}}>Đồng/phòng/ngày đêm</option>
+                                    <option value="Đồng/phòng/tuần" {{isset($modelcb) && $modelcb->dvt == 'Đồng/phòng/tuần' ? 'selected' : ''}}>Đồng/phòng/tuần</option>
+                                    <option value="Đồng/phòng/tháng" {{isset($modelcb) && $modelcb->dvt == 'Đồng/phòng/tháng' ? 'selected' : ''}}>Đồng/phòng/tháng</option>
+                                    <option value="Đồng/căn hộ/ngày đêm" {{isset($modelcb) && $modelcb->dvt == 'Đồng/căn hộ/ngày đêm' ? 'selected' : ''}}>Đồng/căn hộ/ngày đêm</option>
+                                    <option value="Đồng/căn hộ/tuần" {{isset($modelcb) && $modelcb->dvt == 'Đồng/căn hộ/tuần' ? 'selected' : ''}}>Đồng/căn hộ/tuần</option>
+                                    <option value="Đồng/căn hộ/tháng" {{isset($modelcb) && $modelcb->dvt == 'Đồng/căn hộ/tháng' ? 'selected' : ''}}>Đồng/căn hộ/tháng</option>
+
+                                </select>
+                            </div>
+                        </div>
                         <!--/span-->
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Số công văn liền kề</label>
-                                <input type="text" name="socvlk" id="socvlk" class="form-control" value="{{isset($modelcb) ? $modelcb->socv : '' }}">
-
+                                {!!Form::text('socvlk',(isset($modelcb) ? $modelcb->socv : ''), array('id' => 'socvlk','class' => 'form-control'))!!}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Ngày nhập số công văn liền kề<span class="require">*</span></label>
+                                <!--input type="date" name="ngaycvlk" id="ngaycvlk" class="form-control" value="{{isset($modelcb) ? $modelcb->ngaynhap : '' }}"-->
                                 {!!Form::text('ngaycvlk',(isset($modelcb) ? date('d/m/Y',  strtotime($modelcb->ngaynhap)) : ''), array('id' => 'ngaycvlk','data-inputmask'=>"'alias': 'date'",'class' => 'form-control'))!!}
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="masothue" id="masothue" value="{{$modeldn->masothue}}">
-                    <input type="hidden" name="cqcq" id="cqcq" value="{{$modeldn->cqcq}}">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group"><label for="selGender" class="control-label">Thông tin kê khai</label>
+                                <div>
+                                        <textarea id="ghichu" class="form-control" name="ghichu" cols="30" rows="5"
+                                                  placeholder="-Phụ thu, Thuế VAT">{{isset($modelcb) ? $modelcb->ghichu : '- Mức giá nêu trên đã bao gồm thuế giá GTGT' }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <input type="hidden" name="macskd" id="macskd" value="{{$macskd}}">
+                    <input type="hidden" name="maxa" id="maxa" value="{{$maxa}}">
+                    <input type="hidden" name="mahuyen" id="mahuyen" value="{{$modeldn->mahuyen}}">
                     {!! Form::close() !!}
                     <!--/row-->
                     <h4 class="form-section" style="color: #0000ff">Thông tin chi tiết hồ sơ</h4>
@@ -494,55 +521,42 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <button type="button" data-target="#modal-create" data-toggle="modal" class="btn btn-success btn-xs" onclick="clearForm()"><i class="fa fa-plus"></i>&nbsp;Bổ sung loại mặt hàng</button>
+                                <button type="button" data-target="#modal-create" data-toggle="modal" class="btn btn-success btn-xs" onclick="clearForm()"><i class="fa fa-plus"></i>&nbsp;Kê khai bổ sung phòng</button>
                                 &nbsp;
                             </div>
                         </div>
                     </div>
-
                     <div class="row" id="dsts">
                         <div class="col-md-12">
                             <table class="table table-striped table-bordered table-hover" id="sample_3">
                                 <thead>
                                 <tr>
                                     <th style="text-align: center">STT</th>
-                                    <th style="text-align: center">Tên hàng hoá, dịch vụ</th>
-                                    <th style="text-align: center">Quy cách chất lượng</th>
-                                    <th style="text-align: center">Đơn vị<br> tính</th>
-                                    <th style="text-align: center">Mức giá <br>kê khai <br>hiện hành</th>
-                                    <th style="text-align: center">Mức giá <br>kê khai<br> mới</th>
+                                    <th style="text-align: center">Loại phòng<br>Quy cách chất lượng</th>
+                                    <th style="text-align: center">Số hiệu phòng</th>
                                     <th style="text-align: center">Ghi chú</th>
+                                    <th style="text-align: center">Mức giá <br>liền kề</th>
+                                    <th style="text-align: center">Mức giá <br>liền kề<br> cuối tuần</th>
+                                    <th style="text-align: center">Mức giá <br>kê khai</th>
+                                    <th style="text-align: center">Mức giá <br>kê khai<br> cuối tuần</th>
                                     <th style="text-align: center">Thao tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group"><label for="selGender" class="control-label">Phân tích nguyên nhân điều chỉnh tăng/giảm giá kê khai từng mặt hàng</label>
-                                <div>
-                                    <textarea id="nguyennhandc" class="form-control" name="nguyennhandc" cols="30" rows="5"
-                                             >{{isset($modelcb) ? $modelcb->nguyennhandc : '' }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
             </div>
-
             <!-- END EXAMPLE TABLE PORTLET-->
             <div style="text-align: center">
-                <a href="{{url('ke_khai_gia_sua?&masothue='.$modeldn->masothue)}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
+                <a href="{{url('kekhaigiadvlt?&macskd='.$macskd)}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
                 <button type="reset" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;Nhập lại</button>
                 <button type="submit" class="btn green" onclick="validateForm()"><i class="fa fa-check"></i> Hoàn thành</button>
-
             </div>
         </div>
-
     </div>
 
     <!-- BEGIN DASHBOARD STATS -->
@@ -555,7 +569,7 @@
     <script type="text/javascript">
         function validateForm(){
 
-            var validator = $("#create_kkdvgs").validate({
+            var validator = $("#create_kkdvlt").validate({
                 rules: {
                     ten :"required"
                 },
@@ -574,7 +588,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Kê khai giá hàng hoá</h4>
+                    <h4 class="modal-title">Kê khai giá phòng nghỉ</h4>
                 </div>
                 <div class="modal-body" id="ttkkgia">
                 </div>
@@ -594,27 +608,26 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Thêm mới mặt hàng sữa quy cách chất lượng</h4>
+                    <h4 class="modal-title">Thêm mới thông tin phòng nghỉ- quy cách chất lượng</h4>
                 </div>
-                <div class="modal-body" id="ttthemmoi">
+                <div class="modal-body" id="ttpthemmoi">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group"><label for="selGender" class="control-label"><b>Tên mặt hàng</b><span class="require">*</span></label>
-                                <div><input type="text" name="tenhhcreate" id="tenhhcreate" class="form-control" ></div>
+                            <div class="form-group"><label for="selGender" class="control-label"><b>Loại phòng</b><span class="require">*</span></label>
+                                <div><input type="text" name="loaipcreate" id="loaipcreate" class="form-control" ></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group"><label for="selGender" class="control-label"><b>Quy cách chất lượng</b><span class="require">*</span></label>
-                                <div><input type="text" name="qcclcreate" id="qcclcreate" class="form-control" ></div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group"><label for="selGender" class="control-label"><b>Đơn vị tính</b><span class="require">*</span></label>
-                                <div><input type="text" name="dvtcreate" id="dvtcreate" class="form-control" ></div>
+                            <div class="form-group"><label for="selGender" class="control-label"><b>Quy cách chất lượng</b><span class="require">*</span></label>
+                                <div><textarea id="qcclcreate" class="form-control" name="qcclcreate" cols="30" rows="3"></textarea></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label for="selGender" class="control-label"><b>Số hiệu phòng</b><span class="require">*</span></label>
+                                <div><textarea id="sohieucreate" class="form-control" name="sohieucreate" cols="30" rows="3"></textarea></div>
                             </div>
                         </div>
                     </div>
@@ -644,9 +657,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Chỉnh sửa thông tin mặt hàng sữa</h4>
+                    <h4 class="modal-title">Chỉnh sửa thông tin phòng nghỉ</h4>
                 </div>
-                <div class="modal-body" id="ttedit">
+                <div class="modal-body" id="ttpedit">
                 </div>
                 <div class="modal-footer">
                     <button type="button" data-dismiss="modal" class="btn btn-default">Thoát</button>
@@ -663,7 +676,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Đồng ý xóa thông tin hàng hoá?</h4>
+                    <h4 class="modal-title">Đồng ý xóa thông tin phòng nghỉ?</h4>
                 </div>
                 <input type="hidden" id="iddelete" name="iddelete">
                 <div class="modal-footer">

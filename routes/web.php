@@ -74,8 +74,8 @@ Route::patch('thongtindoanhnghiep/{id}','CompanyController@ttdnupdate');
 Route::get('thongtindoanhnghiep/{id}/chinhsua','CompanyController@ttdnchinhsua');
 Route::patch('thongtindoanhnghiep/df/{id}','CompanyController@ttdncapnhat');
 Route::get('thongtindoanhnghiep/{id}/chuyen','CompanyController@ttdnchuyen');
-    //DV Lưu trú
-    //End Dv Lưu trú
+
+include('manage/dvlt.php');
 // </editor-fold>//End Manage
 
 
