@@ -67,11 +67,11 @@
 
 <p>-Tên doanh nghiệp: <span>{{$modeldn->tendn}}</span></p>
 
-<p>-Mã số thuế <span>{{$modeldn->masothue}}</span> </p>
+<p>-Mã số thuế <span>{{$modeldn->maxa}}</span> </p>
 
-<p>-Địa chỉ trụ sở chính: {{$modeldn->diachidn}}</p>
+<p>-Địa chỉ trụ sở chính: {{$modeldn->diachi}}</p>
 
-<p>-Điện thoại: {{$modeldn->teldn}}     -     Số fax: {{$modeldn->faxdn}}</p>
+<p>-Điện thoại: {{$modeldn->tel}}     -     Số fax: {{$modeldn->fax}}</p>
 
 <p>-Tên cơ sở kinh doanh: <span>{{$modelcskd->tencskd}}</span></p>
 
@@ -210,8 +210,8 @@
     <tr>
         <td width="40%" style="text-transform: uppercase;">
             <b>{{$modeldn->tendn}}</b><br>
-            Địa chỉ: {{$modeldn->diachidn}}<br>
-            Mã số thuế: {{$modeldn->masothue}}
+            Địa chỉ: {{$modeldn->diachi}}<br>
+            Mã số thuế: {{$modeldn->maxa}}
         </td>
         <td>
             <b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b><br>

@@ -20,7 +20,9 @@
                         @if(can('kkdvlt','index'))
                             <li><a href="{{url('thongtincskdkkdvlt')}}">Thông tin DNKK lưu trú</a></li>
                         @endif
-                        <li><a href="{{url('xet_duyet_ke_khai_luu_tru')}}">Hồ sơ kê khai</a></li>
+                        @if(can('kkdvlt','approve'))
+                        <li><a href="{{url('xdkkdvlt')}}">Hồ sơ kê khai</a></li>
+                        @endif
                     @endif
                 @endif
 

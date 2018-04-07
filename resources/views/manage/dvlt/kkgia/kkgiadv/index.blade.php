@@ -53,7 +53,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvgs/checkngay',
+                url: '/kkgdvlt/kiemtra',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -65,6 +65,7 @@
                         toastr.error(data.message);
                         $('#chuyen-modal').modal("hide");
                     }else{
+                        $('#tthschuyen').replaceWith(data.message);
                         document.getElementById("idchuyen").value =id;
                     }
                 }
@@ -83,9 +84,12 @@
         function ClickChuyen(){
             if($('#ttnguoinop').val() != ''){
                 toastr.success("Hồ sơ đã được chuyển!", "Thành công!");
-                $('#frm_chuyen').submit();
+                $("#frm_chuyen").unbind('submit').submit();
             }else{
                 toastr.error("Bạn cần nhập thông tin người chuyển", "Lỗi!!!");
+                $("#frm_chuyen").submit(function (e) {
+                    e.preventDefault();
+                });
             }
 
         }
@@ -94,7 +98,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvgs/viewlydo',
+                url: '/kkgdvlt/showlydo',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -205,11 +209,11 @@
                                     </td>
                                 @endif
                                 <td>
-                                    <a href="{{url('ke_khai_gia_sua/report_ke_khai/'.$tt->mahs)}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
+                                    <a href="{{url('kekhaigiadvlt/prints?&mahs='.$tt->mahs)}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
 
                                     @if($tt->trangthai == 'Chờ chuyển' || $tt->trangthai == 'Bị trả lại')
                                         @if(can('kkdvgs','edit'))
-                                            <a href="{{url('ke_khai_gia_sua/'.$tt->id.'/edit')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa</a>
+                                            <a href="{{url('kekhaigiadvlt/'.$tt->id.'/edit')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa</a>
                                         @endif
                                         @if(can('kkdvgs','delete'))
                                         <button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
@@ -249,15 +253,18 @@
         <div class="modal fade" id="chuyen-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    {!! Form::open(['url'=>'ke_khai_gia_sua/chuyen','id' => 'frm_chuyen'])!!}
+                    {!! Form::open(['url'=>'kekhaigiadvlt/chuyen','id' => 'frm_chuyen'])!!}
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                         <h4 class="modal-title">Đồng ý chuyển hồ sơ?</h4>
                     </div>
                     <div class="modal-body">
+                        <div class="form-group" id="tthschuyen">
+                        </div>
                         <div class="form-group">
                             <label><b>Thông tin người nộp</b></label>
-                            <textarea id="ttnguoinop" class="form-control required" name="ttnguoinop" cols="30" rows="5" placeholder="Họ và tên người chuyển- Số ĐT liên lạc- Email lien lạc"></textarea></div>
+                            <textarea id="ttnguoinop" class="form-control required" name="ttnguoinop" cols="30" rows="5" placeholder="Họ và tên người chuyển- Số ĐT liên lạc- Email lien lạc"></textarea>
+                        </div>
                     </div>
                     <input type="hidden" name="idchuyen" id="idchuyen">
                     <div class="modal-footer">

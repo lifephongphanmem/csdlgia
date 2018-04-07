@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\KkGDvLtCtDf;
+use App\KkGDvLtCt;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
-class KkGDvLtCtDfController extends Controller
+class KkGDvLtCtController extends Controller
 {
     public function store(Request $request){
         $result = array(
@@ -25,10 +25,10 @@ class KkGDvLtCtDfController extends Controller
         $inputs = $request->all();
 
         if(isset($inputs['loaip'])){
-            $modelkkgia = new KkGDvLtCtDf();
+            $modelkkgia = new KkGDvLtCt();
             $modelkkgia->create($inputs);
 
-            $model = KkGDvLtCtDf::where('maxa',$inputs['maxa'])
+            $model = KkGDvLtCt::where('mahs',$inputs['mahs'])
                 ->get();
 
             $result['message'] = '<div class="row" id="dsts">';
@@ -97,7 +97,7 @@ class KkGDvLtCtDfController extends Controller
         if(isset($inputs['id'])){
             $id = $inputs['id'];
 
-            $model = KkGDvLtCtDf::findOrFail($id);
+            $model = KkGDvLtCt::findOrFail($id);
             //dd($model);
             $result['message'] = '<div class="modal-body" id="ttpedit">';
             $result['message'] .= '<div class="row">';
@@ -153,10 +153,10 @@ class KkGDvLtCtDfController extends Controller
         $inputs = $request->all();
 
         if(isset($inputs['id'])){
-            $modelkkgia = KkGDvLtCtDf::where('id',$inputs['id'])->first();
+            $modelkkgia = KkGDvLtCt::where('id',$inputs['id'])->first();
             $modelkkgia->update($inputs);
 
-            $model = KkGDvLtCtDf::where('maxa',$inputs['maxa'])
+            $model = KkGDvLtCt::where('mahs',$inputs['mahs'])
                 ->get();
 
             $result['message'] = '<div class="row" id="dsts">';
@@ -223,10 +223,10 @@ class KkGDvLtCtDfController extends Controller
         $inputs = $request->all();
 
         if(isset($inputs['id'])){
-            $modelkkgia = KkGDvLtCtDf::where('id',$inputs['id'])->first();
+            $modelkkgia = KkGDvLtCt::where('id',$inputs['id'])->first();
             $modelkkgia->delete();
 
-            $model = KkGDvLtCtDf::where('maxa',$inputs['maxa'])
+            $model = KkGDvLtCt::where('mahs',$inputs['mahs'])
                 ->get();
 
             $result['message'] = '<div class="row" id="dsts">';
@@ -294,7 +294,7 @@ class KkGDvLtCtDfController extends Controller
 
         if(isset($inputs['id'])){
 
-            $model = KkGDvLtCtDf::where('id',$inputs['id'])
+            $model = KkGDvLtCt::where('id',$inputs['id'])
                 ->first();
             ($model->mucgialk != null)? $mucgialk = $model->mucgialk : $mucgialk = 0;
             ($model->mucgialkct != null)? $mucgialkct = $model->mucgialkct : $mucgialkct = 0;
@@ -328,7 +328,7 @@ class KkGDvLtCtDfController extends Controller
         die(json_encode($result));
     }
 
-    public function upkkgiaphong(Request $request){
+    public function upkkgia(Request $request){
         $result = array(
             'status' => 'fail',
             'message' => 'error',
@@ -344,14 +344,14 @@ class KkGDvLtCtDfController extends Controller
         $inputs = $request->all();
 
         if(isset($inputs['id'])){
-            $modelkkgia = KkGDvLtCtDf::where('id',$inputs['id'])->first();
+            $modelkkgia = KkGDvLtCt::where('id',$inputs['id'])->first();
             $inputs['mucgialk'] = getMoneyToDb($inputs['mucgialk'] );
             $inputs['mucgialkct'] = getMoneyToDb($inputs['mucgialkct']);
             $inputs['mucgiakk'] = getMoneyToDb($inputs['mucgiakk']);
             $inputs['mucgiakkct'] = getMoneyToDb($inputs['mucgiakkct']);
             $modelkkgia->update($inputs);
 
-            $model = KkGDvLtCtDf::where('maxa',$inputs['maxa'])
+            $model = KkGDvLtCt::where('mahs',$inputs['mahs'])
                 ->get();
 
             $result['message'] = '<div class="row" id="dsts">';
