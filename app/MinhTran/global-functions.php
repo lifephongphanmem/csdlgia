@@ -564,7 +564,6 @@ function canGeneral($module = null, $action =null)
     if (count($model) > 0)
         $setting = json_decode($model->setting, true);
     else {
-
         $per = '{
          "dvlt":{"dvlt":"1"},
          "dvvt":{"vtxk":"1","vtxb":"1","vtxtx":"1","vtch":"1"},

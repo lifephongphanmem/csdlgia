@@ -29,7 +29,7 @@
                         @if(count($model) >0)
                             <a href="{{url('general/'.$model->id.'/edit')}}" class="btn btn-default btn-sm">
                             <i class="fa fa-edit"></i> Chỉnh sửa </a>
-                            @if(session('admin')->username=='minhtran')
+                            @if(session('admin')->sadmin=='ssa')
                                 <a href="{{url('setting')}}" class="btn btn-default btn-sm">
                                     <i class="icon-settings"></i> Setting</a>
                             @endif
