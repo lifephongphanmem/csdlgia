@@ -11,15 +11,15 @@
                     @if(session('admin')->level == 'DVTACN')
                         <li><a href="{{url('thongtindoanhnghiep')}}">Thông tin doanh nghiệp</a></li>
                         @if(can('kkdvtacn','index'))
-                            <li><a href="{{url('ke_khai_tacn')}}">Kê khai dịch vụ TACN</a></li>
+                            <li><a href="{{url('kkthucanchannuoi')}}">Kê khai dịch vụ TACN</a></li>
                         @endif
                     @endif
 
                     @if(session('admin')->level =='T' || session('admin')->level =='H')
                         @if(can('kkdvtacn','index'))
-                            <li><a href="{{url('thong_tin_dn_kkluutru')}}">Thông tin DNKK TACN</a></li>
+                            <li><a href="{{url('thongtindnkktacn')}}">Thông tin DNKK TACN</a></li>
                         @endif
-                        <li><a href="{{url('xet_duyet_ke_khai_luu_tru')}}">Hồ sơ kê khai</a></li>
+                        <li><a href="{{url('xdkkthucanchannuoi')}}">Hồ sơ kê khai</a></li>
                     @endif
                 @endif
 

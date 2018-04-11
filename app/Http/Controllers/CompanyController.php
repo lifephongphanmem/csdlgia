@@ -76,7 +76,7 @@ class CompanyController extends Controller
     public function ttdn(Request $request){
         if (Session::has('admin')) {
             if (session('admin')->level == 'DVLT' || session('admin')->level == 'DVVT' ||
-                session('admin')->level == 'DVGS' || session('admin')->level == 'TACN') {
+                session('admin')->level == 'DVGS' || session('admin')->level == 'DVTACN') {
                 $inputs = $request->all();
                 $inputs['level'] = session('admin')->level;
                 $model = Company::where('level',$inputs['level'])
@@ -204,6 +204,26 @@ class CompanyController extends Controller
                 });
             }
             return redirect('thongtindoanhnghiep');
+        }else
+            return view('errors.notlogin');
+    }
+
+    public function upavatar(Request $request){
+        if (Session::has('admin')) {
+            if (session('admin')->level == 'DVVT' || session('admin')->level == 'DVGS' || session('admin')->level == 'DVTACN') {
+                $inputs = $request->all();
+                $id = $inputs['id'];
+                $model = Company::findOrFail($id);
+                if(isset($inputs['avatar'])) {
+                    $avatar = $request->file('avatar');
+                    $inputs['avatar'] = $model->maxa . '.' . $avatar->getClientOriginalExtension();
+                    $avatar->move(public_path() . '/images/avatar/', $inputs['avatar']);
+                }
+                $model->update($inputs);
+                return redirect('thongtindoanhnghiep');
+            }else{
+                return view('errors.perm');
+            }
         }else
             return view('errors.notlogin');
     }

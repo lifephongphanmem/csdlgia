@@ -11,18 +11,16 @@
                     @if(session('admin')->level == 'DVGS')
                         <li><a href="{{url('thongtindoanhnghiep')}}">Thông tin doanh nghiệp</a></li>
                         @if(can('kkdvgs','index'))
-                            <li><a href="{{url('ke_khai_gia_sua')}}">Kê khai dịch vụ giá sữa</a></li>
+                            <li><a href="{{url('kekhaigiasua')}}">Kê khai dịch vụ giá sữa</a></li>
                         @endif
                     @endif
-
                     @if(session('admin')->level =='T' || session('admin')->level =='H')
                         @if(can('kkdvgs','index'))
-                            <li><a href="{{url('thong_tin_dn_kkluutru')}}">Thông tin DNKK giá sữa</a></li>
+                            <li><a href="{{url('thongtindnkkgs')}}">Thông tin DNKK giá sữa</a></li>
                         @endif
-                        <li><a href="{{url('xet_duyet_ke_khai_luu_tru')}}">Hồ sơ kê khai</a></li>
+                        <li><a href="{{url('xdkekhaigiasua')}}">Hồ sơ kê khai xét duyệt</a></li>
                     @endif
                 @endif
-
             </ul>
         </li>
     @endif

@@ -93,19 +93,10 @@ class KkGDvLtController extends Controller
                 $modelcskd = CsKdDvLt::where('macskd', $inputs['macskd'])->first();
                 $modeldn = Company::where('maxa', $inputs['masothue'])
                     ->where('level', 'DVLT')->first();
-                $ngaynhap = date('Y-m-d');
-                $dayngaynhap = date('D');
-                if ($dayngaynhap == 'Thu') {
-                    $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + 2 + getGeneralConfigs()['thoihanlt'], date("Y")));
-                } elseif ($dayngaynhap == 'Fri') {
-                    $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + 2 + getGeneralConfigs()['thoihanlt'], date("Y")));
-                } elseif ($dayngaynhap == 'Sat') {
-                    $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + 1 + getGeneralConfigs()['thoihanlt'], date("Y")));
-                } else {
-                    $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + getGeneralConfigs()['thoihanlt'], date("Y")));
-                }
-                $ngaynhap = date('d/m/Y', strtotime($ngaynhap));
-                $ngayhieuluc = date('d/m/Y', strtotime($ngayhieuluc));
+                $datenow = date('Y-m-d');
+                $ngayhieuluc = date('d/m/Y', strtotime(getNgayHieuLuc($datenow,'DVLT')));
+                $ngaynhap = date('d/m/Y', strtotime($datenow));
+
 
                 return view('manage.dvlt.kkgia.kkgiadv.create')
                     ->with('modelcskd', $modelcskd)
@@ -327,5 +318,24 @@ class KkGDvLtController extends Controller
 
         }
         die(json_encode($result));
+    }
+
+    public function delete(Request $request){
+        if (Session::has('admin')) {
+            if (session('admin')->level == 'DVLT' || session('admin')->level == 'T' || session('admin')->level == 'H') {
+                $inputs = $request->all();
+                $model = KkGDvLt::where('id',$inputs['iddelete'])
+                    ->first();
+                if($model->delete()){
+                    $modelct = KkGDvLtCt::where('mahs',$model->mahs)
+                        ->delete();
+                }
+                return redirect('kekhaigiadvlt?&macskd='.$model->macskd);
+            }else{
+                return view('errors.perm');
+            }
+
+        }else
+            return view('errors.notlogin');
     }
 }

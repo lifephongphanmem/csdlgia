@@ -197,7 +197,7 @@ class RegisterController extends Controller
 
     public function dangkytaikhoan(Request $request){
         $inputs = $request->all();
-        if($inputs['level'] == 'DVLT' || $inputs['level']=='TACN')
+        if($inputs['level'] == 'DVLT' || $inputs['level']=='DVTACN')
             $phanloaiql = 'TC';
         elseif($inputs['level'] == 'DVVT')
             $phanloaiql = 'VT';
@@ -334,6 +334,8 @@ class RegisterController extends Controller
             $id = $input['idregister'];
             $model = Register::findOrFail($id);
             $inputs = $model->toArray();
+            $inputs['avatar'] = 'no-image-available.jpg';
+            unset($inputs['id']);
             if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa' ) {
                 $check = Company::where('maxa',$model->maxa)
                     ->where('level',$model->level)
@@ -382,6 +384,23 @@ class RegisterController extends Controller
             }
 
         } else
+            return view('errors.notlogin');
+    }
+
+    public function delete(Request $request){
+        if (Session::has('admin')) {
+            if(session('admin')->sadmin == 'ssa' || session('admin') == 'sa'){
+                $inputs = $request->all();
+                $model = Register::where('id',$inputs['iddelete'])
+                    ->first();
+                $level = $model->level;
+                $model->delete();
+                return redirect('register?&level='.$level);
+            }else{
+                return view('errors.noperm');
+            }
+
+        }else
             return view('errors.notlogin');
     }
 }

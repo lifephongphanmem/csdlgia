@@ -99,13 +99,13 @@
             $('#nam').change(function() {
                 var namhs = $('#nam').val();
                 var trangthai = $('#trangthai').val();
-                var url = '/xdkkdvlt?&nam='+namhs+'&trangthai='+trangthai;
+                var url = '/xdkekhaigiasua?&nam='+namhs+'&trangthai='+trangthai;
                 window.location.href = url;
             });
             $('#trangthai').change(function() {
                 var namhs = $('#nam').val();
                 var trangthai = $('#trangthai').val();
-                var url = '/xdkkdvlt?&nam='+namhs+'&trangthai='+trangthai;
+                var url = '/xdkekhaigiasua?&nam='+namhs+'&trangthai='+trangthai;
                 window.location.href = url;
             });
 
@@ -114,7 +114,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/ttdnkkdvlt',
+                url: '/ttdnkkdvgs',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -123,7 +123,7 @@
                 dataType: 'JSON',
                 success: function (data) {
                     if (data.status == 'success') {
-                        $('#ttdnkkdvlt').replaceWith(data.message);
+                        $('#ttdnkkdvgs').replaceWith(data.message);
                         document.getElementById("idtralai").value=id;
                     }
                 }
@@ -145,7 +145,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/xdkkdvlt/ttnhanhs',
+                url: '/xdkekhaigiasua/ttnhanhs',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -220,7 +220,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvlt/showlydo',
+                url: '/kkgdvgs/showlydo',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -241,7 +241,7 @@
 @section('content')
 
     <h3 class="page-title">
-        Thông tin xét duyệt kê khai giá<small>&nbsp;dịch vụ lưu trú</small>
+        Thông tin xét duyệt kê khai giá<small>&nbsp;sữa</small>
     </h3>
     <div class="row">
         <div class="col-md-2">
@@ -292,8 +292,7 @@
                         @foreach($model as $key=>$tt)
                             <tr>
                                 <td style="text-align: center">{{$key+1}}</td>
-                                <td class="active">{{$tt->tendn}}<br>
-                                    {{$tt->tencskd}}
+                                <td class="active">{{$tt->tendn}}
                                     <br><b>Mã số thuế:</b> {{$tt->maxa}}</td>
                                 <td style="text-align: center">{{getDayVn($tt->ngaynhap)}}</td>
                                 <td style="text-align: center">{{getDayVn($tt->ngayhieuluc)}}</td>
@@ -315,8 +314,8 @@
                                     </td>
                                 @endif
                                 <td>
-                                    <a href="{{url('kekhaigiadvlt/prints?&mahs='.$tt->mahs)}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
-                                    @if(canEdit($tt->trangthai))
+                                    <a href="{{url('kekhaigiasua/prints?&mahs='.$tt->mahs)}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
+                                    @if(canApprove($tt->trangthai))
                                         @if(can('kkdvlt','approve'))
                                             <button type="button" onclick="ClickTraLai({{$tt->id}})" class="btn btn-default btn-xs mbs" data-target="#tralai-modal" data-toggle="modal"><i class="fa fa-reply"></i>&nbsp;
                                                 Trả lại</button>
@@ -328,6 +327,8 @@
                                         <button type="button" data-target="#lydo-modal" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="viewLyDo({{$tt->id}})"><i class="fa fa-search"></i>&nbsp;Lý do trả lại</button>
                                     @endif
                                         <!--a href="{{url('ke_khai_dich_vu_luu_tru/'.$tt->mahs.'/history')}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Lịch sử</a-->
+
+
                                 </td>
                             </tr>
                         @endforeach
@@ -347,13 +348,13 @@
         <div class="modal fade" id="tralai-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    {!! Form::open(['url'=>'xdkkdvlt/tralai','id' => 'frm_tralai'])!!}
+                    {!! Form::open(['url'=>'xdkekhaigiasua/tralai','id' => 'frm_tralai'])!!}
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                         <h4 class="modal-title">Đồng ý trả lại hồ sơ?</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group" id="ttdnkkdvlt">
+                        <div class="form-group" id="ttdnkkdvgs">
                             </div>
                         <div class="form-group">
                             <label><b>Lý do trả lại</b></label>
@@ -378,7 +379,7 @@
     <div class="modal fade" id="nhanhs-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                {!! Form::open(['url'=>'xdkkdvlt/nhanhs','id' => 'frm_nhanhs'])!!}
+                {!! Form::open(['url'=>'xdkekhaigiasua/nhanhs','id' => 'frm_nhanhs'])!!}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title">Đồng ý nhận hồ sơ?</h4>

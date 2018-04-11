@@ -21,7 +21,7 @@
                             <li><a href="{{url('thongtincskdkkdvlt')}}">Thông tin DNKK lưu trú</a></li>
                         @endif
                         @if(can('kkdvlt','approve'))
-                        <li><a href="{{url('xdkkdvlt')}}">Hồ sơ kê khai</a></li>
+                        <li><a href="{{url('xdkkdvlt')}}">Hồ sơ kê khai xét duyệt</a></li>
                         @endif
                     @endif
                 @endif

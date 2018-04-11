@@ -23,17 +23,17 @@
 
             $('#namhs').change(function() {
                 var nam = $('#namhs').val();
-                var macskd = $('#macskd').val();
+                var masothue = $('#masothue').val();
                 var trangthai = $('#trangthai').val();
-                var url = '/kekhaigiadvlt?&macskd='+macskd+'&nam='+nam+'&trangthai='+trangthai;
+                var url = '/kekhaigiasua?&masothue='+masothue+'&nam='+nam+'&trangthai='+trangthai;
 
                 window.location.href = url;
             });
             $('#trangthai').change(function() {
                 var nam = $('#namhs').val();
-                var macskd = $('#macskd').val();
+                var masothue = $('#masothue').val();
                 var trangthai = $('#trangthai').val();
-                var url = '/kekhaigiadvlt?&macskd='+macskd+'&nam='+nam+'&trangthai='+trangthai;
+                var url = '/kekhaigiasua?&masothue='+masothue+'&nam='+nam+'&trangthai='+trangthai;
                 window.location.href = url;
             });
 
@@ -53,7 +53,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvlt/kiemtra',
+                url: '/kkgdvgs/kiemtra',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -98,7 +98,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             //alert(id);
             $.ajax({
-                url: '/kkgdvlt/showlydo',
+                url: '/kkgdvgs/showlydo',
                 type: 'GET',
                 data: {
                     _token: CSRF_TOKEN,
@@ -120,8 +120,8 @@
 @section('content')
 
     <h3 class="page-title">
-        Thông tin kê khai giá<small>&nbsp;dịch vụ lưu trú</small>
-        <p><h5 style="color: blue">{{$modelcskd->tencskd}} - {{$modeldn->tendn}}&nbsp;- Mã số thuế: {{$modeldn->maxa}}</h5></p>
+        Thông tin kê khai giá<small>&nbsp;sữa</small>
+        <p><h5 style="color: blue">{{$modeldn->tendn}}&nbsp;- Mã số thuế: {{$modeldn->maxa}}</h5></p>
     </h3>
     <!-- END PAGE HEADER-->
     <div class="row">
@@ -130,18 +130,18 @@
             <div class="portlet box">
                 <div class="portlet-title">
                     <div class="actions">
-                        @if(can('kkdvlt','create'))
+                        @if(can('kkdvgs','create'))
                             <!--a href="{{url('ke_khai_dich_vu_luu_tru/co_so_kinh_doanh=/copy')}}" class="btn btn-default btn-sm">
                                 <i class="fa fa-plus"></i> Kê khai giá dịch vụ </a-->
-                                <a href="{{url('kekhaigiadvlt/create?&macskd='.$macskd.'&masothue='.$modeldn->maxa)}}" class="btn btn-default btn-sm">
+                                <a href="{{url('kekhaigiasua/create?&masothue='.$masothue)}}" class="btn btn-default btn-sm">
                                     <i class="fa fa-plus"></i> Kê khai mới </a>
                         @endif
                         @if(session('admin')->level == 'T' || session('admin')->level == 'H')
-                            <a href="{{url('thongtincskdkkdvlt')}}" class="btn btn-default btn-sm">
+                            <a href="{{url('thongtindnkkgs')}}" class="btn btn-default btn-sm">
                                 <i class="fa fa-reply"></i> Quay lại </a>
                         @endif
                     </div>
-                <input type="hidden" name="macskd" id="macskd" value="{{$macskd}}">
+                <input type="hidden" name="masothue" id="masothue" value="{{$masothue}}">
                 </div>
                 <div class="portlet-body">
                     <div class="portlet-body">
@@ -211,34 +211,33 @@
                                     </td>
                                 @endif
                                 <td>
-                                    <a href="{{url('kekhaigiadvlt/prints?&mahs='.$tt->mahs)}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
-
+                                    <a href="{{url('kekhaigiasua/prints?&mahs='.$tt->mahs)}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem chi tiết</a>
                                     @if(canEdit($tt->trangthai))
                                         @if(can('kkdvgs','edit'))
-                                            <a href="{{url('kekhaigiadvlt/'.$tt->id.'/edit')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa</a>
+                                            <a href="{{url('kekhaigiasua/'.$tt->id.'/edit')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa</a>
                                         @endif
-                                        @if(can('kkdvgs','delete'))
-                                        <button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
-                                            Xóa</button>
-                                        @endif
-                                        @if(can('kkdvgs','approve'))
-                                        <button type="button" onclick="confirmChuyen('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#chuyen-modal" data-toggle="modal"><i class="fa fa-share-square-o"></i>&nbsp;
-                                            Chuyển</button>
-                                            @if(session('admin')->sadmin == 'ssa')
-                                                <!--button type="button" onclick="confirmChuyenHSCham('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#chuyenhscham-modal" data-toggle="modal"><i class="fa fa-share-square-o"></i>&nbsp;
-                                                    Chuyển HS chậm</button-->
+                                        @if(canChuyenXoa($tt->trangthai))
+                                            @if(can('kkdvgs','delete'))
+                                            <button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
+                                                Xóa</button>
+                                            @endif
+                                            @if(can('kkdvgs','approve'))
+                                            <button type="button" onclick="confirmChuyen('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#chuyen-modal" data-toggle="modal"><i class="fa fa-share-square-o"></i>&nbsp;
+                                                Chuyển</button>
+                                                @if(session('admin')->sadmin == 'ssa')
+                                                    <!--button type="button" onclick="confirmChuyenHSCham('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#chuyenhscham-modal" data-toggle="modal"><i class="fa fa-share-square-o"></i>&nbsp;
+                                                        Chuyển HS chậm</button-->
+                                                @endif
                                             @endif
                                         @endif
-                                        @if( $tt->trangthai == 'Bị trả lại')
+                                        @if(canShowLyDo($tt->trangthai))
                                         <button type="button" data-target="#lydo-modal" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="viewLyDo({{$tt->id}})"><i class="fa fa-search"></i>&nbsp;Lý do trả lại</button>
                                         @endif
                                     @endif
                                     <!--a href="{{url('ke_khai_gia_sua/'.$tt->mahs.'/history')}}" target="_blank" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Lịch sử</a-->
-
                                 </td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
                 </div>
@@ -255,7 +254,7 @@
         <div class="modal fade" id="chuyen-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    {!! Form::open(['url'=>'kekhaigiadvlt/chuyen','id' => 'frm_chuyen'])!!}
+                    {!! Form::open(['url'=>'kekhaigiasua/chuyen','id' => 'frm_chuyen'])!!}
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                         <h4 class="modal-title">Đồng ý chuyển hồ sơ?</h4>
@@ -354,7 +353,7 @@
     <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                {!! Form::open(['url'=>'kekhaigiadvlt/delete','id' => 'frm_delete'])!!}
+                {!! Form::open(['url'=>'kekhaigiasua/delete','id' => 'frm_delete'])!!}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title">Đồng ý xóa?</h4>

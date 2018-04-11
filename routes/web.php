@@ -13,6 +13,7 @@ Route::get('/ajax/registercheckuser','HomeController@checkrguser');
 Route::resource('register','RegisterController');
 Route::post('register/tralai','RegisterController@tralai');
 Route::post('register/createtk','RegisterController@createtk');
+Route::post('register/delete','RegisterController@delete');
 
 Route::get('searchtkdangky','RegisterController@searchregister');
 Route::post('searchtkdangky','RegisterController@checksearchregister');
@@ -74,8 +75,11 @@ Route::patch('thongtindoanhnghiep/{id}','CompanyController@ttdnupdate');
 Route::get('thongtindoanhnghiep/{id}/chinhsua','CompanyController@ttdnchinhsua');
 Route::patch('thongtindoanhnghiep/df/{id}','CompanyController@ttdncapnhat');
 Route::get('thongtindoanhnghiep/{id}/chuyen','CompanyController@ttdnchuyen');
+Route::post('thongtindoanhnghiep/upavatar','CompanyController@upavatar');
 
 include('manage/dvlt.php');
+include('manage/dvgs.php');
+include('manage/dvtacn.php');
 include('manage/hhdv.php');
 // </editor-fold>//End Manage
 

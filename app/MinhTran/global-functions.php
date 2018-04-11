@@ -557,11 +557,43 @@ function can($module = null, $action = null)
 
 }
 
+function canEdit($trangthai){
+    if(session('admin')->sadmin == 'ssa')
+       return true;
+    else{
+        if ($trangthai == 'Chờ duyệt' || $trangthai == 'Đã duyệt') {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
+function canChuyenXoa($trangthai){
+    if($trangthai == 'Chờ chuyển' || $trangthai == 'Bị trả lại')
+        return true;
+    else
+        return false;
+}
+
+function canShowLyDo($trangthai){
+    if($trangthai == 'Bị trả lại')
+        return true;
+    else
+        return false;
+}
+
+function canApprove($trangthai){
+    if($trangthai == 'Chờ duyệt')
+        return true;
+    else
+        return false;
+}
 
 function canGeneral($module = null, $action =null)
 {
     $model = \App\GeneralConfigs::first();
-    if (count($model) > 0)
+    if(count($model)> 0 && $model->setting != '')
         $setting = json_decode($model->setting, true);
     else {
         $per = '{
@@ -759,7 +791,7 @@ function getSoNnSelectOptions() {
     return $options;
 }
 
-function getNgayHieuLuc($ngaynhap){
+/*function getNgayHieuLuc($ngaynhap){
     $dayngaynhap = date('D',strtotime($ngaynhap));
     if($dayngaynhap == 'Thu'){
         $ngayhieuluc  =  date('Y-m-d',mktime(0, 0, 0, date("m")  , date("d")+5, date("Y")));
@@ -772,7 +804,7 @@ function getNgayHieuLuc($ngaynhap){
     }
     return $ngayhieuluc;
 
-}
+}*/
 
 function getTtPhong($str)
 {
@@ -781,5 +813,29 @@ function getTtPhong($str)
     $str = str_replace(';','; ',$str);
     $str = str_replace('-','- ',$str);
     return $str;
+}
+
+function getNgayHieuLuc($ngaynhap,$pl){
+    $dayngaynhap = date('D',strtotime($ngaynhap));
+    if($pl == 'DVLT')
+        $thoihan = getGeneralConfigs()['thoihanlt'];
+    elseif($pl == 'DVVT')
+        $thoihan = getGeneralConfigs()['thoihanvt'];
+    elseif($pl == 'DVGS')
+        $thoihan = getGeneralConfigs()['thoihangs'];
+    elseif($pl == 'DVTACN')
+        $thoihan = getGeneralConfigs()['thoihantacn'];
+    $ngaynghi = 0;
+
+    if ($dayngaynhap == 'Thu') {
+        $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + 2 + $thoihan + $ngaynghi, date("Y")));
+    } elseif ($dayngaynhap == 'Fri') {
+        $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + 2 + $thoihan + $ngaynghi, date("Y")));
+    } elseif ($dayngaynhap == 'Sat') {
+        $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + 1 + $thoihan + $ngaynghi, date("Y")));
+    } else {
+        $ngayhieuluc = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") + $thoihan + $ngaynghi, date("Y")));
+    }
+    return $ngayhieuluc;
 }
 ?>

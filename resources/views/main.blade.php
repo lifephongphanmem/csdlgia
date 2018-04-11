@@ -323,6 +323,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <li><a href="{{url('general')}}">Cấu hình hệ thống</a></li>
 
                         <!-- Hệ thống giá hàng hóa, dịch vu -->
+
                         @if(canGeneral('hhdv','hhdvtn') || canGeneral('hhdv','hhxnk') || canGeneral('hhdv','hhtt')
                             || canGeneral('hhdv','kkgtw') || canGeneral('hhdv','kkgdp'))
                             <li>

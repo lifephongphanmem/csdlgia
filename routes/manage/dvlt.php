@@ -5,6 +5,7 @@ Route::get('thongtincskdkkdvlt','KkGDvLtController@ttcskd');
 Route::resource('kekhaigiadvlt','KkGDvLtController');
 Route::post('kekhaigiadvlt/chuyen','KkGDvLtController@chuyen');
 Route::get('/kkgdvlt/showlydo','KkGDvLtController@showlydo');
+Route::post('kekhaigiadvlt/delete','KkGDvLtController@delete');
 
 
 Route::get('kekhaigiadvlt/prints','KkGDvLtController@prints');
