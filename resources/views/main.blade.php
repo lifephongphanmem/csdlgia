@@ -317,7 +317,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                     <ul class="sub-menu">
                         <li><a href="{{url('district')}}"> Danh mục đơn vị quận/huyện</a></li>
-                        <li><a href="{{url('town')}}"> Danh mục đơn vị xã/phường</a></li>
+                        <!--li><a href="{{url('town')}}"> Danh mục đơn vị xã/phường</a></li-->
                         <li><a href="{{url('company')}}"> Danh mục doanh nghiệp</a></li>
                         <li><a href="{{url('users')}}"> Quản lý tài khoản</a></li>
                         <li><a href="{{url('register')}}"> Tài khoản đăng ký</a></li>

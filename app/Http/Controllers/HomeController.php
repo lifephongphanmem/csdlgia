@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         if (Session::has('admin')) {
             if(session('admin')->sadmin == 'sa' )
-                return redirect('cau_hinh_he_thong');
+                return redirect('general');
             else{
                 return view('dashboard')
                     ->with('pageTitle','Tổng quan');
