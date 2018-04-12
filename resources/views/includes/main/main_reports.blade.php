@@ -25,12 +25,24 @@
                     </ul>
                 </li>
             @endif
+
             @if(canGeneral('gthuetn','gthuetn'))
                 <li>
                     <a href="{{url('/reports/thuetn/index')}}">Thuế tài nguyên</a>
                 </li>
             @endif
+
+            @if(can('dvvtch','index') || can('kkdvvtch','index')
+                    ||can('dvvtxtx','index') || can('kkdvvtxtx','index')
+                    ||can('dvvtxk','index') || can('kkdvvtxk','index')
+                    ||can('dvvtxb','index') || can('kkdvvtxb','index'))
+
+                <li><a href="{{url('/bao_cao/dich_vu_xe_khach')}}">Vận tải xe khách</a></li>
+                <li><a href="{{url('/bao_cao/dich_vu_xe_bus')}}">Vận tải xe buýt</a></li>
+                <li><a href="{{url('/bao_cao/dich_vu_xe_taxi')}}">Vận tải xe taxi</a></li>
+                <li><a href="{{url('/bao_cao/dich_vu_cho_hang')}}">Vận tải khác</a></li>
+            @endif
         </ul>
-    </li>
+
 
 @endif

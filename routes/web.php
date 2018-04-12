@@ -81,6 +81,7 @@ include('manage/dvlt.php');
 include('manage/dvgs.php');
 include('manage/dvtacn.php');
 include('manage/hhdv.php');
+include('manage/dvvt.php');
 // </editor-fold>//End Manage
 
 

@@ -361,12 +361,24 @@ function getPermissionDefault($level) {
             'delete' => 1,
             'approve'=> 1
         ),
+        'dvvtxk' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1
+        ),
         'kkdvvtxb' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
             'approve'=> 1
+        ),
+        'dvvtxb' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1
         ),
         'kkdvvtxtx' => array(
             'index' => 1,
@@ -375,12 +387,24 @@ function getPermissionDefault($level) {
             'delete' => 1,
             'approve'=> 1
         ),
+        'dvvtxtx' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1
+        ),
         'kkdvvtch' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
             'approve'=> 1
+        ),
+        'dvvtch' => array(
+            'index' => 1,
+            'create' => 1,
+            'edit' => 1,
+            'delete' => 1
         ),
     );
     $roles['DVGS'] = array(

@@ -45,7 +45,7 @@ class ReportsDvVtController extends Controller
                 ->get();
             //dd($model);
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)){
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -74,7 +74,7 @@ class ReportsDvVtController extends Controller
             //dd($model);
             $mahss = '';
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)) {
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -117,7 +117,7 @@ class ReportsDvVtController extends Controller
                 ->get();
             //dd($model);
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)){
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -146,7 +146,7 @@ class ReportsDvVtController extends Controller
             //dd($model);
             $mahss = '';
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)) {
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -189,7 +189,7 @@ class ReportsDvVtController extends Controller
                 ->get();
             //dd($model);
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)){
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -218,7 +218,7 @@ class ReportsDvVtController extends Controller
             //dd($model);
             $mahss = '';
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)) {
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -261,7 +261,7 @@ class ReportsDvVtController extends Controller
                 ->get();
             //dd($model);
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)){
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
@@ -290,7 +290,7 @@ class ReportsDvVtController extends Controller
             //dd($model);
             $mahss = '';
             foreach($model as $kk){
-                $modeldv = DonViDvVt::where('masothue',$kk->masothue)->first();
+                $modeldv = DonViDvVt::where('maxa',$kk->maxa)->first();
                 if(isset($modeldv)) {
                     $kk->tendonvi = $modeldv->tendonvi;
                     $kk->diachi = $modeldv->diachi;
