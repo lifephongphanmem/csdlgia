@@ -140,7 +140,7 @@ Route::post('giahhdv-thitruong/delete','HsGiaHhTtController@destroy');
 Route::post('giahhdv-thitruong/approve','HsGiaHhTtController@approve');
 Route::post('giahhdv-thitruong-dk','HsGiaHhTtController@store_dk');
 Route::get('giahhdv-thitruong/thoidiem={thoidiem}/create_dk','HsGiaHhTtController@create_dk');
-Route::get('giahhdv-thitruong-dk/{id}/edit','HsGiaHhTtController@edit_dk');
+Route::get('giahhdv-thitruong-dk/edit','HsGiaHhTtController@edit_dk');
 Route::patch('giahhdv-thitruong-dk/{id}','HsGiaHhTtController@update_dk');
 Route::get('giahhdv-thitruong-dk/dinhkem','GiaHhTtController@get_attackfile');
 
@@ -222,11 +222,11 @@ Route::post('timkiem-giahh-xuatnhapkhau','HsGiaHhXnkController@viewsearch');
 
 //1.Giá hàng hóa do TW quy định
 Route::get('giahhdv-tw','HsGiaHangHoaTWController@thoidiem');
-Route::get('giahhdv-tw/thoidiem={thoidiem}/nam={nam}','HsGiaHangHoaTWController@index');
+Route::get('giahhdv-tw/index','HsGiaHangHoaTWController@index');
 Route::post('giahhdv-tw/create','HsGiaHangHoaTWController@create');
 Route::post('giahhdv-tw','HsGiaHangHoaTWController@store');
 Route::get('giahhdv-tw/{id}/show','HsGiaHangHoaTWController@show');
-Route::get('giahhdv-tw/{id}/edit','HsGiaHangHoaTWController@edit');
+Route::get('giahhdv-tw/edit','HsGiaHangHoaTWController@edit');
 Route::patch('giahhdv-tw/{id}','HsGiaHangHoaTWController@update');
 Route::post('giahhdv-tw/delete','HsGiaHangHoaTWController@destroy');
 Route::post('giahhdv-tw/approve','HsGiaHangHoaTWController@approve');
@@ -234,11 +234,11 @@ Route::post('giahhdv-tw/approve','HsGiaHangHoaTWController@approve');
 Route::get('giahhdv-tw/thoidiem={thoidiem}/create_dk','HsGiaHangHoaTWController@create_dk');
 Route::patch('giahhdv-tw-dk/{id}','HsGiaHangHoaTWController@update_dk');
 Route::post('giahhdv-tw-dk','HsGiaHangHoaTWController@store_dk');
-Route::get('giahhdv-tw-dk/{id}/edit','HsGiaHangHoaTWController@edit_dk');
+Route::get('giahhdv-tw-dk/edit','HsGiaHangHoaTWController@edit_dk');
 Route::get('giahhdv-tw-dk/dinhkem','GiaHangHoaController@get_attackfile');
 
 Route::get('thongtin-tw','HsGiaHangHoaTWController@showthoidiem');
-Route::get('thongtin-tw/thoidiem={thoidiem}/nam={nam}&pb={pb}','HsGiaHangHoaTWController@showindex');
+Route::get('thongtin-tw/index','HsGiaHangHoaTWController@showindex');
 Route::get('thongtin-tw/{id}/show','HsGiaHangHoaTWController@view');
 Route::post('thongtin-tw/unapprove','HsGiaHangHoaTWController@unapprove');
 
@@ -259,23 +259,21 @@ Route::post('timkiem-giahhdv-tw','HsGiaHangHoaTWController@viewsearch');
 
 //2.Giá hàng hóa do địa phương quy định
 Route::get('giahhdv-dp','HsGiaHangHoaDPController@thoidiem');
-Route::get('giahhdv-dp/thoidiem={thoidiem}/nam={nam}','HsGiaHangHoaDPController@index');
+Route::get('giahhdv-dp/index','HsGiaHangHoaDPController@index');
 Route::post('giahhdv-dp/create','HsGiaHangHoaDPController@create');
-Route::post('giahhdv-dp','HsGiaHangHoaDPController@store');
 Route::get('giahhdv-dp/{id}/show','HsGiaHangHoaDPController@show');
-Route::get('giahhdv-dp/{id}/edit','HsGiaHangHoaDPController@edit');
+Route::get('giahhdv-dp/edit','HsGiaHangHoaDPController@edit');
 Route::patch('giahhdv-dp/{id}','HsGiaHangHoaDPController@update');
 Route::post('giahhdv-dp/delete','HsGiaHangHoaDPController@destroy');
 Route::post('giahhdv-dp/approve','HsGiaHangHoaDPController@approve');
 
 Route::get('giahhdv-dp/thoidiem={thoidiem}/create_dk','HsGiaHangHoaDPController@create_dk');
 Route::patch('giahhdv-dp-dk/{id}','HsGiaHangHoaDPController@update_dk');
-Route::post('giahhdv-dp-dk','HsGiaHangHoaDPController@store_dk');
-Route::get('giahhdv-dp-dk/{id}/edit','HsGiaHangHoaDPController@edit_dk');
+Route::get('giahhdv-dp-dk/edit','HsGiaHangHoaDPController@edit_dk');
 Route::get('giahhdv-dp-dk/dinhkem','GiaHangHoaController@get_attackfile');
 
 Route::get('thongtin-dp','HsGiaHangHoaDPController@showthoidiem');
-Route::get('thongtin-dp/thoidiem={thoidiem}/nam={nam}&pb={pb}','HsGiaHangHoaDPController@showindex');
+Route::get('thongtin-dp/index','HsGiaHangHoaDPController@showindex');
 Route::get('thongtin-dp/{id}/show','HsGiaHangHoaDPController@view');
 Route::post('thongtin-dp/unapprove','HsGiaHangHoaDPController@unapprove');
 
@@ -390,6 +388,9 @@ Route::group(['prefix'=>'giadat'],function(){
         Route::get('add_node','dmvitridatController@add_node');
         Route::get('get_node','dmvitridatController@get_node');
         Route::get('update_node','dmvitridatController@update_node');
+
+        Route::get('/thong_tin/ma_so={macapdo}','dmvitridatController@index_danhmuc');//chưa xay dựng, lấy tạm
+        //xây dựng tương tự nhưng bỏ chức năng thêm mới
     });
 
     //Route::resource('thuedat','giathuedatController');
@@ -417,6 +418,8 @@ Route::group(['prefix'=>'giadat'],function(){
         Route::post('unapprove','giadaugiadatController@unapprove');
         Route::get('{id}/show','giadaugiadatController@show');
     });
+
+
 
     Route::get('getvitri','dmvitridatController@getvitri');
 
@@ -665,12 +668,12 @@ Route::get('gia-thuetruocba-dk/dinhkem','GiaThueTbController@get_attackfile');
 
 //1.Giá thuế tài nguyên
 Route::get('giathuetn','HsThueTnController@thoidiem');
-Route::get('giathuetn/nam={nam}','HsThueTnController@index');
+Route::get('giathuetn/index','HsThueTnController@index');
 Route::post('giathuetn/create','HsThueTnController@create');
 Route::post('giathuetn','HsThueTnController@store');
 Route::get('giathuetn/{id}/show','HsThueTnController@show');
-Route::get('giathuetn/{id}/edit','HsThueTnController@edit');
-Route::patch('giathuetn/{id}','HsThueTnController@update');
+Route::get('giathuetn/edit','HsThueTnController@edit');
+Route::patch('giathuetn/update','HsThueTnController@update');
 Route::post('giathuetn/delete','HsThueTnController@destroy');
 Route::post('giathuetn/approve','HsThueTnController@approve');
 
@@ -685,13 +688,13 @@ Route::get('/giathuetndefault/edit','ThueTnDefaultController@edit');
 Route::get('/giathuetndefault/update','ThueTnDefaultController@update');
 Route::get('/giathuetndefault/delete','ThueTnDefaultController@destroy');
 
-Route::get('/giathuetn/store','ThueTnController@store');
-Route::get('/giathuetn/edit','ThueTnController@edit');
-Route::get('/giathuetn/update','ThueTnController@update');
-Route::get('/giathuetn/delete','ThueTnController@destroy');
+Route::get('/thuetn/store','ThueTnController@store');
+Route::get('/thuetn/edit','ThueTnController@edit');
+Route::get('/thuetn/update','ThueTnController@update');
+Route::get('/thuetn/delete','ThueTnController@destroy');
 
 Route::get('thongtin-giathuetn','HsThueTnController@showthoidiem');
-Route::get('thongtin-giathuetn/nam={nam}&pb={pb}','HsThueTnController@showindex');
+Route::get('thongtin-giathuetn/index','HsThueTnController@showindex');
 Route::get('thongtin-giathuetn/{id}/show','HsThueTnController@view');
 Route::post('thongtin-giathuetn/unapprove','HsThueTnController@unapprove');
 
@@ -699,7 +702,7 @@ Route::get('timkiem-giathuetn','HsThueTnController@search');
 Route::post('timkiem-giathuetn','HsThueTnController@viewsearch');
 
 Route::get('giathuetn-dk/create','HsThueTnController@create_dk');
-Route::get('giathuetn-dk/{id}/edit','HsThueTnController@edit_dk');
+Route::get('giathuetn-dk/edit','HsThueTnController@edit_dk');
 Route::patch('giathuetn-dk/{id}','HsThueTnController@update_dk');
 Route::post('giathuetn-dk/store','HsThueTnController@store_dk');
 Route::get('giathuetn-dk/dinhkem','ThueTnController@get_attackfile');

@@ -20,8 +20,8 @@ class CreateGiathuetbctTable extends Migration
             $table->string('thongsokt')->nullable();
             $table->string('dungtich')->nullable();
             $table->string('nuocsx')->nullable();
-            $table->string('giaht')->nullable();
-            $table->string('giamoi')->nullable();
+            $table->double('giaht')->default(0);
+            $table->double('giamoi')->default(0);
             $table->string('mahs')->nullable();
             $table->timestamps();
         });

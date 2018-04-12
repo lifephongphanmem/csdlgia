@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GiaHangHoaDefault extends Model
 {
+    //có thể bỏ lên chưa đồng bộ 07.07.18
     protected $table = 'giahanghoadefault';
     protected $fillable = [
         'id',

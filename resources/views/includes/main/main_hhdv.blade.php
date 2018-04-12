@@ -165,12 +165,12 @@
             <ul class="sub-menu">
                 @if(can('gthuetn','create'))
                     <li>
-                        <a href="{{url('giathuetn/nam='.date('Y'))}}">Giá thuế tài nguyên</a>
+                        <a href="{{url('giathuetn/index?nam='.date('Y'))}}">Giá thuế tài nguyên</a>
                     </li>
                 @endif
                 @if(can('gthuetn','index'))
                     <li>
-                        <a href="{{url('thongtin-giathuetn/nam='.date('Y').'&pb=all')}}">Thông tin giá thuế tài nguyên</a>
+                        <a href="{{url('thongtin-giathuetn/index?nam='.date('Y').'&pb=all')}}">Thông tin giá thuế tài nguyên</a>
                     </li>
                 @endif
                 <li>

@@ -34,7 +34,7 @@ class dmvitridatController extends Controller
                     $ct->b_xoa = false;
                 }
             }
-            return view('manage.giadat.vitri.danhmuc.index')
+            return view('manage.hhdv.giadat.vitri.danhmuc.index')
                 ->with('model',$model)
                 ->with('model_diaban',$model_diaban)
                 ->with('model_quyetdinh',$model_quyetdinh)
@@ -393,7 +393,7 @@ class dmvitridatController extends Controller
                 $ct->b_xoa = false;
             }
         }
-        return view('manage.giadat.vitri.danhmuc.index')
+        return view('manage.hhdv.giadat.vitri.danhmuc.index')
             ->with('model',$model)
             ->with('model_diaban',$model_diaban)
             ->with('model_quyetdinh',$model_quyetdinh)
@@ -464,7 +464,7 @@ class dmvitridatController extends Controller
                 $ct->b_xoa = false;
             }
         }
-        return view('manage.giadat.vitri.danhmuc.index')
+        return view('manage.hhdv.giadat.vitri.danhmuc.index')
             ->with('model',$model)
             ->with('model_diaban',$model_diaban)
             ->with('model_quyetdinh',$model_quyetdinh)

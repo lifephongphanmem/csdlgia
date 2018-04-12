@@ -20,7 +20,7 @@ class CreateXethuetbTable extends Migration
             $table->string('thongsokt')->nullable();
             $table->string('dungtich')->nullable();
             $table->string('nuocsx')->nullable();
-            $table->string('gia')->nullable();
+            $table->double('gia')->default(0);
             $table->string('ghichu')->nullable();
             $table->timestamps();
         });

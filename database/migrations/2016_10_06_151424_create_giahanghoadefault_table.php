@@ -21,9 +21,11 @@ class CreateGiahanghoadefaultTable extends Migration
             $table->string('thitruong')->nullable();
             $table->string('thoigian')->nullable();
             $table->string('mathoidiem')->nullable();
-            $table->string('giatu')->nullable();
-            $table->string('giaden')->nullable();
-            $table->string('soluong')->nullable();
+            $table->double('giatulk')->default(0);
+            $table->double('giadenlk')->default(0);
+            $table->double('giatu')->default(0);
+            $table->double('giaden')->default(0);
+            $table->string('dvt')->nullable();
             $table->string('nguontin')->nullable();
             $table->string('gc')->nullable();
             $table->string('mahs')->nullable();

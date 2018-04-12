@@ -838,4 +838,16 @@ function getNgayHieuLuc($ngaynhap,$pl){
     }
     return $ngayhieuluc;
 }
+
+function Thang2Quy($thang){
+    if($thang == 1 || $thang == 2 || $thang == 3)
+        return 1;
+    elseif($thang == 4 || $thang == 5 || $thang == 6)
+        return 2;
+    elseif($thang == 7 || $thang == 8 || $thang == 9)
+        return 3;
+    else
+        return 4;
+}
+
 ?>

@@ -298,6 +298,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     @include('includes.main.maindvvt')
                     @include('includes.main.maindvgs')
                     @include('includes.main.maindvtacn')
+                    @include('includes.main.main_reports')
                 @endif
                 <!--End Manager-->
 
