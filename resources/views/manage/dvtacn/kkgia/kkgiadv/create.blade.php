@@ -574,6 +574,7 @@
                     </div>
                     <input type="hidden" name="maxa" id="maxa" value="{{$maxa}}">
                     <input type="hidden" name="mahuyen" id="mahuyen" value="{{$modeldn->mahuyen}}">
+                    <input type="hidden" name="tendn" id="tendn" value="{{$modeldn->tendn}}">
                     {!! Form::close() !!}
                     <!--/row-->
                     <h4 class="form-section" style="color: #0000ff">Thông tin chi tiết hồ sơ</h4>

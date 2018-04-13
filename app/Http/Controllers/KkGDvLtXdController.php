@@ -35,7 +35,7 @@ class KkGDvLtXdController extends Controller
                         ->whereYear('ngaychuyen',$inputs['nam'])
                         ->where('mahuyen',session('admin')->mahuyen)
                         ->get();
-                foreach($model as $tt){
+                /*foreach($model as $tt){
                     $modeldn = Company::where('maxa',$tt->maxa)
                         ->where('level','DVLT')
                         ->first();
@@ -44,7 +44,7 @@ class KkGDvLtXdController extends Controller
                         ->first();
                     $tt->tendn = $modeldn->tendn;
                     $tt->tencskd = $modelcskd->tencskd;
-                }
+                }*/
                 return view('manage.dvlt.kkgia.xetduyet.index')
                     ->with('model', $model)
                     ->with('nam',$inputs['nam'])

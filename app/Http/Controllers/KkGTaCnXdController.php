@@ -34,12 +34,12 @@ class KkGTaCnXdController extends Controller
                         ->whereYear('ngaychuyen',$inputs['nam'])
                         ->where('mahuyen',session('admin')->mahuyen)
                         ->get();
-                foreach($model as $tt){
+                /*foreach($model as $tt){
                     $modeldn = Company::where('maxa',$tt->maxa)
                         ->where('level','DVTACN')
                         ->first();
                     $tt->tendn = $modeldn->tendn;
-                }
+                }*/
                 return view('manage.dvtacn.kkgia.xetduyet.index')
                     ->with('model', $model)
                     ->with('nam',$inputs['nam'])

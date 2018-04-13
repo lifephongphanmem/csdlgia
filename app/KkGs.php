@@ -27,5 +27,6 @@ class KkGs extends Model
         'trangthai',
         'plhs',
         'thoihan',
+        'tendn'
     ];
 }
