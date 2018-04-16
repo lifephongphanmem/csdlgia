@@ -16,7 +16,7 @@ class RegisterController extends Controller
 {
     public function index(Request $request){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin') == 'sa'){
+            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'){
                 $inputs = $request->all();
                 $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVLT';
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CbKkGDvLt;
 use App\Company;
 use App\CsKdDvLt;
 use App\District;
@@ -177,13 +178,17 @@ class KkGDvLtXdController extends Controller
     }
 
     public function getsohsnhan($mahuyen){
-        $model = KkGDvLt::where('trangthai','Duyệt')
-            ->where('mahuyen',$mahuyen)
-            ->max('id');
-        if(count($model)== 0){
-            $stt = 1;
-        }else
-            $stt = $model->sohsnhan+1;
+        if(session('admin')->level == 'T')
+            $stt = 0;
+        else {
+            $model = KkGDvLt::where('trangthai', 'Duyệt')
+                ->where('mahuyen', $mahuyen)
+                ->max('id');
+            if (count($model) == 0) {
+                $stt = 1;
+            } else
+                $stt = $model->sohsnhan + 1;
+        }
         return $stt;
     }
 
@@ -204,10 +209,7 @@ class KkGDvLtXdController extends Controller
             }else{
                 $inputs['thoihan'] = 'Quá thời hạn';
             }
-
             if($model->update($inputs)){
-                //$this->congbo($id);
-
                 $tencqcq = District::where('mahuyen',$model->mahuyen)->first();
                 $dn = Company::where('maxa',$model->maxa)->first();
                 $data=[];
@@ -230,8 +232,12 @@ class KkGDvLtXdController extends Controller
                         ->subject('Thông báo xét duyệt hồ sơ kê khai giá dịch vụ');
                     $message->from('phanmemcsdlgia@gmail.com','Phần mềm CSDL giá');
                 });
-
             }
+            $modeldelcb = CbKkGDvLt::where('macskd',$model->macskd)->delete();
+            $arrays = $model->toArray();
+            unset($arrays['id']);
+            $modelcb = new CbKkGDvLt();
+            $modelcb->create($arrays);
             return redirect('xdkkdvlt');
         }else
             return view('errors.notlogin');

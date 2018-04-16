@@ -84,4 +84,6 @@ include('manage/hhdv.php');
 include('manage/dvvt.php');
 // </editor-fold>//End Manage
 
+include('congbo/congbo.php');
+
 

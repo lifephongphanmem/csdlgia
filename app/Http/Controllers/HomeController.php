@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
+use App\CsKdDvLt;
 use App\DmDvQl;
 use App\DnDvGs;
 use App\DnDvLt;
@@ -42,6 +44,25 @@ class HomeController extends Controller
         }else
             return view('welcome');
 
+    }
+
+    public function congbo(){
+        $modellt = CsKdDvLt::orderByRaw("RAND()")
+            ->take(4)
+            ->get();
+        $modelgs = Company::where('level','DVGS')
+            ->orderByRaw("RAND()")
+            ->take(4)
+            ->get();
+        $modeltacn = Company::where('level','DVTACN')
+            ->orderByRaw("RAND()")
+            ->take(4)
+            ->get();
+        return view('dashboardcb')
+            ->with('modellt',$modellt)
+            ->with('modelgs',$modelgs)
+            ->with('modeltacn',$modeltacn)
+            ->with('pageTitle','Trang công bố giá dịch vụ, hàng hoá');
     }
 
     public function regdvlt(){

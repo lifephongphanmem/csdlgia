@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CbKkGTaCn;
 use App\Company;
 use App\District;
 use App\KkGTaCn;
@@ -172,13 +173,17 @@ class KkGTaCnXdController extends Controller
     }
 
     public function getsohsnhan($mahuyen){
-        $model = KkGTaCn::where('trangthai','Duyệt')
-            ->where('mahuyen',$mahuyen)
-            ->max('id');
-        if(count($model)== 0){
-            $stt = 1;
-        }else
-            $stt = $model->sohsnhan+1;
+        if(session('admin')->level == 'T')
+            $stt = 0;
+        else {
+            $model = KkGTaCn::where('trangthai', 'Duyệt')
+                ->where('mahuyen', $mahuyen)
+                ->max('id');
+            if (count($model) == 0) {
+                $stt = 1;
+            } else
+                $stt = $model->sohsnhan + 1;
+        }
         return $stt;
     }
 
@@ -229,6 +234,11 @@ class KkGTaCnXdController extends Controller
                 });
 
             }
+            $modeldelcb = CbKkGTaCn::where('maxa',$model->maxa)->delete();
+            $arrays = $model->toArray();
+            unset($arrays['id']);
+            $modelcb = new CbKkGTaCn();
+            $modelcb->create($arrays);
             return redirect('xdkkthucanchannuoi');
         }else
             return view('errors.notlogin');

@@ -151,7 +151,9 @@
         <th width="30%">Loại phòng/ Quy<br>cách chất lượng<br>phòng</th>
         <th width="40%">Số hiệu<br>Phòng</th>
         <th width="10%">Mức giá kê<br>khai trước<br>liền kề</th>
+        <th width="10%">Mức giá kê<br>khai trước<bR> cuối tuần<br>liền kề</th>
         <th width="10%">Mức giá kê<br>khai</th>
+        <th width="10%">Mức giá kê<br>khai <br>cuối tuần</th>
         <th>Ghi chú</th>
     </tr>
     @foreach($modelkkct as $ctkk)
@@ -159,7 +161,9 @@
             <th style="text-align: left">{{$ctkk->loaip.'-'.$ctkk->qccl}}</th>
             <th style="text-align: left">{{getTtPhong($ctkk->sohieu)}}</th>
             <th style="text-align: right">{{number_format($ctkk->mucgialk)}}</th>
+            <th style="text-align: right">{{number_format($ctkk->mucgialkct)}}</th>
             <th style="text-align: right">{{number_format($ctkk->mucgiakk)}}</th>
+            <th style="text-align: right">{{number_format($ctkk->mucgiakkct)}}</th>
             <th>{{$ctkk->ghichu}}</th>
         </tr>
     @endforeach
@@ -227,6 +231,7 @@
         <th width="30%">Loại phòng/ Quy<br>cách chất lượng<br>phòng</th>
         <th width="40%">Số hiệu<br>Phòng</th>
         <th width="15%">Mức giá niêm<br>yết</th>
+        <th width="15%">Mức giá niêm<br>yết<br>cuối tuần</th>
         <th>Ghi chú</th>
     </tr>
     @foreach($modelkkct as $ctkk)
@@ -234,6 +239,7 @@
             <th style="text-align: left">{{$ctkk->loaip.' - '.$ctkk->qccl}}</th>
             <th style="text-align: left">{{getTtPhong($ctkk->sohieu)}}</th>
             <th style="text-align: right">{{number_format($ctkk->mucgiakk)}}</th>
+            <th style="text-align: right">{{number_format($ctkk->mucgiakkct)}}</th>
             <th>{{$ctkk->ghichu}}</th>
         </tr>
     @endforeach
