@@ -79,7 +79,7 @@ class RegisterController extends Controller
 
     public function show($id){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin') == 'sa'){
+            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'){
                 $model = Register::findOrFail($id);
                 $dvcq = District::where('mahuyen',$model->mahuyen)->first()->tendv;
                 $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
@@ -340,6 +340,7 @@ class RegisterController extends Controller
                 $check = Company::where('maxa',$model->maxa)
                     ->where('level',$model->level)
                     ->first();
+
                 if(count($check)>0){
                     return view('errors.notcrregisterlt');
                 }else {
