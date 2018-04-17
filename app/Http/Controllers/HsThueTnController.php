@@ -135,7 +135,9 @@ class HsThueTnController extends Controller
                 if(count($kiemtra)==0){
                     $ct->mahuyen = session('admin')->mahuyen;
                     $ct->mahs = $mahs;
-                    ThueTn::create($ct->toarray());
+                    $a = $ct->toarray();
+                    unset($a['id']);
+                    ThueTn::create($a);
                 }
             }
             return redirect(url('giathuetn/edit?mahs='.$mahs));

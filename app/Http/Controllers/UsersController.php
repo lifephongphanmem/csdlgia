@@ -166,10 +166,8 @@ class UsersController extends Controller
     {
         if (Session::has('admin')) {
             if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
-                $modeldvql = DmDvQl::all();
                 return view('system.users.create')
-                    ->with('modeldvql', $modeldvql)
-                    ->with('pageTitle', 'Chỉnh sửa thông tin tài khoản');
+                    ->with('pageTitle', 'Tạo mới thông tin tài khoản');
             }else{
                 return view('errors.perm');
             }
@@ -182,29 +180,19 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         if (Session::has('admin')) {
+            //quyền sa, ssa tạo tài khoản cấp tỉnh
             if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
                 $inputs = $request->all();
-                $modelcqcq = DmDvQl::where('maqhns',$inputs['cqcq'])->first();
-                if($modelcqcq->plql == 'TC' && $inputs['sadmin'] == 'qtht'){
-                    $sadmin ='salt';
-                }elseif($modelcqcq->plql == 'VT' && $inputs['sadmin'] == 'qtht'){
-                    $sadmin = 'savt';
-                }elseif($modelcqcq->plql == 'CT' && $inputs['sadmin'] == 'qtht'){
-                    $sadmin = 'sact';
-                }else{
-                    $sadmin = '';
-                }
-                $model = new  Users();
-                $model->cqcq = $inputs['cqcq'];
+
+                $model = new Users();
                 $model->name = $inputs['name'];
-                $model->status = 'Kích hoạt';
-                $model->level = $modelcqcq->level;
+                $model->status =  $inputs['status'];
+                $model->level = 'T';
                 $model->username = $inputs['username'];
                 $model->password = md5($inputs['password']);
-                $model->phone = $inputs['phone'];
+                //$model->phone = $inputs['phone'];
                 $model->ttnguoitao = session('admin')->name.'('.session('admin')->username.')'. getDateTime(Carbon::now()->toDateTimeString());
-                if($sadmin !='')
-                    $model->sadmin = $sadmin;
+                $model->permission = getPermissionDefault('T');
                 $model->save();
                 return redirect('users');
 

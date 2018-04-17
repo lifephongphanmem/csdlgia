@@ -31,29 +31,7 @@
                     {!! Form::open(['url'=>'users', 'id' => 'create_tttaikhoan', 'class'=>'horizontal-form']) !!}
                         <meta name="csrf-token" content="{{ csrf_token() }}" />
                         <div class="form-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Đơn vị trực thuộc</label>
-                                        <select class="form-control select2me required" id="cqcq" name="cqcq">
-                                            <option value="">--Chọn đơn vị--</option>
-                                            @foreach($modeldvql as $ttpb)
-                                                <option value="{{$ttpb->maqhns}}">{{$ttpb->tendv}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Phân loại</label>
-                                        <select class="form-control" id="sadmin" name="sadmin">
-                                            <option value="ql">Quản lý</option>
-                                            <option value="qtht">Quản trị hệ thống</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -64,8 +42,11 @@
                                 <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Điện thoại</label>
-                                        <input type="text" class="form-control" name="phone" id="phone">
+                                        <label class="control-label">Trạng thái</label>
+                                        <select class="form-control" name="status" id="status">
+                                            <option value="Kích hoạt" selected>Kích hoạt</option>
+                                            <option value="Vô hiệu">Vô hiệu</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <!--/span-->

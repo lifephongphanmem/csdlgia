@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td><input type="checkbox" {{ (isset($permission->hhtt->approve) && $permission->hhtt->approve == 1) ? 'checked' : '' }} value="1" name="roles[hhtt][approve]"/></td>
-                    <td>Xét duyệt</td>
+                    <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
                     <td><input type="checkbox" {{ (isset($permission->hhdvtn->approve) && $permission->hhdvtn->approve == 1) ? 'checked' : '' }} value="1" name="roles[hhdvtn][approve]"/></td>
-                    <td>Xét duyệt</td>
+                    <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -111,7 +111,7 @@
                 </tr>
                 <tr>
                     <td><input type="checkbox" {{ (isset($permission->hhxnk->approve) && $permission->hhxnk->approve == 1) ? 'checked' : '' }} value="1" name="roles[hhxnk][approve]"/></td>
-                    <td>Xét duyệt</td>
+                    <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -150,7 +150,7 @@
                 </tr>
                 <tr>
                     <td><input type="checkbox" {{ (isset($permission->kkgtw->approve) && $permission->kkgtw->approve == 1) ? 'checked' : '' }} value="1" name="roles[kkgtw][approve]"/></td>
-                    <td>Xét duyệt</td>
+                    <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -189,7 +189,7 @@
                 </tr>
                 <tr>
                     <td><input type="checkbox" {{ (isset($permission->kkgdp->approve) && $permission->kkgdp->approve == 1) ? 'checked' : '' }} value="1" name="roles[kkgdp][approve]"/></td>
-                    <td>Xét duyệt</td>
+                    <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -229,7 +229,7 @@
                     </tr>
                     <tr>
                         <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->approve) && $permission->tsnnnhadat->approve == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][approve]"/></td>
-                        <td>Xét duyệt</td>
+                        <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -268,7 +268,7 @@
                     </tr>
                     <tr>
                         <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->approve) && $permission->tsnnotokhac->approve == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][approve]"/></td>
-                        <td>Xét duyệt</td>
+                        <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -306,7 +306,7 @@
                     </tr>
                     <tr>
                         <td><input type="checkbox" {{ (isset($permission->gttruocba->approve) && $permission->gttruocba->approve == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][approve]"/></td>
-                        <td>Xét duyệt</td>
+                        <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -344,7 +344,7 @@
                         </tr>
                         <tr>
                             <td><input type="checkbox" {{ (isset($permission->gthuetn->approve) && $permission->gthuetn->approve == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][approve]"/></td>
-                            <td>Xét duyệt</td>
+                            <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -382,7 +382,7 @@
                         </tr>
                         <tr>
                             <td><input type="checkbox" {{ (isset($permission->tdgia->approve) && $permission->tdgia->approve == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][approve]"/></td>
-                            <td>Xét duyệt</td>
+                            <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -420,7 +420,7 @@
                         </tr>
                         <tr>
                             <td><input type="checkbox" {{ (isset($permission->congbogia->approve) && $permission->congbogia->approve == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][approve]"/></td>
-                            <td>Xét duyệt</td>
+                            <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -493,7 +493,7 @@
                             </tr>
                             <tr>
                                 <td><input type="checkbox" {{ (isset($permission->loaidat->approve) && $permission->loaidat->approve == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][approve]"/></td>
-                                <td>Xét duyệt</td>
+                                <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -531,10 +531,9 @@
                             </tr>
                             <tr>
                                 <td><input type="checkbox" {{ (isset($permission->vitri->approve) && $permission->vitri->approve == 1) ? 'checked' : '' }} value="1" name="roles[vitri][approve]"/></td>
-                                <td>Xét duyệt</td>
+                                <td>{{$model->level == 'T'? 'Xét duyệt':'Chuyển hồ sơ'}}</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 @endif
-

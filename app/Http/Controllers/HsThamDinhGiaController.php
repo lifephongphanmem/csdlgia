@@ -528,7 +528,7 @@ class HsThamDinhGiaController extends Controller
         if(Session::has('admin')){
             $model = ThamDinhGiaH::where('mahs',$mahs)
                 ->get();
-            return view('manage.thamdinhgia.history.index')
+            return view('manage.hhdv.thamdinhgia.history.index')
                 ->with('model',$model)
                 ->with('pageTitle','Thông tin lịch sử hồ sơ thẩm định giá');
         }else

@@ -73,63 +73,72 @@ function getPermissionDefault($level) {
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'hhdvtn' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'hhxnk' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'kkgtw' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'kkgdp' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'tsnnnhadat' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'tsnnotokhac' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'gttruocba' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'gthuetn' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'tdgia' => array(
             'index' => 1,
@@ -137,6 +146,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
         'congbogia' => array(
             'index' => 1,
@@ -144,6 +154,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
         'ttqd' => array(
             'index' => 1,
@@ -157,6 +168,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
         'vitri' => array(
             'index' => 1,
@@ -164,6 +176,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
     );
     $roles['H'] = array(
@@ -237,63 +250,72 @@ function getPermissionDefault($level) {
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'hhdvtn' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'hhxnk' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'kkgtw' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'kkgdp' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'tsnnnhadat' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'tsnnotokhac' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'gttruocba' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'gthuetn' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
             'delete' => 0,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 1
         ),
         'tdgia' => array(
             'index' => 1,
@@ -301,6 +323,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
         'congbogia' => array(
             'index' => 1,
@@ -308,12 +331,15 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
         'ttqd' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
-            'delete' => 0
+            'delete' => 0,
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'loaidat' => array(
             'index' => 1,
@@ -321,6 +347,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
         'vitri' => array(
             'index' => 1,
@@ -328,6 +355,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 1
         ),
     );
     $roles['DVLT'] = array(
@@ -446,63 +474,72 @@ function getPermissionDefault($level) {
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'hhdvtn' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'hhxnk' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'kkgtw' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'kkgdp' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'tsnnnhadat' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'tsnnotokhac' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'gttruocba' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'gthuetn' => array(
             'index' => 1,
             'create' => 1,
             'edit' => 1,
             'delete' => 1,
-            'approve'=> 1
+            'approve'=> 1,
+            'unapprove'=> 0
         ),
         'tdgia' => array(
             'index' => 1,
@@ -510,6 +547,7 @@ function getPermissionDefault($level) {
             'edit' => 1,
             'delete' => 1,
             'approve'=> 1,
+            'unapprove'=> 0
         ),
         'congbogia' => array(
             'index' => 1,
@@ -517,12 +555,15 @@ function getPermissionDefault($level) {
             'edit' => 1,
             'delete' => 1,
             'approve'=> 1,
+            'unapprove'=> 0
         ),
         'ttqd' => array(
             'index' => 1,
             'create' => 0,
             'edit' => 0,
-            'delete' => 0
+            'delete' => 0,
+            'approve'=> 0,
+            'unapprove'=> 0
         ),
         'loaidat' => array(
             'index' => 1,
@@ -530,6 +571,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 0
         ),
         'vitri' => array(
             'index' => 1,
@@ -537,6 +579,7 @@ function getPermissionDefault($level) {
             'edit' => 0,
             'delete' => 0,
             'approve'=> 1,
+            'unapprove'=> 0
         ),
     );
     return json_encode($roles[$level]);

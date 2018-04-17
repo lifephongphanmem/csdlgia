@@ -82,6 +82,17 @@
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box">
+                <div class="portlet-title">
+                    <div class="caption"></div>
+                    <div class="actions">
+                        @if(session('admin')->sadmin == 'ssa' ||
+                                (session('admin')->sadmin == 'sa' && $pl == "T" ))
+                            <a href="{{url('users/create')}}" class="btn btn-default btn-sm">
+                                <i class="fa fa-plus"></i> Tạo tài khoản</a>
+                        @endif
+                    </div>
+                </div>
+
                 <div class="portlet-body">
                     @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin =='sa')
                         <div class="row">
@@ -106,6 +117,7 @@
                                     </select>
                                 </div>
                             </div>
+
                         </div>
                     @endif
                     <div class="portlet-body">
