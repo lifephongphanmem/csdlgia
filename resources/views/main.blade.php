@@ -292,7 +292,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                 </li>
                 <!--Manager-->
-                @if(session('admin')->sadmin != 'sa')
+                @if(session('admin')->sadmin != 'sa' && session('admin')->sadmin != 'satc'
+                    && session('admin')->sadmin != 'sagt' && session('admin')->sadmin != 'sact')
                     @include('includes.main.main_hhdv')
                     @include('includes.main.maindvlt')
                     @include('includes.main.maindvvt')
@@ -302,13 +303,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 @endif
                 <!--End Manager-->
 
-                @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
-                <li>
-                    <a href="{{url('xetduyet_thaydoi_ttdoanhnghiep')}}">
-                        <i class="fa fa-laptop"></i>
-                        <span class="title">Thông tin DN thay đổi</span>
-                    </a>
-                </li>
+                @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                    || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact')
                 <li>
                     <a href="">
                         <i class="icon-settings"></i>
@@ -316,88 +312,92 @@ License: You must have a valid license purchased only from themeforest(the above
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub-menu">
-                        <li><a href="{{url('district')}}"> Danh mục đơn vị quận/huyện</a></li>
-                        <!--li><a href="{{url('town')}}"> Danh mục đơn vị xã/phường</a></li-->
-                        <li><a href="{{url('company')}}"> Danh mục doanh nghiệp</a></li>
+                        @if(session('admin')->sadmin == 'sa' || session('admin')->sadmin == 'ssa' )
+                            <li><a href="{{url('district')}}"> Danh mục đơn vị quận/huyện</a></li>
+                            <!--li><a href="{{url('town')}}"> Danh mục đơn vị xã/phường</a></li-->
+
+                            <!-- Hệ thống giá hàng hóa, dịch vu -->
+                            @if(canGeneral('hhdv','hhdvtn') || canGeneral('hhdv','hhxnk') || canGeneral('hhdv','hhtt')
+                                || canGeneral('hhdv','kkgtw') || canGeneral('hhdv','kkgdp'))
+                                <li>
+                                    <a href="javascript:;">Giá hàng hóa <span class="arrow"></span> </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{url('dmthitruong')}}"> Danh mục thị trường</a>
+                                        </li>
+                                        <!--li>
+                                            <a href="{{url('dmloaigia')}}"> Danh mục loại giá</a>
+                                        </li-->
+                                        <li>
+                                            <a href="{{url('dmloaihh')}}"> Danh mục loại hàng hóa</a>
+                                        </li>
+                                        @if(canGeneral('hhdv','hhtt'))
+                                            <li>
+                                                <a href="{{url('dmhanghoa-thitruong')}}"> Hàng hóa thị trường</a>
+                                            </li>
+                                            @endif
+                                                    <!-- 1. Thay thế phần mặt hàng trong nước dành cho Lào Cai -->
+                                            @if(!canGeneral('hhdv','hhdvlc'))<!--Chưa phân quyền-->
+                                            <li>
+                                                <a href="{{url('dmhanghoa-hanghoa')}}">Hàng hóa, dịch vụ trong nước</a>
+                                            </li>
+                                            @endif
+                                                    <!--End 1. -->
+                                            @if(canGeneral('hhdv','hhdvtn'))
+                                                <li>
+                                                    <a href="{{url('dmhanghoa-trongnuoc')}}">Mặt hàng trong nước</a>
+                                                </li>
+                                            @endif
+                                            @if(canGeneral('hhdv','hhxnk'))
+                                                <li>
+                                                    <a href="{{url('dmhanghoa-xuatnhapkhau')}}"> Mặt hàng xuất nhập khẩu</a>
+                                                </li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
+
+                            @if(canGeneral('hhdv','loaidat') || canGeneral('hhdv','vitri'))
+                                <li>
+                                    <a href="javascript:;">Giá đất <span class="arrow"></span> </a>
+                                    <ul class="sub-menu">
+                                        @if(canGeneral('hhdv','loaidat'))
+                                            <li>
+                                                <a href="{{url('dmloaidat')}}"> Danh mục phân loại đất</a>
+                                            </li>
+                                        @endif
+
+                                        @if(canGeneral('hhdv','vitri'))
+                                            <li>
+                                                <a href="{{url('dmqdgiadat')}}">Danh mục văn bản quy định giá</a>
+                                            </li>
+                                        @endif
+
+                                    </ul>
+                                </li>
+                            @endif
+
+                            @if(canGeneral('hhdv','gttruocba'))
+                                <li><a href="{{url('dmloaixe-thuetruocba')}}">Danh mục thuế trước bạ</a> </li>
+                            @endif
+                            @if(canGeneral('hhdv','gthuetn'))
+                                <li><a href="{{url('dmthuetn')}}">Danh mục thuế tài nguyên</a> </li>
+                            @endif
+                            @if(canGeneral('hhdv','ttqd'))
+                                <li><a href="{{url('dmloaivanban')}}">Danh mục loại văn bản</a> </li>
+                            @endif
+                            <li><a href="{{url('dmtd/pl=all')}}">Thời điểm kê khai</a></li>
+                            <li><a href="{{url('general')}}">Cấu hình hệ thống</a></li>
+                        @endif
+                        <li>
+                            <a href="{{url('xetduyet_thaydoi_ttdoanhnghiep')}}">
+                                <span class="title">Thông tin DN thay đổi</span>
+                            </a>
+                        </li>
+                        <li><a href="{{url('company')}}"> Danh sách doanh nghiệp</a></li>
                         <li><a href="{{url('users')}}"> Quản lý tài khoản</a></li>
                         <li><a href="{{url('register')}}"> Tài khoản đăng ký</a></li>
-                        <li><a href="{{url('general')}}">Cấu hình hệ thống</a></li>
-
-                        <!-- Hệ thống giá hàng hóa, dịch vu -->
-
-                        @if(canGeneral('hhdv','hhdvtn') || canGeneral('hhdv','hhxnk') || canGeneral('hhdv','hhtt')
-                            || canGeneral('hhdv','kkgtw') || canGeneral('hhdv','kkgdp'))
-                            <li>
-                                <a href="javascript:;">Giá hàng hóa <span class="arrow"></span> </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="{{url('dmthitruong')}}"> Danh mục thị trường</a>
-                                    </li>
-                                    <!--li>
-                                        <a href="{{url('dmloaigia')}}"> Danh mục loại giá</a>
-                                    </li-->
-                                    <li>
-                                        <a href="{{url('dmloaihh')}}"> Danh mục loại hàng hóa</a>
-                                    </li>
-                                    @if(canGeneral('hhdv','hhtt'))
-                                        <li>
-                                            <a href="{{url('dmhanghoa-thitruong')}}"> Hàng hóa thị trường</a>
-                                        </li>
-                                        @endif
-                                                <!-- 1. Thay thế phần mặt hàng trong nước dành cho Lào Cai -->
-                                        @if(!canGeneral('hhdv','hhdvlc'))<!--Chưa phân quyền-->
-                                        <li>
-                                            <a href="{{url('dmhanghoa-hanghoa')}}">Hàng hóa, dịch vụ trong nước</a>
-                                        </li>
-                                        @endif
-                                                <!--End 1. -->
-                                        @if(canGeneral('hhdv','hhdvtn'))
-                                            <li>
-                                                <a href="{{url('dmhanghoa-trongnuoc')}}">Mặt hàng trong nước</a>
-                                            </li>
-                                        @endif
-                                        @if(canGeneral('hhdv','hhxnk'))
-                                            <li>
-                                                <a href="{{url('dmhanghoa-xuatnhapkhau')}}"> Mặt hàng xuất nhập khẩu</a>
-                                            </li>
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
-
-                        @if(canGeneral('hhdv','loaidat') || canGeneral('hhdv','vitri'))
-                            <li>
-                                <a href="javascript:;">Giá đất <span class="arrow"></span> </a>
-                                <ul class="sub-menu">
-                                    @if(canGeneral('hhdv','loaidat'))
-                                        <li>
-                                            <a href="{{url('dmloaidat')}}"> Danh mục phân loại đất</a>
-                                        </li>
-                                    @endif
-
-                                    @if(canGeneral('hhdv','vitri'))
-                                        <li>
-                                            <a href="{{url('dmqdgiadat')}}">Danh mục văn bản quy định giá</a>
-                                        </li>
-                                    @endif
-
-                                </ul>
-                            </li>
-                        @endif
-
-                        @if(canGeneral('hhdv','gttruocba'))
-                            <li><a href="{{url('dmloaixe-thuetruocba')}}">Danh mục thuế trước bạ</a> </li>
-                        @endif
-                        @if(canGeneral('hhdv','gthuetn'))
-                            <li><a href="{{url('dmthuetn')}}">Danh mục thuế tài nguyên</a> </li>
-                        @endif
-                        @if(canGeneral('hhdv','ttqd'))
-                            <li><a href="{{url('dmloaivanban')}}">Danh mục loại văn bản</a> </li>
-                        @endif
-                        <li><a href="{{url('dmtd/pl=all')}}">Thời điểm kê khai</a></li>
                     </ul>
-
-
                 </li>
                 @endif
             </ul>

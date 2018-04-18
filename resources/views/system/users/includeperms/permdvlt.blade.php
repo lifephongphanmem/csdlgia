@@ -1,5 +1,5 @@
-@if(canGeneral('dvlt','dvlt'))
-    @if($model->level == 'T' || $model->level == 'H' || $model->level == 'DVLT')
+@if($model->level == 'T' || $model->level == 'H' || $model->level == 'DVLT')
+    <div class="row">
         <div class="col-md-3">
             <h4 style="text-align: center;color: #0000ff  ">Thông tin DN DVLT</h4>
             <table class="table table-striped table-bordered table-hover">
@@ -67,6 +67,6 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
-    @endif
+    </div>
+    </div>
 @endif

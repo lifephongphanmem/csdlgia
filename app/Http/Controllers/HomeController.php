@@ -37,6 +37,8 @@ class HomeController extends Controller
         if (Session::has('admin')) {
             if(session('admin')->sadmin == 'sa' )
                 return redirect('general');
+            elseif(session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact')
+                return redirect('company');
             else{
                 return view('dashboard')
                     ->with('pageTitle','Tổng quan');
@@ -657,4 +659,9 @@ class HomeController extends Controller
         return view('errors.register-success');
     }
 
+
+    public function ghichuct(){
+        return view('system.ghichuct.index')
+            ->with('pageTitle','Ghi chú chương trình');
+    }
 }

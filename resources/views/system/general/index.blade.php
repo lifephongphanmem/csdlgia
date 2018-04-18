@@ -26,21 +26,17 @@
                     <div class="caption">
                     </div>
                     <div class="actions">
-                        @if(count($model) >0)
-                            <a href="{{url('general/'.$model->id.'/edit')}}" class="btn btn-default btn-sm">
-                            <i class="fa fa-edit"></i> Chỉnh sửa </a>
-                            @if(session('admin')->sadmin=='ssa')
-                                <a href="{{url('setting')}}" class="btn btn-default btn-sm">
-                                    <i class="icon-settings"></i> Setting</a>
+                        @if(session('admin')->sadmin=='ssa')
+                            @if(count($model) >0)
+                                <a href="{{url('general/'.$model->id.'/edit')}}" class="btn btn-default btn-sm">
+                                <i class="fa fa-edit"></i> Chỉnh sửa </a>
+                            @else
+                                <a href="{{url('general/create')}}" class="btn btn-default btn-sm">
+                                    <i class="fa fa-plus"></i> Thêm mới</a>
                             @endif
-                        @else
-                            <a href="{{url('general/create')}}" class="btn btn-default btn-sm">
-                                <i class="fa fa-plus"></i> Thêm mới</a>
+                            <a href="{{url('setting')}}" class="btn btn-default btn-sm">
+                                <i class="icon-settings"></i> Setting</a>
                         @endif
-
-                        <!--a href="" class="btn btn-default btn-sm">
-                            <i class="fa fa-print"></i> Print </a-->
-
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -51,7 +47,7 @@
                                 <b>Bản quyền thuộc về</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">Công ty TNHH phát triển phần mềm Cuộc Sống
+                                <span class="text-muted"><b style="color: blue">Công ty TNHH phát triển phần mềm Cuộc Sống</b>
                                 </span>
                             </td>
                         </tr>
@@ -87,7 +83,7 @@
                                 <b>Cấp cho đơn vị</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">
+                                <span class="text-muted">{{$model->tendonvi}}
                                 </span>
                             </td>
                         </tr>
@@ -96,12 +92,10 @@
                                 <b>Thông tin hợp đồng</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">
+                                <span class="text-muted"><p>{{$model->thongtinhd}}</p>
                                 </span>
                             </td>
                         </tr>
-
-
                         </tbody>
                     </table>
                 </div>

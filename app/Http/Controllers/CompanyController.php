@@ -15,51 +15,69 @@ class CompanyController extends Controller
 {
     public function index(Request $request){
         if (Session::has('admin')) {
-            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
-                $inputs = $request->all();
-                $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVLT';
-                $model = Company::where('level',$inputs['level'])->get();
-                return view('system.company.index')
-                    ->with('model', $model)
-                    ->with('level',$inputs['level'])
-                    ->with('pageTitle', 'Danh mục doanh nghiệp cung cấp dịch vụ');
-            }else{
-                return view('errors.perm');
-            }
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
 
+                $inputs = $request->all();
+                if(session('admin')->sadmin == 'satc')
+                    $inputs['level'] =  isset($inputs['level']) ? $inputs['level'] : 'DVLT';
+                elseif( session('admin')->sadmin == 'sagt')
+                    $inputs['level'] =  isset($inputs['level']) ? $inputs['level'] : 'DVVT';
+                elseif(session('admin')->sadmin == 'sact')
+                    $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVGS';
+                else
+                    $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVLT';
+                //Check quyền
+                if($inputs['level'] == 'DVLT' && can('ttdn','dvlt') || $inputs['level'] == 'DVVT' && can('ttdn','dvvt')
+                    || $inputs['level'] == 'DVGS' && can('ttdn','dvgs') || $inputs['level'] == 'DVTACN' && can('ttdn','dvtacn')) {
+
+                    $model = Company::where('level', $inputs['level'])->get();
+                    return view('system.company.index')
+                        ->with('model', $model)
+                        ->with('level', $inputs['level'])
+                        ->with('pageTitle', 'Danh mục doanh nghiệp cung cấp dịch vụ');
+                }else
+                    return view('errors.perm');
+            }else
+                return view('errors.perm');
         }else
             return view('errors.notlogin');
     }
 
     public function edit($id){
         if (Session::has('admin')) {
-            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $model = Company::findOrFail($id);
-                if($model->level == 'DVLT' || $model->level == 'TACN')
-                    $phanloaiql = 'TC';
-                elseif($model->level == 'DVGS')
-                    $phanloaiql = 'CT';
-                else
-                    $phanloaiql = 'VT';
-                $district = District::where('phanloaiql',$phanloaiql)
-                    ->get();
-                $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
-                return view('system.company.edit')
-                    ->with('model', $model)
-                    ->with('district',$district)
-                    ->with('settingdvvt',$settingdvvt)
-                    ->with('pageTitle', 'Chỉnh sửa thông tin doanh nghiệp cung cấp dịch vụ');
-            }else{
+                //Check quyền
+                if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
+                    || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
+                    if ($model->level == 'DVLT' || $model->level == 'TACN')
+                        $phanloaiql = 'TC';
+                    elseif ($model->level == 'DVGS')
+                        $phanloaiql = 'CT';
+                    else
+                        $phanloaiql = 'VT';
+                    $district = District::where('phanloaiql', $phanloaiql)
+                        ->get();
+                    $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
+                    return view('system.company.edit')
+                        ->with('model', $model)
+                        ->with('district', $district)
+                        ->with('settingdvvt', $settingdvvt)
+                        ->with('pageTitle', 'Chỉnh sửa thông tin doanh nghiệp cung cấp dịch vụ');
+                }else
+                    return view('errors.perm');
+            }else
                 return view('errors.perm');
-            }
-
         }else
             return view('errors.notlogin');
     }
 
     public function update(Request $request,$id){
         if (Session::has('admin')) {
-            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $inputs = $request->all();
                 $model = Company::findOrFail($id);
                 $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
@@ -99,10 +117,8 @@ class CompanyController extends Controller
                     ->with('settingdvvt',$settingdvvt)
                     ->with('settingdvvttd',$settingdvvttd)
                     ->with('pageTitle', 'Thông tin doanh nghiệp');
-            }else{
+            }else
                 return view('errors.perm');
-            }
-
         }else
             return view('errors.notlogin');
     }
@@ -119,12 +135,10 @@ class CompanyController extends Controller
                         ->with('model', $model)
                         ->with('settingdvvt',$settingdvvt)
                         ->with('pageTitle', 'Thông tin doanh nghiệp chỉnh sửa');
-                }else{
+                }else
                     return view('errors.noperm');
-                }
-            }else {
+            }else
                 return view('errors.perm');
-            }
         }else
             return view('errors.notlogin');
     }

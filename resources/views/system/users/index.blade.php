@@ -94,32 +94,40 @@
                 </div>
 
                 <div class="portlet-body">
-                    @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin =='sa')
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <select class="form-control" name="phanloai" id="phanloai">
+                                        @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
                                         <option value="T" {{($pl == "T") ? 'selected' : ''}}>Cấp Tỉnh</option>
                                         <option value="H" {{($pl == "H") ? 'selected' : ''}}>Cấp Huyện</option>
                                         <option value="X" {{($pl == "X") ? 'selected' : ''}}>Cấp Xã</option>
+                                        @endif
                                         @if(canGeneral('dvlt','dvlt') )
-                                        <option value="DVLT" {{($pl == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
+                                            @if(can('ttdn','dvlt'))
+                                                <option value="DVLT" {{($pl == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
+                                            @endif
                                         @endif
                                         @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
-                                        <option value="DVVT" {{($pl == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
+                                            @if(can('ttdn','dvvt'))
+                                                <option value="DVVT" {{($pl == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
+                                            @endif
                                         @endif
                                         @if(canGeneral('dvgs','dvgs'))
-                                        <option value="DVGS" {{($pl == "DVGS") ? 'selected' : ''}}>Dịch vụ giá sữa</option>
+                                            @if(can('ttdn','dvgs'))
+                                                <option value="DVGS" {{($pl == "DVGS") ? 'selected' : ''}}>Mặt hàng sữa</option>
+                                            @endif
                                         @endif
                                         @if(canGeneral('dvtacn','dvtacn'))
-                                        <option value="DVTACN" {{($pl == "DVTACN") ? 'selected' : ''}}>Thức ăn chăn nuôi</option>
+                                            @if(can('ttdn','dvtacn'))
+                                                <option value="DVTACN" {{($pl == "DVTACN") ? 'selected' : ''}}>Thức ăn chăn nuôi</option>
+                                            @endif
                                         @endif
                                     </select>
                                 </div>
                             </div>
 
                         </div>
-                    @endif
                     <div class="portlet-body">
                         <div class="table-toolbar">
                         </div>
@@ -151,9 +159,7 @@
                             </td>
                             <td>
                                 <a href="{{url('users/'.$tt->id.'/edit')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa</a>
-                                @if($tt->sadmin != 'satc' && $tt->sadmin != 'savt' && $tt->sadmin != 'sa')
-                                    <a href="{{url('users/'.$tt->id.'/phan-quyen')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-cogs"></i>&nbsp;Phân quyền</a>
-                                @endif
+                                <a href="{{url('users/'.$tt->id.'/phan-quyen')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-cogs"></i>&nbsp;Phân quyền</a>
                                 @if(session('admin')->sadmin == 'ssa')
                                 <button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
                                     Xóa</button>

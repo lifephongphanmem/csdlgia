@@ -582,6 +582,34 @@ function getPermissionDefault($level) {
             'unapprove'=> 0
         ),
     );
+    //Quyền quản trị
+    $roles['satc'] = array(
+        'ttdn' => array(
+            'index' => 1,
+            'dvlt' => 1,
+            'dvvt' => 0,
+            'dvgs' => 0,
+            'dvtacn'=> 1
+        ),
+    );
+    $roles['sact'] = array(
+        'ttdn' => array(
+            'index' => 1,
+            'dvlt' => 0,
+            'dvvt' => 0,
+            'dvgs' => 1,
+            'dvtacn'=> 0
+        ),
+    );
+    $roles['sagt'] = array(
+        'ttdn' => array(
+            'index' => 1,
+            'dvlt' => 0,
+            'dvvt' => 0,
+            'dvgs' => 1,
+            'dvtacn'=> 0
+        ),
+    );
     return json_encode($roles[$level]);
 }
 
@@ -617,7 +645,7 @@ function can($module = null, $action = null)
     $permission = json_decode($permission, true);
 
     //check permission
-    if(isset($permission[$module][$action]) && $permission[$module][$action] == 1 || session('admin')->sadmin == 'ssa') {
+    if(isset($permission[$module][$action]) && $permission[$module][$action] == 1 || session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
         return true;
     }else
         return false;
@@ -726,7 +754,6 @@ function getDouble($str)
 
 function canDVVT($setting = null,$module = null, $action = null){
     $setting = json_decode($setting, true);
-
     //check permission
     if(isset($setting[$module][$action]) && $setting[$module][$action] == 1) {
         return true;

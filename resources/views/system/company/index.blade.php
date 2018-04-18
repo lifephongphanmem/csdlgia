@@ -39,7 +39,7 @@
 @section('content')
 
     <h3 class="page-title">
-        Danh mục doanh nghiệp<small>&nbsp;cung cấp dịch vụ</small>
+        Danh sách doanh nghiệp<small>&nbsp;cung cấp hàng hoá,dịch vụ</small>
     </h3>
     <!-- END PAGE HEADER-->
     <div class="row">
@@ -58,16 +58,24 @@
                             <div class="form-group">
                                 <select class="form-control" name="level" id="level">
                                     @if(canGeneral('dvlt','dvlt') )
+                                        @if(can('ttdn','dvlt'))
                                         <option value="DVLT" {{($level == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
+                                        @endif
                                     @endif
                                     @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
+                                        @if(can('ttdn','dvvt'))
                                         <option value="DVVT" {{($level == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
+                                        @endif
                                     @endif
                                     @if(canGeneral('dvgs','dvgs'))
-                                        <option value="DVGS" {{($level == "DVGS") ? 'selected' : ''}}>Dịch vụ giá sữa</option>
+                                        @if(can('ttdn','dvgs'))
+                                        <option value="DVGS" {{($level == "DVGS") ? 'selected' : ''}}>Mặt hàng sữa</option>
+                                        @endif
                                     @endif
                                     @if(canGeneral('dvtacn','dvtacn'))
-                                        <option value="DVTACN" {{($level == "DVTACN") ? 'selected' : ''}}>Dịch vụ thức ăn chăn nuôi</option>
+                                        @if(can('ttdn','dvtacn'))
+                                        <option value="DVTACN" {{($level == "DVTACN") ? 'selected' : ''}}>Thức ăn chăn nuôi</option>
+                                        @endif
                                     @endif
                                 </select>
                             </div>

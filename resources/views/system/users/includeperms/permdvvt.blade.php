@@ -1,39 +1,39 @@
-@if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('vtxtx','vtxb') || canGeneral('dvvt','vtch'))
-    @if($model->level == 'T' || $model->level == 'H' || $model->level == 'DVVT')
-        <div class="col-md-3">
-            <h4 style="text-align: center;color: #0000ff  ">Thông tin DN DVVT</h4>
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="action">
-                <tr>
-                    <th class="table-checkbox" width="5%"></th>
-                    <th>Chức năng</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><input type="checkbox" {{ (isset($permission->dvvt->index) && $permission->dvvt->index == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][index]"/></td>
-                    <td>Xem</td>
-                </tr>
-                <tr>
-                    <td>@if($model->level == 'DVVT')<input type="checkbox" {{ (isset($permission->dvvt->create) && $permission->dvvt->create == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][create]"/>@endif</td>
-                    <td>Thêm mới</td>
-                </tr>
-                <tr>
-                    <td>@if($model->level == 'DVVT')<input type="checkbox" {{ (isset($permission->dvvt->edit) && $permission->dvvt->edit == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][edit]"/>@endif</td>
-                    <td>Chỉnh sửa</td>
-                </tr>
-                <tr>
-                    <td>@if($model->level == 'DVVT')<input type="checkbox" {{ (isset($permission->dvvt->delete) && $permission->dvvt->delete == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][delete]"/>@endif</td>
-                    <td>Xóa</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" {{ (isset($permission->dvvt->approve) && $permission->dvvt->approve == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][approve]"/></td>
-                    <td>{{($model->level == 'T' || $model->level == 'H') ? 'Xét duyệt' : 'Chuyển'}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    @endif
+
+@if($model->level == 'T' || $model->level == 'H' || $model->level == 'DVVT')
+<div class="row">
+    <div class="col-md-3">
+        <h4 style="text-align: center;color: #0000ff  ">Thông tin DN DVVT</h4>
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="action">
+            <tr>
+                <th class="table-checkbox" width="5%"></th>
+                <th>Chức năng</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox" {{ (isset($permission->dvvt->index) && $permission->dvvt->index == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][index]"/></td>
+                <td>Xem</td>
+            </tr>
+            <tr>
+                <td>@if($model->level == 'DVVT')<input type="checkbox" {{ (isset($permission->dvvt->create) && $permission->dvvt->create == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][create]"/>@endif</td>
+                <td>Thêm mới</td>
+            </tr>
+            <tr>
+                <td>@if($model->level == 'DVVT')<input type="checkbox" {{ (isset($permission->dvvt->edit) && $permission->dvvt->edit == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][edit]"/>@endif</td>
+                <td>Chỉnh sửa</td>
+            </tr>
+            <tr>
+                <td>@if($model->level == 'DVVT')<input type="checkbox" {{ (isset($permission->dvvt->delete) && $permission->dvvt->delete == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][delete]"/>@endif</td>
+                <td>Xóa</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" {{ (isset($permission->dvvt->approve) && $permission->dvvt->approve == 1) ? 'checked' : '' }} value="1" name="roles[dvvt][approve]"/></td>
+                <td>{{($model->level == 'T' || $model->level == 'H') ? 'Xét duyệt' : 'Chuyển'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 @endif
 @if(canGeneral('dvvt','vtxk'))
     @if(canDVVT($setting,'dvvt','vtxk') || $model->level == 'T' || $model->level == 'H')
@@ -191,4 +191,5 @@
             </table>
         </div>
     @endif
+</div>
 @endif

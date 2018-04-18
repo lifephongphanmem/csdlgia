@@ -37,6 +37,7 @@ Route::resource('company','CompanyController');
 
 Route::resource('xetduyet_thaydoi_ttdoanhnghiep','XdTdTtDnController');
 Route::post('xetduyet_thaydoi_ttdoanhnghiep/tralai','XdTdTtDnController@tralai');
+Route::get('xetduyet_thaydoi_ttdoanhnghiep/{id}/duyet','XdTdTtDnController@duyet');
 
 
 //Users
@@ -85,7 +86,6 @@ include('manage/dvvt.php');
 // </editor-fold>//End Manage
 
 include('congbo/congbo.php');
-
-Route::resource('test','TestController');
+Route::get('ghichuct','HomeController@ghichuct');
 
 

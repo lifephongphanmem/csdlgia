@@ -43,16 +43,27 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="portlet-body">
-                        <div class="row">
-                            @include('system.users.includeperms.perm_hhdv')
-                            @include('system.users.includeperms.permdvlt')
-                            @include('system.users.includeperms.permdvvt')
-                            @include('system.users.includeperms.permdvgs')
-                            @include('system.users.includeperms.permdvtacn')
-                        </div>
+                    <div class="row">
+                        @if($model->sadmin == 'sa')
+                            @include('system.users.includeperms.permsa')
+                        @else
+                            @if( $model->level != 'DVLT' && $model->level != 'DVVT' && $model->level != 'DVGS' && $model->level != 'DVTACN')
+                                @include('system.users.includeperms.perm_hhdv')
+                            @endif
+                            @if(canGeneral('dvlt','dvlt'))
+                                @include('system.users.includeperms.permdvlt')
+                            @endif
+                            @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('vtxtx','vtxb') || canGeneral('dvvt','vtch'))
+                                @include('system.users.includeperms.permdvvt')
+                            @endif
+                            @if(canGeneral('dvgs','dvgs'))
+                                @include('system.users.includeperms.permdvgs')
+                            @endif
+                            @if(canGeneral('dvtacn','dvtacn'))
+                                @include('system.users.includeperms.permdvtacn')
+                            @endif
+                        @endif
                     </div>
-
                 </div>
             </div>
             <div style="text-align: center">

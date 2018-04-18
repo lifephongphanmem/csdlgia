@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\District;
 use App\DmDvQl;
 use App\DnDvGs;
 use App\DnDvLt;
@@ -116,50 +117,42 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         if (Session::has('admin')) {
-            if (session('admin')->level == 'T' || session('admin')->level == 'H') {
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact') {
                 $inputs = $request->all();
                 if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin =='sa')
                     $inputs['phanloai'] = isset($inputs['phanloai']) ? $inputs['phanloai'] : 'T';
-                elseif(session('admin')->sadmin == 'savt')
-                    $inputs['phanloai'] = isset($inputs['phanloai']) ? 'DVVT' : 'DVVT';
+                elseif(session('admin')->sadmin == 'sagt')
+                    $inputs['phanloai'] = isset($inputs['phanloai']) ? $inputs['phanloai'] : 'DVVT';
                 elseif(session('admin')->sadmin == 'satc')
-                    $inputs['phanloai'] = isset($inputs['phanloai']) ? 'DVLT' : 'DVLT';
+                    $inputs['phanloai'] = isset($inputs['phanloai']) ? $inputs['phanloai'] : 'DVLT';
                 elseif(session('admin')->sadmin == 'sact')
-                    $inputs['phanloai'] = isset($inputs['phanloai']) ? 'DVGS' : 'DVGS';
-                elseif(session('admin')->sadmin == 'satacn')
-                    $inputs['phanloai'] = isset($inputs['phanloai']) ? 'DVTACN' : 'DVTACN';
-
-                if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin =='sa') {
+                    $inputs['phanloai'] = isset($inputs['phanloai']) ? $inputs['phanloai'] : 'DVGS';
+                //checkquyền
+                if($inputs['phanloai'] == 'DVLT' && can('ttdn','dvlt') || $inputs['phanloai'] == 'DVVT' && can('ttdn','dvvt')
+                    || $inputs['phanloai'] == 'DVGS' && can('ttdn','dvgs') || $inputs['phanloai'] == 'DVTACN' && can('ttdn','dvtacn')
+                    || $inputs['phanloai'] == 'T' || $inputs['phanloai'] == 'H') {
                     $model = Users::where('level', $inputs['phanloai'])
                         ->orderBy('id', 'desc')
                         ->get();
-                }elseif((session('admin')->sadmin == 'savt') || (session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'satacn')) {
-                    $model = Users::where('level', $inputs['phanloai'])
-                        ->where('cqcq', session('admin')->cqcq)
-                        ->orderBy('id', 'desc')
-                        ->get();
-                }else{
-                    return view('errors.noperm');
-                }
-                $index_unset = 0;
-                foreach ($model as $user) {
-                    if ($user->sadmin == 'ssa') {
-                        unset($model[$index_unset]);
+                    $index_unset = 0;
+                    foreach ($model as $user) {
+                        if ($user->sadmin == 'ssa') {
+                            unset($model[$index_unset]);
+                        }
+                        $index_unset++;
                     }
-                    $index_unset++;
-                }
 
-                return view('system.users.index')
-                    ->with('model', $model)
-                    ->with('pl', $inputs['phanloai'])
-                    ->with('pageTitle', 'Danh sách tài khoản');
-            }else{
+                    return view('system.users.index')
+                        ->with('model', $model)
+                        ->with('pl', $inputs['phanloai'])
+                        ->with('pageTitle', 'Danh sách tài khoản');
+                }else
+                    return view('errors.perm');
+            }else
                 return view('errors.perm');
-            }
-
-        } else {
+        } else
             return view('errors.notlogin');
-        }
     }
 
     public function create()
@@ -226,34 +219,32 @@ class UsersController extends Controller
     {
         if (Session::has('admin')) {
             $model = Users::findOrFail($id);
-            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'savt' || session('admin')->sadmin == 'sa') {
-                if (session('admin')->sadmin == 'ssa' || session('admin')->cqcq == $model->cqcq || session('admin')->sadmin == 'sa') {
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'satc'
+                || session('admin')->sadmin == 'savt' || session('admin')->sadmin == 'sa' || session('admin')->sadmin == 'sact') {
+                if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
+                    || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
                     if ($model->level == 'DVLT')
-                        $modeldvql = DmDvQl::where('plql', 'TC')
+                        $modeldvql = District::where('phanloaiql', 'TC')
                             ->get();
                     elseif ($model->level == 'DVVT')
-                        $modeldvql = DmDvQl::where('plql', 'VT')
+                        $modeldvql = District::where('phanloaiql', 'VT')
                             ->get();
                     elseif ($model->level == 'DVVT')
-                        $modeldvql = DmDvQl::where('plql', 'CT')
+                        $modeldvql = District::where('phanloaiql', 'CT')
                             ->get();
-                    elseif($model->level == 'DVTACN')
-                        $modeldvql = DmDvQl::where('plql','TC')
-                        ->get();
+                    elseif ($model->level == 'DVTACN')
+                        $modeldvql = District::where('phanloaiql', 'TC')
+                            ->get();
                     return view('system.users.edit')
                         ->with('model', $model)
                         ->with('modeldvql', $modeldvql)
                         ->with('pageTitle', 'Chỉnh sửa thông tin tài khoản');
-                } else {
-                    return view('errors.noperm');
-                }
-            }else{
+                }else
+                    return view('errors.perm');
+            }else
                 return view('errors.perm');
-            }
-
-        } else {
+        } else
             return view('errors.notlogin');
-        }
     }
 
     /**
@@ -268,21 +259,13 @@ class UsersController extends Controller
         if (Session::has('admin')) {
             $input = $request->all();
             $model = Users::findOrFail($id);
-            if(session('admin')->sadmin == 'ssa' || $model->cqcq == session('admin')->cqcq) {
-                $model->name = $input['name'];
-                //$model->phone = $input['phone'];
-                $model->email = $input['email'];
-                $model->status = $input['status'];
-                $model->username = $input['username'];
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'satc'
+                || session('admin')->sadmin == 'savt' || session('admin')->sadmin == 'sa' || session('admin')->sadmin == 'sact') {
                 if ($input['newpass'] != '')
-                    $model->password = md5($input['newpass']);
-                $model->save();
-                if($model->level == 'T'|| $model->level == 'H')
-                    $pl = 'QL';
-                else
-                    $pl=$model->level;
+                    $input['password'] = md5($input['newpass']);
+                $model->update($input);
 
-                return redirect('users?&phanloai='.$pl);
+                return redirect('users?&phanloai='.$model->level);
             }else
                 return view('errors.noperm');
 
@@ -309,21 +292,24 @@ class UsersController extends Controller
         if (Session::has('admin')) {
 
             $model = Users::findorFail($id);
-            if($model->level == 'DVVT') {
-                $ttdn = Company::where('maxa',$model->maxa)
-                    ->where('level','DVVT')
-                    ->first();
-                $setting = $ttdn->settingdvvt;
+            if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
+                || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
+                if ($model->level == 'DVVT') {
+                    $ttdn = Company::where('maxa', $model->maxa)
+                        ->where('level', 'DVVT')
+                        ->first();
+                    $setting = $ttdn->settingdvvt;
+                } else
+                    $setting = '';
+                $permission = !empty($model->permission) ? $model->permission : getPermissionDefault($model->level);
+                //dd(json_decode($permission));
+                return view('system.users.perms')
+                    ->with('permission', json_decode($permission))
+                    ->with('setting', $setting)
+                    ->with('model', $model)
+                    ->with('pageTitle', 'Phân quyền cho tài khoản');
             }else
-                $setting = '';
-            $permission = !empty($model->permission) ? $model->permission : getPermissionDefault($model->level);
-            //dd(json_decode($permission));
-            return view('system.users.perms')
-                ->with('permission', json_decode($permission))
-                ->with('setting',$setting)
-                ->with('model', $model)
-                ->with('pageTitle', 'Phân quyền cho tài khoản');
-
+                return view('errors.perm');
         } else
             return view('errors.notlogin');
     }

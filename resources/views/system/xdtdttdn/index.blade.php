@@ -46,28 +46,34 @@
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box">
                 <div class="portlet-body">
-                    @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
                                 <select class="form-control" name="level" id="level">
                                     @if(canGeneral('dvlt','dvlt') )
-                                    <option value="DVLT" {{($level == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
+                                        @if(can('ttdn','dvlt'))
+                                            <option value="DVLT" {{($level == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
+                                        @endif
                                     @endif
                                     @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
-                                    <option value="DVVT" {{($level == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
+                                        @if(can('ttdn','dvvt'))
+                                            <option value="DVVT" {{($level == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
+                                        @endif
                                     @endif
                                     @if(canGeneral('dvgs','dvgs'))
-                                    <option value="DVGS" {{($level == "DVGS") ? 'selected' : ''}}>Dịch vụ giá sữa</option>
+                                        @if(can('ttdn','dvgs'))
+                                            <option value="DVGS" {{($level == "DVGS") ? 'selected' : ''}}>Mặt hàng sữa</option>
+                                        @endif
                                     @endif
                                     @if(canGeneral('dvtacn','dvtacn'))
-                                    <option value="DVTACN" {{($level == "DVTACN") ? 'selected' : ''}}>Dịch vụ thức ăn chăn nuôi</option>
+                                        @if(can('ttdn','dvtacn'))
+                                            <option value="DVTACN" {{($level == "DVTACN") ? 'selected' : ''}}>Thức ăn chăn nuôi</option>
+                                        @endif
                                     @endif
                                 </select>
                             </div>
                         </div>
                     </div>
-                    @endif
                     <div class="portlet-body">
                         <div class="table-toolbar">
 
