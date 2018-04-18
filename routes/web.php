@@ -86,4 +86,6 @@ include('manage/dvvt.php');
 
 include('congbo/congbo.php');
 
+Route::resource('test','TestController');
+
 
