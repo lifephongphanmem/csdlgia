@@ -83,7 +83,7 @@
                                 <b>Cấp cho đơn vị</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{{$model->tendonvi}}
+                                <span class="text-muted">{{isset($model) ? $model->tendonvi : ''}}
                                 </span>
                             </td>
                         </tr>
@@ -92,7 +92,7 @@
                                 <b>Thông tin hợp đồng</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted"><p>{{$model->thongtinhd}}</p>
+                                <span class="text-muted"><p>{{isset($model) ? $model->thongtinhd : ''}}</p>
                                 </span>
                             </td>
                         </tr>
