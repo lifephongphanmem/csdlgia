@@ -292,8 +292,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                 </li>
                 <!--Manager-->
-                @if(session('admin')->sadmin != 'sa' || session('admin')->sadmin != 'satc'
-                    || session('admin')->sadmin != 'sagt' || session('admin')->sadmin != 'sact')
+                @if(session('admin')->sadmin != 'sa' && session('admin')->sadmin != 'satc'
+                    && session('admin')->sadmin != 'sagt' && session('admin')->sadmin != 'sact')
                     @include('includes.main.main_hhdv')
                     @include('includes.main.maindvlt')
                     @include('includes.main.maindvvt')

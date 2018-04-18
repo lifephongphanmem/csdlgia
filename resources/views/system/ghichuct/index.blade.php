@@ -36,7 +36,7 @@
                 <div class="portlet-body">
                     <li>User
                         <ul>User sa vẫn để sadmin == sa && level == 'T'</ul>
-                        <ul>Các user sa sẽ gồm 2 thông tin là sadmin == sa  && level = sact, satc, sagt</ul>
+                        <ul>Các user sa sẽ gồm 2 thông tin là sadmin == satc,sact,sagt  && level = sact, satc, sagt</ul>
                     </li>
                 </div>
             </div>

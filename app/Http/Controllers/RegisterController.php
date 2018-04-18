@@ -16,89 +16,104 @@ class RegisterController extends Controller
 {
     public function index(Request $request){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'){
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $inputs = $request->all();
-                $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVLT';
-
-                $model = Register::where('level',$inputs['level'])
-                    ->get();
-                return view('system.register.xetduyet.index')
-                    ->with('model',$model)
-                    ->with('level',$inputs['level'])
-                    ->with('pageTitle','Xét duyệt tài khoản đăng ký');
-            }else{
+                if(session('admin')->sadmin == 'satc')
+                    $inputs['level'] =  isset($inputs['level']) ? $inputs['level'] : 'DVLT';
+                elseif( session('admin')->sadmin == 'sagt')
+                    $inputs['level'] =  isset($inputs['level']) ? $inputs['level'] : 'DVVT';
+                elseif(session('admin')->sadmin == 'sact')
+                    $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVGS';
+                else
+                    $inputs['level'] = isset($inputs['level']) ? $inputs['level'] : 'DVLT';
+                //Check quyền
+                if($inputs['level'] == 'DVLT' && can('ttdn','dvlt') || $inputs['level'] == 'DVVT' && can('ttdn','dvvt')
+                    || $inputs['level'] == 'DVGS' && can('ttdn','dvgs') || $inputs['level'] == 'DVTACN' && can('ttdn','dvtacn')) {
+                    $model = Register::where('level', $inputs['level'])
+                        ->get();
+                    return view('system.register.xetduyet.index')
+                        ->with('model', $model)
+                        ->with('level', $inputs['level'])
+                        ->with('pageTitle', 'Xét duyệt tài khoản đăng ký');
+                }else
+                    return view('errors.noperm');
+            }else
                 return view('errors.noperm');
-            }
-
         }else
             return view('errors.notlogin');
     }
 
     public function edit($id){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin') == 'sa'){
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $model = Register::findOrFail($id);
-                if($model->level == 'DVLT' || $model->level =='TACN')
-                    $phanloaiql = 'TC';
-                elseif($model->level  == 'DVVT')
-                    $phanloaiql = 'VT';
-                elseif($model->level  == 'DVGS')
-                    $phanloaiql = 'CT';
-                $cqcq = District::where('phanloaiql',$phanloaiql)
-                    ->get();
-                $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
-                return view('system.register.xetduyet.edit')
-                    ->with('model', $model)
-                    ->with('cqcq',$cqcq)
-                    ->with('settingdvvt',$settingdvvt)
-                    ->with('pageTitle', 'Chỉnh sửa thông tin đăng ký tài khoản dịch vụ lưu trú');
-            }else{
+                if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
+                    || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
+                    if ($model->level == 'DVLT' || $model->level == 'TACN')
+                        $phanloaiql = 'TC';
+                    elseif ($model->level == 'DVVT')
+                        $phanloaiql = 'VT';
+                    elseif ($model->level == 'DVGS')
+                        $phanloaiql = 'CT';
+                    $cqcq = District::where('phanloaiql', $phanloaiql)
+                        ->get();
+                    $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
+                    return view('system.register.xetduyet.edit')
+                        ->with('model', $model)
+                        ->with('cqcq', $cqcq)
+                        ->with('settingdvvt', $settingdvvt)
+                        ->with('pageTitle', 'Chỉnh sửa thông tin đăng ký tài khoản dịch vụ lưu trú');
+                }else
+                    return view('errors.noperm');
+            }else
                 return view('errors.noperm');
-            }
-
         }else
             return view('errors.notlogin');
     }
 
     public function update(Request $request,$id){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin') == 'sa'){
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $inputs = $request->all();
                 $model = Register::findOrFail($id);
                 $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
                 $model->update($inputs);
                 return redirect('register?&level='.$model->level);
-
-            }else{
+            }else
                 return view('errors.noperm');
-            }
-
         }else
             return view('errors.notlogin');
     }
 
     public function show($id){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'){
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $model = Register::findOrFail($id);
-                $dvcq = District::where('mahuyen',$model->mahuyen)->first()->tendv;
-                $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
-                return view('system.register.xetduyet.show')
-                    ->with('model',$model)
-                    ->with('dvcq',$dvcq)
-                    ->with('settingdvvt',$settingdvvt)
-                    ->with('pageTitle','Thông tin doanh nghiệp đăng ký tài khoản');
-            }else{
+                if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
+                    || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
+                    $dvcq = District::where('mahuyen', $model->mahuyen)->first()->tendv;
+                    $settingdvvt = !empty($model->settingdvvt) ? json_decode($model->settingdvvt) : '';
+                    return view('system.register.xetduyet.show')
+                        ->with('model', $model)
+                        ->with('dvcq', $dvcq)
+                        ->with('settingdvvt', $settingdvvt)
+                        ->with('pageTitle', 'Thông tin doanh nghiệp đăng ký tài khoản');
+                }else
+                    return view('errors.noperm');
+            }else
                 return view('errors.noperm');
-            }
-
         }else
             return view('errors.notlogin');
     }
 
     public function tralai(Request $request){
         if (Session::has('admin')) {
-            if(session('admin')->sadmin == 'ssa' || session('admin') == 'sa'){
+            if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa'
+                || session('admin')->sadmin == 'satc' || session('admin')->sadmin == 'sagt' || session('admin')->sadmin == 'sact'){
                 $inputs = $request->all();
                 $id = $inputs['idhs'];
                 $model = Register::findOrFail($id);
@@ -121,13 +136,9 @@ class RegisterController extends Controller
                         $message->from('phanmemcsdlgia@gmail.com','Phần mềm CSDL giá');
                     });
                 }
-
                 return redirect('register?&level='.$model->level);
-
-            }else{
+            }else
                 return view('errors.noperm');
-            }
-
         }else
             return view('errors.notlogin');
     }
@@ -192,8 +203,6 @@ class RegisterController extends Controller
             return view('system.register.view.register-edit-errors');
         }
     }
-
-
 
     public function dangkytaikhoan(Request $request){
         $inputs = $request->all();

@@ -82,56 +82,52 @@
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box">
-                <div class="portlet-title">
-                    <div class="caption"></div>
-                    <div class="actions">
-                        @if(session('admin')->sadmin == 'ssa' ||
-                                (session('admin')->sadmin == 'sa' && $pl == "T" ))
+                @if(session('admin')->sadmin == 'ssa' ||
+                    (session('admin')->sadmin == 'sa' && $pl == "T" ))
+                    <div class="portlet-title">
+                        <div class="caption"></div>
+                        <div class="actions">
                             <a href="{{url('users/create')}}" class="btn btn-default btn-sm">
                                 <i class="fa fa-plus"></i> Tạo tài khoản</a>
-                        @endif
+                        </div>
                     </div>
-                </div>
-
+                @endif
                 <div class="portlet-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <select class="form-control" name="phanloai" id="phanloai">
-                                        @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
-                                        <option value="T" {{($pl == "T") ? 'selected' : ''}}>Cấp Tỉnh</option>
-                                        <option value="H" {{($pl == "H") ? 'selected' : ''}}>Cấp Huyện</option>
-                                        <option value="X" {{($pl == "X") ? 'selected' : ''}}>Cấp Xã</option>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="phanloai" id="phanloai">
+                                    @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
+                                    <option value="T" {{($pl == "T") ? 'selected' : ''}}>Cấp Tỉnh</option>
+                                    <option value="H" {{($pl == "H") ? 'selected' : ''}}>Cấp Huyện</option>
+                                    <option value="X" {{($pl == "X") ? 'selected' : ''}}>Cấp Xã</option>
+                                    @endif
+                                    @if(canGeneral('dvlt','dvlt') )
+                                        @if(can('ttdn','dvlt'))
+                                            <option value="DVLT" {{($pl == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
                                         @endif
-                                        @if(canGeneral('dvlt','dvlt') )
-                                            @if(can('ttdn','dvlt'))
-                                                <option value="DVLT" {{($pl == "DVLT") ? 'selected' : ''}}>Dịch vụ lưu trú</option>
-                                            @endif
+                                    @endif
+                                    @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
+                                        @if(can('ttdn','dvvt'))
+                                            <option value="DVVT" {{($pl == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
                                         @endif
-                                        @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
-                                            @if(can('ttdn','dvvt'))
-                                                <option value="DVVT" {{($pl == "DVVT") ? 'selected' : ''}}>Dịch vụ vận tải</option>
-                                            @endif
+                                    @endif
+                                    @if(canGeneral('dvgs','dvgs'))
+                                        @if(can('ttdn','dvgs'))
+                                            <option value="DVGS" {{($pl == "DVGS") ? 'selected' : ''}}>Mặt hàng sữa</option>
                                         @endif
-                                        @if(canGeneral('dvgs','dvgs'))
-                                            @if(can('ttdn','dvgs'))
-                                                <option value="DVGS" {{($pl == "DVGS") ? 'selected' : ''}}>Mặt hàng sữa</option>
-                                            @endif
+                                    @endif
+                                    @if(canGeneral('dvtacn','dvtacn'))
+                                        @if(can('ttdn','dvtacn'))
+                                            <option value="DVTACN" {{($pl == "DVTACN") ? 'selected' : ''}}>Thức ăn chăn nuôi</option>
                                         @endif
-                                        @if(canGeneral('dvtacn','dvtacn'))
-                                            @if(can('ttdn','dvtacn'))
-                                                <option value="DVTACN" {{($pl == "DVTACN") ? 'selected' : ''}}>Thức ăn chăn nuôi</option>
-                                            @endif
-                                        @endif
-                                    </select>
-                                </div>
+                                    @endif
+                                </select>
                             </div>
-
                         </div>
+                    </div>
                     <div class="portlet-body">
-                        <div class="table-toolbar">
-                        </div>
-                    <table class="table table-striped table-bordered table-hover" id="sample_3">
+                        <table class="table table-striped table-bordered table-hover" id="sample_3">
                         <thead>
                         <tr>
                             <th style="text-align: center" width="2%">STT</th>
@@ -170,37 +166,32 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+                </div>
             <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
         </div>
     </div>
-
     <!-- BEGIN DASHBOARD STATS -->
-
     <!-- END DASHBOARD STATS -->
     <div class="clearfix"></div>
-        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    {!! Form::open(['url'=>'users/delete','id' => 'frm_delete'])!!}
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Đồng ý xóa?</h4>
-                    </div>
-                    <input type="hidden" name="iddelete" id="iddelete">
-                    <div class="modal-footer">
-                        <button type="submit" class="btn blue" onclick="ClickDelete()">Đồng ý</button>
-                        <button type="button" class="btn default" data-dismiss="modal">Hủy</button>
-                    </div>
-                    {!! Form::close() !!}
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {!! Form::open(['url'=>'users/delete','id' => 'frm_delete'])!!}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Đồng ý xóa?</h4>
                 </div>
-                <!-- /.modal-content -->
+                <input type="hidden" name="iddelete" id="iddelete">
+                <div class="modal-footer">
+                    <button type="submit" class="btn blue" onclick="ClickDelete()">Đồng ý</button>
+                    <button type="button" class="btn default" data-dismiss="modal">Hủy</button>
+                </div>
+                {!! Form::close() !!}
             </div>
-            <!-- /.modal-dialog -->
+            <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
     </div>
-
     @include('includes.e.modal-confirm')
-
-
 @stop

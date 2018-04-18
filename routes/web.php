@@ -9,7 +9,7 @@ Route::get('/ajax/registerthongtin','AjaxController@registerthongtin');
 
 // <editor-fold defaultstate="collapsed" desc="--Đăng ký tài khoản--">
 Route::get('/ajax/registercheckmasothue','RegisterController@checkmasothue');
-Route::get('/ajax/registercheckuser','HomeController@checkrguser');
+Route::get('/ajax/registercheckuser','RegisterController@checkuser');
 Route::resource('register','RegisterController');
 Route::post('register/tralai','RegisterController@tralai');
 Route::post('register/createtk','RegisterController@createtk');

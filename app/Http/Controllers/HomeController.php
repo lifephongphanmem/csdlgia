@@ -31,7 +31,6 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-
     public function index()
     {
         if (Session::has('admin')) {
@@ -67,15 +66,15 @@ class HomeController extends Controller
             ->with('pageTitle','Trang công bố giá dịch vụ, hàng hoá');
     }
 
-    public function regdvlt(){
+    /*public function regdvlt(){
         $model = DmDvQl::where('plql','TC')
             ->get();
         return view('system.register.dvlt.register')
             ->with('model',$model)
             ->with('pageTitle','Đăng ký thông tin doanh nghiệp cung cấp dịch vụ lưu trú');
-    }
+    }*/
 
-    public function regdvltstore(Request $request){
+    /*public function regdvltstore(Request $request){
         $input = $request->all();
         if($input['g-recaptcha-response'] != '') {
             $check = DnDvLt::where('masothue', $input['masothue'])
@@ -142,17 +141,17 @@ class HomeController extends Controller
             }
         }else
             return view('errors.register-errors');
-    }
+    }*/
 
-    public function regdvvt(){
+    /*public function regdvvt(){
         $model = DmDvQl::where('plql','VT')
             ->get();
         return view('system.register.dvvt.register')
             ->with('model',$model)
             ->with('pageTitle','Đăng ký thông tin doanh nghiệp cung cấp dịch vụ vận tải');
-    }
+    }*/
 
-    public function regdvvtstore(Request $request){
+    /*public function regdvvtstore(Request $request){
         $input = $request->all();
         $ma = getdate()[0];
         $model = new Register();
@@ -184,14 +183,14 @@ class HomeController extends Controller
         $model->save();
         return view('system.register.view.register-success')
             ->with('ma',$ma);
-    }
+    }*/
 
-    public function regdverror(){
+    /*public function regdverror(){
         return view('system.users.register.registererror.index')
             ->with('pageTitle','Thông tin tài khoản chưa được kích hoạt');
-    }
+    }*/
 
-    public function checkrgmasothue(Request $request){
+    /*public function checkrgmasothue(Request $request){
         $input = $request->all();
         if ($input['pl'] == 'DVLT') {
             $model = DnDvLt::where('masothue', $input['masothue'])
@@ -220,9 +219,9 @@ class HomeController extends Controller
             }else
                 echo 'ok';
         }
-    }
+    }*/
 
-    public function checkrguser(Request $request){
+    /*public function checkrguser(Request $request){
         $input = $request->all();
         $model = User::where('username', $input['user'])
             ->first();
@@ -236,10 +235,9 @@ class HomeController extends Controller
             }else
                 echo 'ok';
         }
-    }
+    }*/
 
     public function forgotpassword(){
-
         return view('system.users.forgotpassword.index')
             ->with('pageTitle','Quên mật khẩu???');
     }
@@ -274,12 +272,12 @@ class HomeController extends Controller
 
     }
 
-    public function searchregister(){
+    /*public function searchregister(){
         return view('system.register.search.index')
             ->with('pageTitle','Kiểm tra tài khoản!!!');
-    }
+    }*/
 
-    public function checksearchregister(Request $request){
+    /*public function checksearchregister(Request $request){
         $input = $request->all();
 
         $check1 = Register::where('masothue',$input['masothue'])
@@ -300,13 +298,13 @@ class HomeController extends Controller
                 return view('system.register.view.register-nouser');
             }
         }
-    }
+    }*/
 
-    public function show(){
+    /*public function show(){
         return view('system.register.search.show');
-    }
+    }*/
 
-    public function edit(Request $request){
+    /*public function edit(Request $request){
         $input = $request->all();
         $model = Register::where('ma',$input['ma'])
             ->first();
@@ -345,9 +343,9 @@ class HomeController extends Controller
         }else{
             return view('system.register.view.register-edit-errors');
         }
-    }
+    }*/
 
-    public function updatedvlt(Request $request, $id){
+    /*public function updatedvlt(Request $request, $id){
         $input = $request->all();
         $model = Register::findOrFail($id);
         $model->tendn = $input['tendn'];
@@ -387,9 +385,9 @@ class HomeController extends Controller
             });
         }
         return view('errors.register-success');
-    }
+    }*/
 
-    public function updatedvvt(Request $request, $id){
+    /*public function updatedvvt(Request $request, $id){
         $input = $request->all();
         $model = Register::findOrFail($id);
 
@@ -432,9 +430,9 @@ class HomeController extends Controller
             });
         }
         return view('errors.register-success');
-    }
+    }*/
 
-    public function updatedvgs(Request $request, $id){
+    /*public function updatedvgs(Request $request, $id){
         $input = $request->all();
         $model = Register::findOrFail($id);
         $model->tendn = $input['tendn'];
@@ -474,18 +472,17 @@ class HomeController extends Controller
             });
         }
         return view('errors.register-success');
-    }
+    }*/
 
-
-    public function dangkydvgs(){
+    /*public function dangkydvgs(){
         $model = DmDvQl::where('plql','CT')
             ->get();
         return view('system.register.dvgs.register')
             ->with('model',$model)
             ->with('pageTitle','Đăng ký dịch vụ giá sữa');
-    }
+    }*/
 
-    public function dangkydvgsstore(Request $request){
+    /*public function dangkydvgsstore(Request $request){
         $input = $request->all();
         if($input['g-recaptcha-response'] != '') {
             $check = DnDvLt::where('masothue', $input['masothue'])
@@ -552,17 +549,17 @@ class HomeController extends Controller
             }
         }else
             return view('errors.register-errors');
-    }
+    }*/
 
-    public function dangkydvtacn(){
+    /*public function dangkydvtacn(){
         $model = DmDvQl::where('plql','TC')
             ->get();
         return view('system.register.dvtacn.register')
             ->with('model',$model)
             ->with('pageTitle','Đăng ký doanh nghiệp cung cấp thức ăn chăn nuôi');
-    }
+    }*/
 
-    public function dangkydvtacnstore(Request $request){
+    /*public function dangkydvtacnstore(Request $request){
         $input = $request->all();
         if($input['g-recaptcha-response'] != '') {
             $check = DnDvLt::where('masothue', $input['masothue'])
@@ -629,9 +626,9 @@ class HomeController extends Controller
             }
         }else
             return view('errors.register-errors');
-    }
+    }*/
 
-    public function updatedvtacn(Request $request, $id){
+    /*public function updatedvtacn(Request $request, $id){
         $input = $request->all();
         $input['trangthai'] = 'Chờ duyệt';
         $input['password'] = md5($input['password']);
@@ -657,8 +654,7 @@ class HomeController extends Controller
             });
         }
         return view('errors.register-success');
-    }
-
+    }*/
 
     public function ghichuct(){
         return view('system.ghichuct.index')
