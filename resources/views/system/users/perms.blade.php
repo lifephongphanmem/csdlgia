@@ -44,7 +44,7 @@
                 </div>
                 <div class="portlet-body">
                     <div class="row">
-                        @if($model->sadmin == 'sa')
+                        @if($model->sadmin == 'sa' || $model->sadmin == 'satc' || $model->sadmin == 'sact' || $model->sadmin == 'sagt' )
                             @include('system.users.includeperms.permsa')
                         @else
                             @if( $model->level != 'DVLT' && $model->level != 'DVVT' && $model->level != 'DVGS' && $model->level != 'DVTACN')
@@ -68,13 +68,13 @@
             </div>
             <div style="text-align: center">
             <?php
-            if($model->level == 'T'||$model->level == 'H')
-                $pl = 'QL';
-            else
-                $pl = $model->level;
+                if($model->level == 'satc' || $model->level == 'sact' || $model->level == 'sagt' || $model->level == 'sa')
+                    $phanloai = 'HT';
+                else
+                    $phanloai = $model->level;
             ?>
 
-            <a href="{{url('users?&phanloai='.$pl)}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
+            <a href="{{url('users?&phanloai='.$phanloai)}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
             <button type="reset" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;Nhập lại</button>
             <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Cập nhật</button>
         </div>

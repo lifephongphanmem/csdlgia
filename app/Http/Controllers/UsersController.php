@@ -130,25 +130,40 @@ class UsersController extends Controller
                     $inputs['phanloai'] = isset($inputs['phanloai']) ? $inputs['phanloai'] : 'DVGS';
                 //checkquyền
                 if($inputs['phanloai'] == 'DVLT' && can('ttdn','dvlt') || $inputs['phanloai'] == 'DVVT' && can('ttdn','dvvt')
-                    || $inputs['phanloai'] == 'DVGS' && can('ttdn','dvgs') || $inputs['phanloai'] == 'DVTACN' && can('ttdn','dvtacn')
-                    || $inputs['phanloai'] == 'T' || $inputs['phanloai'] == 'H') {
+                    || $inputs['phanloai'] == 'DVGS' && can('ttdn','dvgs') || $inputs['phanloai'] == 'DVTACN' && can('ttdn','dvtacn'))
                     $model = Users::where('level', $inputs['phanloai'])
                         ->orderBy('id', 'desc')
                         ->get();
-                    $index_unset = 0;
-                    foreach ($model as $user) {
-                        if ($user->sadmin == 'ssa') {
-                            unset($model[$index_unset]);
+                else{
+                    if ($inputs['phanloai'] == 'HT') {
+                        $model = User::wherein('level', array('satc', 'sact', 'sa', 'sagt'))
+                            ->get();
+                        if(session('admin')->sadmin != 'ssa') {
+                            $index_unset = 0;
+                            foreach ($model as $user) {
+                                if ( $user->sadmin == 'sa') {
+                                    unset($model[$index_unset]);
+                                }
+                                $index_unset++;
+                            }
                         }
-                        $index_unset++;
+                    }else{
+                        $model = Users::where('level', $inputs['phanloai'])
+                            ->orderBy('id', 'desc')
+                            ->get();
+                        $index_unset = 0;
+                        foreach ($model as $user) {
+                            if ($user->sadmin == 'ssa') {
+                                unset($model[$index_unset]);
+                            }
+                            $index_unset++;
+                        }
                     }
-
-                    return view('system.users.index')
-                        ->with('model', $model)
-                        ->with('pl', $inputs['phanloai'])
-                        ->with('pageTitle', 'Danh sách tài khoản');
-                }else
-                    return view('errors.perm');
+                }
+                return view('system.users.index')
+                    ->with('model', $model)
+                    ->with('pl', $inputs['phanloai'])
+                    ->with('pageTitle', 'Danh sách tài khoản');
             }else
                 return view('errors.perm');
         } else
@@ -222,22 +237,10 @@ class UsersController extends Controller
             if (session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'satc'
                 || session('admin')->sadmin == 'savt' || session('admin')->sadmin == 'sa' || session('admin')->sadmin == 'sact') {
                 if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
-                    || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
-                    if ($model->level == 'DVLT')
-                        $modeldvql = District::where('phanloaiql', 'TC')
-                            ->get();
-                    elseif ($model->level == 'DVVT')
-                        $modeldvql = District::where('phanloaiql', 'VT')
-                            ->get();
-                    elseif ($model->level == 'DVVT')
-                        $modeldvql = District::where('phanloaiql', 'CT')
-                            ->get();
-                    elseif ($model->level == 'DVTACN')
-                        $modeldvql = District::where('phanloaiql', 'TC')
-                            ->get();
+                    || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')
+                    || session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
                     return view('system.users.edit')
                         ->with('model', $model)
-                        ->with('modeldvql', $modeldvql)
                         ->with('pageTitle', 'Chỉnh sửa thông tin tài khoản');
                 }else
                     return view('errors.perm');
@@ -293,7 +296,8 @@ class UsersController extends Controller
 
             $model = Users::findorFail($id);
             if($model->level == 'DVLT' && can('ttdn','dvlt') || $model->level== 'DVVT' && can('ttdn','dvvt')
-                || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')) {
+                || $model->level == 'DVGS' && can('ttdn','dvgs') || $model->level == 'DVTACN' && can('ttdn','dvtacn')
+                || session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa') {
                 if ($model->level == 'DVVT') {
                     $ttdn = Company::where('maxa', $model->maxa)
                         ->where('level', 'DVVT')

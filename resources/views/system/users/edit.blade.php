@@ -62,20 +62,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Cơ quan chủ quản<span class="require">*</span></label>
-                                        <select class="form-control required" name="mahuyen" id="mahuyen">
-                                            <option value="">--Chọn đơn vị chủ quản--</option>
-                                            @foreach($modeldvql as $cqql)
-                                                <option value="{{$cqql->mahuyen}}" {{($cqql->mahuyen == $model->mahuyen) ? 'selected' : ''}}>{{$cqql->tendv}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
 
-                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

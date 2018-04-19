@@ -610,6 +610,15 @@ function getPermissionDefault($level) {
             'dvtacn'=> 0
         ),
     );
+    $roles['sagt'] = array(
+        'ttdn' => array(
+            'index' => 1,
+            'dvlt' => 1,
+            'dvvt' => 1,
+            'dvgs' => 1,
+            'dvtacn'=> 1
+        ),
+    );
     return json_encode($roles[$level]);
 }
 

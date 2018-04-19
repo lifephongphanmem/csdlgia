@@ -98,6 +98,7 @@
                             <div class="form-group">
                                 <select class="form-control" name="phanloai" id="phanloai">
                                     @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
+                                    <option value="HT" {{($pl == "HT") ? 'selected' : ''}}>Quản trị hệ thống</option>
                                     <option value="T" {{($pl == "T") ? 'selected' : ''}}>Cấp Tỉnh</option>
                                     <option value="H" {{($pl == "H") ? 'selected' : ''}}>Cấp Huyện</option>
                                     <option value="X" {{($pl == "X") ? 'selected' : ''}}>Cấp Xã</option>
@@ -155,7 +156,9 @@
                             </td>
                             <td>
                                 <a href="{{url('users/'.$tt->id.'/edit')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa</a>
+                                @if($tt->level != 'sa' || $tt->level != 'satc' || $tt->level != 'sact' || $tt->level != 'sagt')
                                 <a href="{{url('users/'.$tt->id.'/phan-quyen')}}" class="btn btn-default btn-xs mbs"><i class="fa fa-cogs"></i>&nbsp;Phân quyền</a>
+                                @endif
                                 @if(session('admin')->sadmin == 'ssa')
                                 <button type="button" onclick="getId('{{$tt->id}}')" class="btn btn-default btn-xs mbs" data-target="#delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i>&nbsp;
                                     Xóa</button>
