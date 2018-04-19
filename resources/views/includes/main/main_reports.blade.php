@@ -32,6 +32,7 @@
                 </li>
             @endif
 
+                <!-- Chỉ có quyền tỉnh mới xem dc báo cáo -->
             @if(can('dvvtch','index') || can('kkdvvtch','index')
                     ||can('dvvtxtx','index') || can('kkdvvtxtx','index')
                     ||can('dvvtxk','index') || can('kkdvvtxk','index')
