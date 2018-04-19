@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CbKkDvVtXk;
+use App\District;
 use App\DmDvVtXk;
 use App\DmGiaHL;
 use App\GeneralConfigs;
@@ -785,16 +786,13 @@ class KkDvVtXkController extends Controller
     public function printKK($masokk)
     {
         if (Session::has('admin')) {
-            $modelkk = KkDvVtXk::where('masokk', $masokk)
-                ->first();
-            $modeldonvi = Company::where('maxa', $modelkk->maxa)
-                ->first();
+            $modelkk = KkDvVtXk::where('masokk', $masokk)->first();
+            $modeldonvi = Company::where('maxa', $modelkk->maxa)->first();
+            $model_cp = District::where('mahuyen', $modeldonvi->mahuyen)->first();
+            $modeldonvi->tendvcp = count($model_cp) > 0 ? $model_cp->tendv : "";
             $modeldm = DmDvVtXk::where('maxa', $modelkk->maxa)->get();
-
             $modelgia = KkDvVtXkCt::where('masokk', $masokk)->get();
-
             $model_hl = KkGiaHL::where('masokk', $masokk)->get();
-
 
             return view('reports.kkgdvvt.kkgdvxk.printf')
                 ->with('modeldonvi', $modeldonvi)
@@ -810,10 +808,10 @@ class KkDvVtXkController extends Controller
     public function printPAG($masokk)
     {
         if (Session::has('admin')) {
-            $modelkk = KkDvVtXk::where('masokk', $masokk)
-                ->first();
-            $modeldonvi = Company::where('maxa', $modelkk->maxa)
-                ->first();
+            $modelkk = KkDvVtXk::where('masokk', $masokk)->first();
+            $modeldonvi = Company::where('maxa', $modelkk->maxa)->first();
+            $model_cp = District::where('mahuyen', $modeldonvi->mahuyen)->first();
+            $modeldonvi->tendvcp = count($model_cp) > 0 ? $model_cp->tendv : "";
             $modeldm = DmDvVtXk::where('maxa', $modelkk->maxa)->get();
             $modelgia = KkDvVtXkCt::where('masokk', $masokk)->get();
             $modelpag = PagDvVtXk::where('masokk', $masokk)->get();

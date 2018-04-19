@@ -723,9 +723,11 @@ Route::post('reports/tt142-2015-BTC/PL7','TT1422015BtcController@PL7');
 
 //TT55/2011/BTC
 Route::get('reports/tt55-2011-BTC','TT552011BtcController@index');
-Route::post('reports/tt55-2011-BTC/PL1','TT552011BtcController@PL1');
+Route::post('reports/tt55-2011-BTC/PL1_th','TT552011BtcController@PL1_th');
+Route::post('reports/tt55-2011-BTC/PL1_dv','TT552011BtcController@PL1_dv');
 Route::post('reports/tt55-2011-BTC/PL2','TT552011BtcController@PL2');
-Route::post('reports/tt55-2011-BTC/PL1Excel','TT552011BtcController@PL1Excel');
+Route::post('reports/tt55-2011-BTC/PL1Excel_th','TT552011BtcController@PL1Excel_th');
+Route::post('reports/tt55-2011-BTC/PL1Excel_dv','TT552011BtcController@PL1Excel_dv');
 Route::post('reports/tt55-2011-BTC/PL2Excel','TT552011BtcController@PL2Excel');
 //End TT55/2011/BTC
 

@@ -162,7 +162,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <!--div class="row">
         <div class="col-md-6">
             <h4 class="form-section" style="color: #0000ff">Thông tin giá hàng lý vượt quy định</h4>
         </div>
@@ -203,7 +203,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div-->
 @stop
 
 @section('content')

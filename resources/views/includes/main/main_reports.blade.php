@@ -1,7 +1,7 @@
-@if(canGeneral('hhdv','hhdvtn') || canGeneral('hhdv','hhxnk') || canGeneral('hhdv','hhthitruong')
-                    || canGeneral('hhdv','kkgtw') || canGeneral('hhdv','kkgdp') ||canGeneral('hhdv','tsnnnhadat')
-                    || canGeneral('hhdv','tsnnotokhac') || canGeneral('hhdv','gttruocba') || canGeneral('hhdv','gthuetn')
-                    ||canGeneral('hhdv','tdgia') || canGeneral('hhdv','congbogia')||canGeneral('hhdv','loaidat') || canGeneral('hhdv','vitri'))
+@if(canGeneral('hhdvtn','hhdvtn') || canGeneral('hhxnk','hhxnk') || canGeneral('hhtt','hhtt')
+                    || canGeneral('kkgtw','kkgtw') || canGeneral('kkgdp','kkgdp') ||canGeneral('tsnnnhadat','tsnnnhadat')
+                    || canGeneral('tsnnotokhac','tsnnotokhac') || canGeneral('gttruocba','gttruocba') || canGeneral('gthuetn','gthuetn')
+                    ||canGeneral('tdgia','tdgia') || canGeneral('congbogia','congbogia')||canGeneral('loaidat','loaidat') || canGeneral('vitri','vitri'))
     <li>
         <a href="javascript:;">
             <i class="fa fa-file-o fa-fw"></i>
@@ -9,7 +9,7 @@
             <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
-            @if(canGeneral('hhdv','hhdvtn') || canGeneral('hhdv','hhxnk') || canGeneral('thamdinhgia','thamdinhgia') || canGeneral('congbogia','congbogia'))
+            @if(canGeneral('hhdvtn','index') || canGeneral('hhxnk','index') || canGeneral('thamdinhgia','index') || canGeneral('congbogia','index'))
                 <li>
                     <a href="javascript:;">Hàng hóa dịch vụ<span class="arrow"></span> </a>
                     <ul class="sub-menu">
@@ -26,7 +26,7 @@
                 </li>
             @endif
 
-            @if(canGeneral('gthuetn','gthuetn'))
+            @if(canGeneral('gthuetn','index'))
                 <li>
                     <a href="{{url('/reports/thuetn/index')}}">Thuế tài nguyên</a>
                 </li>

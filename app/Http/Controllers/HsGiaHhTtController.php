@@ -148,6 +148,8 @@ class HsGiaHhTtController extends Controller
                         $gia = $model_gia->where('mahh', $ct->mahh)->first();
                         $ct->giatulk = count($gia) > 0 ? $gia->giatu : 0;
                         $ct->giadenlk = count($gia) > 0 ? $gia->giaden : 0;
+                        $ct->giatu = count($gia) > 0 ? $gia->giatu : 0;
+                        $ct->giaden = count($gia) > 0 ? $gia->giaden : 0;
                     }
                 }
             }
