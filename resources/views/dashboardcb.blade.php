@@ -12,6 +12,7 @@
 @section('content-cb')
     <div class="container">
         @include('includes.dasboardcongbo.dvlt')
+        @include('includes.dasboardcongbo.dvvt')
         @include('includes.dasboardcongbo.dvgs')
         @include('includes.dasboardcongbo.dvtacn')
     </div>

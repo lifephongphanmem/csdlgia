@@ -912,13 +912,13 @@ function getTtPhong($str)
 function getNgayHieuLuc($ngaynhap,$pl){
     $dayngaynhap = date('D',strtotime($ngaynhap));
     if($pl == 'DVLT')
-        $thoihan = getGeneralConfigs()['thoihanlt'];
+        $thoihan = isset(getGeneralConfigs()['thoihanlt']) ? getGeneralConfigs()['thoihanlt'] : 0;
     elseif($pl == 'DVVT')
-        $thoihan = getGeneralConfigs()['thoihanvt'];
+        $thoihan = isset(getGeneralConfigs()['thoihanvt']) ? getGeneralConfigs()['thoihanvt'] : 0;
     elseif($pl == 'DVGS')
-        $thoihan = getGeneralConfigs()['thoihangs'];
+        $thoihan = isset(getGeneralConfigs()['thoihangs']) ? getGeneralConfigs()['thoihangs'] : 0;
     elseif($pl == 'DVTACN')
-        $thoihan = getGeneralConfigs()['thoihantacn'];
+        $thoihan = isset(getGeneralConfigs()['thoihantacn']) ? getGeneralConfigs()['thoihantacn'] : 0;
     $ngaynghi = 0;
 
     if ($dayngaynhap == 'Thu') {
