@@ -864,6 +864,9 @@ class KkDvVtXtxController extends Controller
                 ->first();
             $modeldonvi = Company::where('maxa', $modelkk->maxa)
                 ->first();
+
+            $model_cp = District::where('mahuyen', $modeldonvi->mahuyen)->first();
+            $modeldonvi->tendvcp = count($model_cp) > 0 ? $model_cp->tendv : "";
             $modeldm = DmDvVtXtx::where('maxa', $modelkk->maxa)->get();
 
             $modelgia = KkDvVtXtxCt::where('masokk', $masokk)->get();
@@ -886,6 +889,8 @@ class KkDvVtXtxController extends Controller
                 ->first();
             $modeldonvi = Company::where('maxa', $modelkk->maxa)
                 ->first();
+            $model_cp = District::where('mahuyen', $modeldonvi->mahuyen)->first();
+            $modeldonvi->tendvcp = count($model_cp) > 0 ? $model_cp->tendv : "";
             $modeldm = DmDvVtXtx::where('maxa', $modelkk->maxa)->get();
             $modelgia = KkDvVtXtxCt::where('masokk', $masokk)->get();
             $modelpag = PagDvVtXtx::where('masokk', $masokk)->get();

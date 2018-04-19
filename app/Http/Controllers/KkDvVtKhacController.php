@@ -711,6 +711,8 @@ class KkDvVtKhacController extends Controller
                 ->first();
             $modeldonvi = Company::where('maxa', $modelkk->maxa)
                 ->first();
+            $model_cp = District::where('mahuyen', $modeldonvi->mahuyen)->first();
+            $modeldonvi->tendvcp = count($model_cp) > 0 ? $model_cp->tendv : "";
             $modeldm = DmDvVtKhac::where('maxa', $modelkk->maxa)->get();
 
             $modelgia = KkDvVtKhacCt::where('masokk', $masokk)->get();
@@ -732,6 +734,8 @@ class KkDvVtKhacController extends Controller
                 ->first();
             $modeldonvi = Company::where('maxa', $modelkk->maxa)
                 ->first();
+            $model_cp = District::where('mahuyen', $modeldonvi->mahuyen)->first();
+            $modeldonvi->tendvcp = count($model_cp) > 0 ? $model_cp->tendv : "";
             $modeldm = DmDvVtKhac::where('maxa', $modelkk->maxa)->get();
             $modelgia = KkDvVtKhacCt::where('masokk', $masokk)->get();
             $modelpag = PagDvVtKhac::where('masokk', $masokk)->get();

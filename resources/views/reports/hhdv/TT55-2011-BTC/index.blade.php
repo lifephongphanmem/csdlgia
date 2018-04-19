@@ -26,7 +26,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <ol>
-                                <li><a data-target="#pl1-thoai-confirm" data-toggle="modal" data-href="{{url('reports/TT55/PL1')}}">Phụ lục 1- Bảng giá thị trường</a> </li>
+                                <li><a data-target="#pl1-th-thoai-confirm" data-toggle="modal">Phụ lục 1- Bảng giá thị trường (mẫu tổng hợp)</a> </li>
+                                <li><a data-target="#pl1-dv-thoai-confirm" data-toggle="modal">Phụ lục 1- Bảng giá thị trường (mẫu đơn vị)</a> </li>
                                 <li><a data-target="#pl2-thoai-confirm" data-toggle="modal" data-href="{{url('reports/tt55-2011-BTC/PL2')}}">Phụ lục 2- Bảng giá hàng hóa nhập khẩu</a> </li>
                             </ol>
                         </div>

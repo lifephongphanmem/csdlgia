@@ -701,17 +701,24 @@ function canGeneral($module = null, $action =null)
         $setting = json_decode($model->setting, true);
     else {
         $per = '{
-         "dvlt":{"dvlt":"1"},
-         "dvvt":{"vtxk":"1","vtxb":"1","vtxtx":"1","vtch":"1"},
-         "hhdv":{"hhtt" :"1","hhdvtn" :"1",
-                "hhxnk" :"1","kkgtw":"1",
-                "kkgdp" :"1","tsnnnhadat" :"1",
-                "tsnnotokhac" :"1","gttruocba" :"1",
-                "gthuetn" :"1","tdgia":"1",
-                "congbogia" :"1","ttqd" :"1",
-                "loaidat" :"1","vitri" :"1"},
-         "dvgs":{"dvgs":"1"},
-         "dvtacn":{"dvtacn":"1"}
+                "dvlt":{"dvlt":"1"},
+                "dvvt":{"vtxk":"1","vtxb":"1","vtxtx":"1","vtch":"1"},
+                "hhtt" :{"hhtt":"1"},
+                "hhdvtn" :{"hhdvtn":"1"},
+                "hhxnk" :{"hhxnk":"1"},
+                "kkgtw":{"kkgtw":"1"},
+                "kkgdp" :{"kkgdp":"1"},
+                "tsnnnhadat" :{"tsnnnhadat":"1"},
+                "tsnnotokhac" :{"tsnnotokhac":"1"},
+                "gttruocba" :{"gttruocba":"1"},
+                "gthuetn" :{"gthuetn":"1"},
+                "tdgia":{"tdgia":"1"},
+                "congbogia" :{"congbogia":"1"},
+                "ttqd" :{"ttqd":"1"},
+                "loaidat" :{"loaidat":"1"},
+                "vitri" :{"vitri":"1"},
+                "dvgs":{"dvgs":"1"},
+                "dvtacn":{"dvtacn":"1"}
                 }';
         $setting = json_decode($per, true);
     }
@@ -951,6 +958,27 @@ function Thang2Quy($thang){
         return 3;
     else
         return 4;
+}
+
+function dinhdangso ($number , $decimals = 0, $unit = '1' , $dec_point = ',' , $thousands_sep = '.' ) {
+    if(!is_numeric($number) || $number == 0){return '';}
+    $r = $unit;
+
+    switch ($unit) {
+        case 2:{
+            $decimals = 3;
+            $r = 1000;
+            break;
+        }
+        case 3:{
+            $decimals = 5;
+            $r = 1000000;
+            break;
+        }
+    }
+
+    $number = round($number / $r , $decimals);
+    return number_format($number, $decimals ,$dec_point, $thousands_sep);
 }
 
 ?>

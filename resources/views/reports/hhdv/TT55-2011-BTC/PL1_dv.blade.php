@@ -37,51 +37,57 @@
     </tr>
     <tr>
         <td colspan="2" style="text-align: center; font-size: 16px; text-transform: uppercase;">
-            <b>BẢNG GIÁ THỊ TRƯỜNG {{$thongtin['thitruong'].' '.$thongtin['nam']}}</b>
+            <b>BẢNG GIÁ THỊ TRƯỜNG {{$thongtin['thitruong'].' ' . $thongtin['nam']}}</b>
         </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align: center; font-size: 14px;">
+        <td colspan="2" style="text-align: center; font-size: 14px;font-style: italic">
             (Ban hành kèm thông tư số 55/2011/TT-BTC ngày 29/4/2011 của Bộ tài chính hướng dẫn chế độ báo cáo giá cả thị trường dùng cho báo cáo giá thị trường tuần, tháng, quý, năm)
         </td>
     </tr>
+    <tr>
+        <td colspan="2" style="text-align: center; font-size: 14px;font-weight: bold">
+            Đơn vị báo cáo: {{$thongtin['tendv']}}
+        </td>
+    </tr>
 </table>
-<?php $stt =1; ?>
 <table cellspacing="0" cellpadding="0" border="1" style="margin: 20px auto; border-collapse: collapse;">
     <tr>
-        <th>Mã số</th>
-        <th>Mặt hàng</th>
-        <th>ĐVT</th>
-        <th>Giá hàng hóa</th>
-        @foreach($model_pb as $ct)
-            <th>{{$ct->tendv}}</th>
-            <?php $stt++; ?>
-        @endforeach
-
+        <th rowspan="2">Mã số</th>
+        <th rowspan="2">Mặt hàng</th>
+        <th rowspan="2">ĐVT</th>
+        <th rowspan="2">Giá kỳ trước</th>
+        <th rowspan="2">Giá kỳ này</th>
+        <th colspan="2">Tăng, giảm</th>
+        <th rowspan="2">Ghi chú</th>
+    </tr>
+    <tr>
+        <th>Mức</th>
+        <th>%</th>
     </tr>
     <tr style="font-style: italic; font-size: 10px; line-height: 15px;">
         <th>1</th>
         <th>2</th>
         <th>3</th>
         <th>4</th>
-        @for($tt = 1; $tt < $stt; $tt++)
-            <th>{{4 + $tt}}</th>
-        @endfor
-
+        <th>5</th>
+        <th>6=5-4</th>
+        <th>7=5/4</th>
+        <th>8</th>
 
     </tr>
-        @foreach($model as $key=>$tt)
-            <tr>
-                <td>{{$tt->mahh}}</td>
-                <td style="text-align: left">{{$tt->tenhh}}</td>
-                <td>{{$tt->dvt}}</td>
-                <td style="text-align: right">{{number_format($tt->giahh)}}</td>
-                @foreach($model_pb as $ct)
-                    <?php $ma = $ct->mahuyen; ?>
-                    <td style="text-align: right">{{number_format($tt->$ma)}}</td>
-                @endforeach
 
-            </tr>
+        @foreach($model as $key=>$tt)
+        <tr>
+            <td>{{$tt->mahh}}</td>
+            <td style="text-align: left">{{$tt->tenhh}}</td>
+            <td>{{$tt->dvt}}</td>
+            <td style="text-align: right">{{number_format($tt->giahhkytrc)}}</td>
+            <td style="text-align: right">{{number_format($tt->giahh)}}</td>
+            <td style="text-align: right">{{number_format($tt->tanggiam)}}</td>
+            <td style="text-align: center">{{$tt->phantram}}</td>
+            <td></td>
+        </tr>
         @endforeach
 </table>
 </body>

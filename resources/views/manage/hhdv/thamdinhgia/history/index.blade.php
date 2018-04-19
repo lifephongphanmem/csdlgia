@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div style="text-align: center">
-                <a href="{{url('hoso-thamdinhgia/nam='.getGeneralConfigs()['namhethong'])}}" class="btn green"><i class="fa fa-mail-reply"></i>&nbsp;Quay lại</a>
+                <a href="{{url('hoso-thamdinhgia/nam='.date('Y'))}}" class="btn green"><i class="fa fa-mail-reply"></i>&nbsp;Quay lại</a>
             </div>
             <!-- END EXAMPLE TABLE PORTLET-->
         </div>
