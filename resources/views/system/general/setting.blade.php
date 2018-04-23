@@ -81,104 +81,72 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tbody>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>Giá các loại đất</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá thuê đất, mặt nước</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>Giá rừng sx, rừng đặc hộ</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>Giá thuê mua nhà XH</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>Giá nước sinh hoạt</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>Giá thuê tài sản NN</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá sản phẩm, DV công</td>
-                                    </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->hhtt->hhtt) && $setting->hhtt->hhtt == 1) ? 'checked' : '' }} value="1" name="roles[hhtt][hhtt]"/></td>
+                                            <td>Hàng hóa thị trường</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->hhdvtn->hhdvtn) && $setting->hhdvtn->hhdvtn == 1) ? 'checked' : '' }} value="1" name="roles[hhdvtn][hhdvtn]"/></td>
+                                            <td>Hàng hóa dịch vụ trong nước</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->hhxnk->hhxnk) && $setting->hhxnk->hhxnk == 1) ? 'checked' : '' }} value="1" name="roles[hhxnk][hhxnk]"/></td>
+                                            <td>Hàng hóa xuất nhập khẩu</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->kkgtw->kkgtw) && $setting->kkgtw->kkgtw == 1) ? 'checked' : '' }} value="1" name="roles[kkgtw][kkgtw]"/></td>
+                                            <td>Kê khai giá trung ương</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->kkgdp->kkgdp) && $setting->kkgdp->kkgdp == 1) ? 'checked' : '' }} value="1" name="roles[kkgdp][kkgdp]"/></td>
+                                            <td>Kê khai giá địa phương</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->tsnnnhadat->tsnnnhadat) && $setting->tsnnnhadat->tsnnnhadat == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][tsnnnhadat]"/></td>
+                                            <td>Tài sản nhà nước (nhà và đất)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->tsnnotokhac->tsnnotokhac) && $setting->tsnnotokhac->tsnnotokhac == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][tsnnotokhac]"/></td>
+                                            <td>Tài sản nhà nước ( ôtô - tài sản khác)</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
+
                             <div class="col-md-3">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tbody>
                                     <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá dịch vụ giáo dục</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá dịch vụ khám chữa bệnh</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá mặt hàng dịch vụ theo chuyên ngành</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá tài sản</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
+                                        <td><input type="checkbox" {{ (isset($setting->gttruocba->gttruocba) && $setting->gttruocba->gttruocba == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][gttruocba]"/></td>
                                         <td>Giá thuế trước bạ</td>
                                     </tr>
+
                                     <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Khung giá đất</td>
+                                        <td><input type="checkbox" {{ (isset($setting->gthuetn->gthuetn) && $setting->gthuetn->gthuetn == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][gthuetn]"/></td>
+                                        <td>Giá thuế tài nguyên</td>
                                     </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá giao dịch bất động sản</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-3">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá trúng thầu HH-DV</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá hàng hoá thị trường</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Thẩm định giá</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Văn bản nhà nước</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Giá thuế trước bạ</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>Thông tin phục vụ công tác quản lý</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" ></td>
-                                        <td>???</td>
-                                    </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->tdgia->tdgia) && $setting->tdgia->tdgia == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][tdgia]"/></td>
+                                            <td>Thẩm định giá</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->congbogia->congbogia) && $setting->congbogia->congbogia == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][congbogia]"/></td>
+                                            <td>Công bố giá</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->ttqd->ttqd) && $setting->ttqd->ttqd == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][ttqd]"/></td>
+                                            <td>Thông tư, quyết định</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->loaidat->loaidat) && $setting->loaidat->loaidat == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][loaidat]"/></td>
+                                            <td>Giá đất theo phân loại đất</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" {{ (isset($setting->vitri->vitri) && $setting->vitri->vitri == 1) ? 'checked' : '' }} value="1" name="roles[vitri][vitri]"/></td>
+                                            <td>Giá đất theo vị trí</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

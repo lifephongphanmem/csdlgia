@@ -1,7 +1,5 @@
 
-
-
-    @if(canGeneral('hhdv','hhtt'))
+    @if(canGeneral('hhtt','hhtt'))
         <div class="col-md-3">
             <h4 style="text-align: center;color: #0000ff  ">Hàng hóa thị trường</h4>
             <table class="table table-striped table-bordered table-hover">
@@ -40,7 +38,7 @@
         </div>
     @endif
 
-    @if(canGeneral('hhdv','hhdvtn'))
+    @if(canGeneral('hhdvtn','hhdvtn'))
         <div class="col-md-3">
             <h4 style="text-align: center;color: #0000ff  ">Hàng hóa dịch vụ trong nước</h4>
             <table class="table table-striped table-bordered table-hover">
@@ -79,7 +77,7 @@
         </div>
     @endif
 
-    @if(canGeneral('hhdv','hhxnk'))
+    @if(canGeneral('hhxnk','hhxnk'))
         <div class="col-md-3">
             <h4 style="text-align: center;color: #0000ff  ">Hàng hóa xuất nhập khẩu</h4>
             <table class="table table-striped table-bordered table-hover">
@@ -118,7 +116,7 @@
         </div>
     @endif
 
-    @if(canGeneral('hhdv','kkgtw'))
+    @if(canGeneral('kkgtw','kkgtw'))
         <div class="col-md-3">
             <h4 style="text-align: center;color: #0000ff  ">Kê khai giá trung ương</h4>
             <table class="table table-striped table-bordered table-hover">
@@ -157,7 +155,7 @@
         </div>
     @endif
 
-    @if(canGeneral('hhdv','kkgdp'))
+    @if(canGeneral('kkgdp','kkgdp'))
         <div class="col-md-3">
             <h4 style="text-align: center;color: #0000ff  ">Kê khai giá địa phương</h4>
             <table class="table table-striped table-bordered table-hover">
@@ -197,310 +195,312 @@
         @endif
 
                 <!--Chưa làm-->
-        @if(canGeneral('hhdv','tsnnnhadat'))
-            <div class="col-md-3">
-                <h4 style="text-align: center;color: #0000ff  ">Tài sản nhà nước (nhà và đất)</h4>
-                <table class="table table-striped table-bordered table-hover">
-                    <thead class="action">
-                    <tr>
-                        <th class="table-checkbox" width="5%">
-                            <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                        </th>
-                        <th>Chức năng</th>
+    @if(canGeneral('tsnnnhadat','tsnnnhadat'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Tài sản nhà nước (nhà và đất)</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="action">
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->index) && $permission->tsnnnhadat->index == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][index]"/></td>
-                        <td>Xem</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->create) && $permission->tsnnnhadat->create == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][create]"/></td>
-                        <td>Thêm mới</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->edit) && $permission->tsnnnhadat->edit == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][edit]"/></td>
-                        <td>Chỉnh sửa</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->delete) && $permission->tsnnnhadat->delete == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][delete]"/></td>
-                        <td>Xóa</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->approve) && $permission->tsnnnhadat->approve == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][approve]"/></td>
-                        <td>Xét duyệt</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        @endif
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->index) && $permission->tsnnnhadat->index == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->create) && $permission->tsnnnhadat->create == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->edit) && $permission->tsnnnhadat->edit == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->delete) && $permission->tsnnnhadat->delete == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnnhadat->approve) && $permission->tsnnnhadat->approve == 1) ? 'checked' : '' }} value="1" name="roles[tsnnnhadat][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
 
-        @if(canGeneral('hhdv','tsnnotokhac'))
-            <div class="col-md-3">
-                <h4 style="text-align: center;color: #0000ff  ">Tài sản nhà nước ( ôtô - tài sản khác)</h4>
-                <table class="table table-striped table-bordered table-hover">
-                    <thead class="action">
-                    <tr>
-                        <th class="table-checkbox" width="5%">
-                            <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                        </th>
-                        <th>Chức năng</th>
+    @if(canGeneral('tsnnotokhac','tsnnotokhac'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Tài sản nhà nước ( ôtô - tài sản khác)</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="action">
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->index) && $permission->tsnnotokhac->index == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][index]"/></td>
-                        <td>Xem</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->create) && $permission->tsnnotokhac->create == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][create]"/></td>
-                        <td>Thêm mới</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->edit) && $permission->tsnnotokhac->edit == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][edit]"/></td>
-                        <td>Chỉnh sửa</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->delete) && $permission->tsnnotokhac->delete == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][delete]"/></td>
-                        <td>Xóa</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->approve) && $permission->tsnnotokhac->approve == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][approve]"/></td>
-                        <td>Xét duyệt</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        @endif
-        @if(canGeneral('hhdv','gttruocba'))
-            <div class="col-md-3">
-                <h4 style="text-align: center;color: #0000ff  ">Giá thuế trước bạ</h4>
-                <table class="table table-striped table-bordered table-hover">
-                    <thead class="action">
-                    <tr>
-                        <th class="table-checkbox" width="5%">
-                            <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                        </th>
-                        <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->index) && $permission->tsnnotokhac->index == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->create) && $permission->tsnnotokhac->create == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->edit) && $permission->tsnnotokhac->edit == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->delete) && $permission->tsnnotokhac->delete == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tsnnotokhac->approve) && $permission->tsnnotokhac->approve == 1) ? 'checked' : '' }} value="1" name="roles[tsnnotokhac][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->gttruocba->index) && $permission->gttruocba->index == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][index]"/></td>
-                        <td>Xem</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->gttruocba->create) && $permission->gttruocba->create == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][create]"/></td>
-                        <td>Thêm mới</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->gttruocba->edit) && $permission->gttruocba->edit == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][edit]"/></td>
-                        <td>Chỉnh sửa</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->gttruocba->delete) && $permission->gttruocba->delete == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][delete]"/></td>
-                        <td>Xóa</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" {{ (isset($permission->gttruocba->approve) && $permission->gttruocba->approve == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][approve]"/></td>
-                        <td>Xét duyệt</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            @endif
+    @if(canGeneral('gttruocba','gttruocba'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Giá thuế trước bạ</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="action">
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gttruocba->index) && $permission->gttruocba->index == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gttruocba->create) && $permission->gttruocba->create == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gttruocba->edit) && $permission->gttruocba->edit == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gttruocba->delete) && $permission->gttruocba->delete == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gttruocba->approve) && $permission->gttruocba->approve == 1) ? 'checked' : '' }} value="1" name="roles[gttruocba][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
                     <!--Chưa làm-->
-            @if(canGeneral('hhdv','gthuetn'))
-                <div class="col-md-3">
-                    <h4 style="text-align: center;color: #0000ff  ">Thuế tài nguyên</h4>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th class="table-checkbox" width="5%">
-                                <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                            </th>
-                            <th>Chức năng</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->gthuetn->index) && $permission->gthuetn->index == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][index]"/></td>
-                            <td>Xem</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->gthuetn->create) && $permission->gthuetn->create == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][create]"/></td>
-                            <td>Thêm mới</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->gthuetn->create) && $permission->gthuetn->create == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][edit]"/></td>
-                            <td>Chỉnh sửa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->gthuetn->delete) && $permission->gthuetn->delete == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][delete]"/></td>
-                            <td>Xóa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->gthuetn->approve) && $permission->gthuetn->approve == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][approve]"/></td>
-                            <td>Xét duyệt</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            @endif
-            @if(canGeneral('hhdv','tdgia'))
-                <div class="col-md-3">
-                    <h4 style="text-align: center;color: #0000ff  ">Thẩm định giá</h4>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead class="action">
-                        <tr>
-                            <th class="table-checkbox" width="5%">
-                                <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                            </th>
-                            <th>Chức năng</th>
+    @if(canGeneral('gthuetn','gthuetn'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Thuế tài nguyên</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gthuetn->index) && $permission->gthuetn->index == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gthuetn->create) && $permission->gthuetn->create == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gthuetn->create) && $permission->gthuetn->create == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gthuetn->delete) && $permission->gthuetn->delete == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->gthuetn->approve) && $permission->gthuetn->approve == 1) ? 'checked' : '' }} value="1" name="roles[gthuetn][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
 
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->tdgia->index) && $permission->tdgia->index == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][index]"/></td>
-                            <td>Xem</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->tdgia->create) && $permission->tdgia->create == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][create]"/></td>
-                            <td>Thêm mới</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->tdgia->edit) && $permission->tdgia->edit == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][edit]"/></td>
-                            <td>Chỉnh sửa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->tdgia->delete) && $permission->tdgia->delete == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][delete]"/></td>
-                            <td>Xóa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->tdgia->approve) && $permission->tdgia->approve == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][approve]"/></td>
-                            <td>Xét duyệt</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            @endif
+    @if(canGeneral('tdgia','tdgia'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Thẩm định giá</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="action">
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
 
-            @if(canGeneral('hhdv','congbogia'))
-                <div class="col-md-3">
-                    <h4 style="text-align: center;color: #0000ff  ">Công bố giá</h4>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th class="table-checkbox" width="5%">
-                                <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                            </th>
-                            <th>Chức năng</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->congbogia->index) && $permission->congbogia->index == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][index]"/></td>
-                            <td>Xem</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->congbogia->create) && $permission->congbogia->create == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][create]"/></td>
-                            <td>Thêm mới</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->congbogia->create) && $permission->congbogia->create == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][edit]"/></td>
-                            <td>Chỉnh sửa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->congbogia->delete) && $permission->congbogia->delete == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][delete]"/></td>
-                            <td>Xóa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->congbogia->approve) && $permission->congbogia->approve == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][approve]"/></td>
-                            <td>Xét duyệt</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            @endif
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tdgia->index) && $permission->tdgia->index == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tdgia->create) && $permission->tdgia->create == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tdgia->edit) && $permission->tdgia->edit == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tdgia->delete) && $permission->tdgia->delete == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->tdgia->approve) && $permission->tdgia->approve == 1) ? 'checked' : '' }} value="1" name="roles[tdgia][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
 
-            @if(canGeneral('hhdv','ttqd'))
-                <div class="col-md-3">
-                    <h4 style="text-align: center;color: #0000ff  ">Thông tư quyết định</h4>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th class="table-checkbox" width="5%">
-                                <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                            </th>
-                            <th>Chức năng</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->ttqd->index) && $permission->ttqd->index == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][index]"/></td>
-                            <td>Xem</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->ttqd->create) && $permission->ttqd->create == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][create]"/></td>
-                            <td>Thêm mới</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->ttqd->create) && $permission->ttqd->create == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][edit]"/></td>
-                            <td>Chỉnh sửa</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" {{ (isset($permission->ttqd->delete) && $permission->ttqd->delete == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][delete]"/></td>
-                            <td>Xóa</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                @endif
+    @if(canGeneral('congbogia','congbogia'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Công bố giá</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->congbogia->index) && $permission->congbogia->index == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->congbogia->create) && $permission->congbogia->create == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->congbogia->create) && $permission->congbogia->create == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->congbogia->delete) && $permission->congbogia->delete == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->congbogia->approve) && $permission->congbogia->approve == 1) ? 'checked' : '' }} value="1" name="roles[congbogia][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
+
+    @if(canGeneral('ttqd','ttqd'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Thông tư quyết định</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->ttqd->index) && $permission->ttqd->index == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->ttqd->create) && $permission->ttqd->create == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->ttqd->create) && $permission->ttqd->create == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->ttqd->delete) && $permission->ttqd->delete == 1) ? 'checked' : '' }} value="1" name="roles[ttqd][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
 
                         <!--Giá đất đang xây dựng-->
-                @if(canGeneral('hhdv','loaidat'))
-                    <div class="col-md-3">
-                        <h4 style="text-align: center;color: #0000ff  ">Giá đất-Phân loại đất</h4>
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th class="table-checkbox" width="5%">
-                                    <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
-                                </th>
-                                <th>Chức năng</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><input type="checkbox" {{ (isset($permission->loaidat->index) && $permission->loaidat->index == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][index]"/></td>
-                                <td>Xem</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" {{ (isset($permission->loaidat->create) && $permission->loaidat->create == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][create]"/></td>
-                                <td>Thêm mới</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" {{ (isset($permission->loaidat->create) && $permission->loaidat->create == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][edit]"/></td>
-                                <td>Chỉnh sửa</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" {{ (isset($permission->loaidat->delete) && $permission->loaidat->delete == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][delete]"/></td>
-                                <td>Xóa</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" {{ (isset($permission->loaidat->approve) && $permission->loaidat->approve == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][approve]"/></td>
-                                <td>Xét duyệt</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                @endif
+    @if(canGeneral('loaidat','loaidat'))
+        <div class="col-md-3">
+            <h4 style="text-align: center;color: #0000ff  ">Giá đất-Phân loại đất</h4>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="table-checkbox" width="5%">
+                        <!--input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/-->
+                    </th>
+                    <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->loaidat->index) && $permission->loaidat->index == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][index]"/></td>
+                    <td>Xem</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->loaidat->create) && $permission->loaidat->create == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][create]"/></td>
+                    <td>Thêm mới</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->loaidat->create) && $permission->loaidat->create == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][edit]"/></td>
+                    <td>Chỉnh sửa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->loaidat->delete) && $permission->loaidat->delete == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][delete]"/></td>
+                    <td>Xóa</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" {{ (isset($permission->loaidat->approve) && $permission->loaidat->approve == 1) ? 'checked' : '' }} value="1" name="roles[loaidat][approve]"/></td>
+                    <td>Xét duyệt</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    @endif
 
-                @if(canGeneral('hhdv','vitri'))
+                @if(canGeneral('vitri','vitri'))
                     <div class="col-md-3">
                         <h4 style="text-align: center;color: #0000ff  ">Giá đất-Vị trí</h4>
                         <table class="table table-striped table-bordered table-hover">
