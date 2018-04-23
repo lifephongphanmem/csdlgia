@@ -12,8 +12,6 @@
 @stop
 
 @section('content')
-
-
     <h3 class="page-title">
         Thông tin doanh nghiệp cung cấp dịch vụ lưu trú<small> chỉnh sửa</small>
     </h3>

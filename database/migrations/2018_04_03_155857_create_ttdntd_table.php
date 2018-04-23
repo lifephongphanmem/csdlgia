@@ -29,6 +29,10 @@ class CreateTtdntdTable extends Migration
             $table->string('giayphepkd')->nullable();
             $table->string('tailieu')->nullable();
             $table->text('settingdvvt')->nullable();
+            $table->double('vtxk')->default(0);
+            $table->double('vtxb')->default(0);
+            $table->double('vtxtx')->default(0);
+            $table->double('vtch')->default(0);
             $table->string('ghichu')->nullable();
             $table->string('trangthai')->nullable();
             $table->string('level')->nullable();

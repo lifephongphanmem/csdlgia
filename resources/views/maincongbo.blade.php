@@ -190,24 +190,24 @@ License: You must have a valid license purchased only from themeforest(the above
                                     Giá dịch vụ lưu trú </a>
                             </li>
                             <li class=" dropdown-submenu">
-                                <a href=":;">
+                                <a href="">
                                     <i class="fa fa-automobile"></i>
                                     Giá dịch vụ vận tải </a>
                                 <ul class="dropdown-menu">
                                     <li class=" ">
-                                        <a href="charts_amcharts.html">
+                                        <a href="{{url('giavantaixekhach')}}">
                                             Giá vận tải xe khách </a>
                                     </li>
-                                    <li class=" ">
-                                        <a href="charts_flotcharts.html">
+                                    <li class="">
+                                        <a href="{{url('giavantaixebus')}}">
                                             Giá vận tải xe buýt </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="charts_amcharts.html">
+                                        <a href="{{url('giavantaixetaxi')}}">
                                             Giá vận tải xe taxi </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="charts_flotcharts.html">
+                                        <a href="{{url('giavantaikhac')}}">
                                             Giá vận tải khác </a>
                                     </li>
                                 </ul>
@@ -218,7 +218,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     Giá mặt hàng sữa </a>
                             </li>
                             <li class=" dropdown">
-                                <a href="{{url('giathucanchannuoi')}}">
+                                <a href="{{url('giavantaikhac')}}">
                                     <i class="fa fa-paw"></i>
                                     Giá thức ăn chăn nuôi </a>
                             </li>

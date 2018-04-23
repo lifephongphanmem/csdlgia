@@ -38,9 +38,9 @@
                         <li><i class="glyphicon glyphicon-earphone"></i> {{$modeldn->tel}}</li>
                     </ul>
                     @if(!isset($modelcb))
-                        <p>Hiện tại doanh nghiệp chưa kê khai giá dịch vụ cho {{$modelcq->tendv}}</p>
+                    <p>Hiện tại doanh nghiệp chưa kê khai giá dịch vụ cho {{$modelcq->tendv}}</p>
                     @else
-                        <p>Ngày áp dụng mức giá <b>{{getDayVn($modelcb->ngayhieuluc)}}</b> - {{$modelcq->tendv}} đã nhận hồ sơ vào ngày {{getDayVn($modelcb->ngaynhan)}}</p>
+                    <p>Ngày áp dụng mức giá <b>{{getDayVn($modelcb->ngayhieuluc)}}</b> - {{$modelcq->tendv}} đã nhận hồ sơ vào ngày {{getDayVn($modelcb->ngaynhan)}}</p>
                     @endif
                 </div>
             </div>
@@ -55,7 +55,7 @@
                             <span class="caption-subject theme-font bold uppercase">Thông tin kê khai giá dịch vụ</span>
                         </div>
                         <div class="actions">
-                            <a href="{{url('giathucanchannuoi/'.$modeldn->maxa.'/history')}}" class="btn green"><i class="fa fa-eye"></i> Thông tin kê khai gần đây</a>
+                            <a href="{{url('giavantaixebus/'.$modeldn->maxa.'/history')}}" class="btn green"><i class="fa fa-eye"></i> Thông tin kê khai gần đây</a>
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -94,6 +94,6 @@
         </div>
     </div>
     <div style="text-align: center">
-        <a href="{{url('giathucanchannuoi')}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
+        <a href="{{url('giavantaixebus')}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
     </div>
 @stop 

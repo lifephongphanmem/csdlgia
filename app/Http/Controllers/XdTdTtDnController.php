@@ -121,10 +121,7 @@ class XdTdTtDnController extends Controller
                     ->where('mahuyen',$model->mahuyen)
                     ->first();
                 $modeldn->update($inputs);
-
-
                 $tencqcq = District::where('mahuyen',$model->mahuyen)->first();
-
                 $data=[];
                 $data['tendn'] = $modeldn->tendn;
                 $data['tg'] = Carbon::now()->toDateTimeString();
@@ -136,7 +133,6 @@ class XdTdTtDnController extends Controller
                         ->subject('Thông báo duyệt thay đổi thông tin doanh nghiệp');
                     $message->from('phanmemcsdlgia@gmail.com','Phần mềm CSDL giá');
                 });
-
                 $model->delete();
                 return redirect('xetduyet_thaydoi_ttdoanhnghiep?&level=' . $model->level);
             }else

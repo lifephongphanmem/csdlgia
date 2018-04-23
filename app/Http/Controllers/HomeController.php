@@ -59,8 +59,24 @@ class HomeController extends Controller
             ->orderByRaw("RAND()")
             ->take(4)
             ->get();
+        $modelvtxk = Company::where('level','DVVT')
+            ->where('vtxk','1')
+            ->get();
+        $modelvtxb = Company::where('level','DVVT')
+            ->where('vtxb','1')
+            ->get();
+        $modelvtxtx = Company::where('level','DVVT')
+            ->where('vtxtx','1')
+            ->get();
+        $modelvtch = Company::where('level','DVVT')
+            ->where('vtch','1')
+            ->get();
         return view('dashboardcb')
             ->with('modellt',$modellt)
+            ->with('modelvtxk',$modelvtxk)
+            ->with('modelvtxb',$modelvtxb)
+            ->with('modelvtxtx',$modelvtxtx)
+            ->with('modelvtch',$modelvtch)
             ->with('modelgs',$modelgs)
             ->with('modeltacn',$modeltacn)
             ->with('pageTitle','Trang công bố giá dịch vụ, hàng hoá');

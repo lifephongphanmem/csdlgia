@@ -236,6 +236,11 @@ class RegisterController extends Controller
                 } else {
                     $inputs['ma'] = getdate()[0];
                     $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+                    $x = $inputs['roles'];
+                    $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
+                    $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+                    $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+                    $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
                     $inputs['trangthai'] = 'Chờ duyệt';
                     $inputs['password'] = md5($inputs['rpassword']);
                     $model = new Register();
@@ -276,6 +281,11 @@ class RegisterController extends Controller
             $inputs['trangthai'] = 'Chờ duyệt';
             $inputs['password'] = md5($inputs['rpassword']);
             $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+            $x = $inputs['roles'];
+            $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
+            $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+            $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
             $model = Register::findOrFail($id);
             if ($model->update($inputs)) {
                 $tencqcq = District::where('mahuyen', $inputs['mahuyen'])->first();

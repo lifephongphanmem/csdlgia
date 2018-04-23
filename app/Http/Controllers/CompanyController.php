@@ -81,6 +81,11 @@ class CompanyController extends Controller
                 $inputs = $request->all();
                 $model = Company::findOrFail($id);
                 $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+                $x = $inputs['roles'];
+                $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
+                $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+                $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+                $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
                 $model->update($inputs);
                 return redirect('company?&level='.$model->level);
             }else{
@@ -145,13 +150,17 @@ class CompanyController extends Controller
 
     public function ttdnupdate(Request $request,$id){
         if (Session::has('admin')) {
-
-            $check = TtDnTd::where('maxa', session('admin')->maxa)
-                ->where('level', 'DVLT')
-                ->delete();
             $inputs = $request->all();
+            $check = TtDnTd::where('maxa', session('admin')->maxa)
+                ->where('level',$inputs['level'])
+                ->delete();
             $model = new TtDnTd();
             $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+            $x = $inputs['roles'];
+            $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
+            $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+            $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
             $inputs['trangthai'] = 'Chờ chuyển';
             $model->create($inputs);
 
@@ -185,6 +194,11 @@ class CompanyController extends Controller
             $inputs =$request->all();
             $model = TtDnTd::findOrFail($id);
             $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+            $x = $inputs['roles'];
+            $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
+            $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+            $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
             $inputs['trangthai'] = 'Chờ chuyển';
             $model->update($inputs);
 

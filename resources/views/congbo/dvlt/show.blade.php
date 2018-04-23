@@ -72,7 +72,7 @@
                         <li><i class="glyphicon glyphicon-earphone"></i> {{$modelcskd->telkd}}</li>
                     </ul>
                     @if(!isset($modelcb))
-                    <p>Hiện tại cơ sở kinh doanh chưa kê khai giá dịch vụ cho Sở tài chính</p>
+                        <p>Hiện tại doanh nghiệp chưa kê khai giá dịch vụ cho {{$modelcq->tendv}}</p>
                     @else
                     <p>Ngày áp dụng mức giá <b>{{getDayVn($modelcb->ngayhieuluc)}}</b> - {{$modelcq->tendv}} đã nhận hồ sơ vào ngày {{getDayVn($modelcb->ngaynhan)}}</p>
                     @endif

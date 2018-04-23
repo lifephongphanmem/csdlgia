@@ -27,6 +27,10 @@ class CreateCompanyTable extends Migration
             $table->string('nguoiky')->nullable();
             $table->string('noidknopthue')->nullable();
             $table->string('settingdvvt')->nullable();
+            $table->double('vtxk')->default(0);
+            $table->double('vtxb')->default(0);
+            $table->double('vtxtx')->default(0);
+            $table->double('vtch')->default(0);
             $table->string('ghichu')->nullable();
             $table->string('trangthai')->nullable();
             $table->string('tailieu')->nullable();
