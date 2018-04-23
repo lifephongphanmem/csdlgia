@@ -22,6 +22,7 @@ class CreateGeneralConfigsTable extends Migration
             $table->string('thutruong')->nullable();
             $table->string('ketoan')->nullable();
             $table->string('nguoilapbieu')->nullable();
+            $table->string('diadanh')->nullable();
             $table->text('setting')->nullable();
             $table->text('thongtinhd')->nullable();
             $table->double('thoihanlt')->default(0);

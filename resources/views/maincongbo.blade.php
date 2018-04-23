@@ -152,7 +152,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="container">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <h2 style="color: #18bc9c"><b>CÔNG BỐ GIÁ DỊCH VỤ - HÀNG HOÁ</b></h2>
+                <h2 style="color: #18bc9c;text-transform: uppercase;"><b>GIÁ HÀNG HÓA - DỊCH VỤ {{isset(getGeneralConfigs()['diadanh']) ? getGeneralConfigs()['diadanh'] : ''}}</b></h2>
             </div>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->

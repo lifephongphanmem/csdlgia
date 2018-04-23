@@ -86,6 +86,12 @@
                                     {!!Form::text('nguoilapbieu', null , array('id' => 'nguoilapbieu','class' => 'form-control required'))!!}
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Địa danh<span class="require">*</span></label>
+                                    {!!Form::text('diadanh', null , array('id' => 'diadanh','class' => 'form-control required'))!!}
+                                </div>
+                            </div>
                             <!--/span-->
                         </div>
                         <div class="row">

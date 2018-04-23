@@ -47,25 +47,16 @@
                                 <b>Bản quyền thuộc về</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted"><b style="color: blue">Công ty TNHH phát triển phần mềm Cuộc Sống</b>
+                                <span class="text-muted"><b style="color: blue">CÔNG TY TRÁCH NHIỆM HỮU HẠN PHÁT TRIỂN PHẦN MỀM CUỘC SỐNG</b>
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td style="width:15%">
-                                <b>Địa chỉ</b>
+                                <b>Số đăng ký kinh doanh</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:15%">
-                                <b>Mã số thuế </b>
-                            </td>
-                            <td style="width:35%">
-                                <span class="text-muted">
+                                <span class="text-muted" style="color: #0000ff">Số: 0106070279 - Cấp ngày 27/12/2012
                                 </span>
                             </td>
                         </tr>
@@ -74,7 +65,7 @@
                                 <b>Số đăng ký bản quyền</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">
+                                <span class="text-muted" style="color: #0000ff">Số: 164/2016/QTG - Cấp ngày 22/04/2016
                                 </span>
                             </td>
                         </tr>
@@ -83,7 +74,7 @@
                                 <b>Cấp cho đơn vị</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted">{{isset($model) ? $model->tendonvi : ''}}
+                                <span class="text-muted" style="color: #0000ff">{{isset($model) ? $model->tendonvi : ''}}
                                 </span>
                             </td>
                         </tr>
@@ -92,7 +83,7 @@
                                 <b>Thông tin hợp đồng</b>
                             </td>
                             <td style="width:35%">
-                                <span class="text-muted"><p>{{isset($model) ? $model->thongtinhd : ''}}</p>
+                                <span class="text-muted"><p style="color: #0000ff">{{isset($model) ? $model->thongtinhd : ''}}</p>
                                 </span>
                             </td>
                         </tr>
