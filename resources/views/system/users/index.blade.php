@@ -99,9 +99,9 @@
                                 <select class="form-control" name="phanloai" id="phanloai">
                                     @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
                                     <option value="HT" {{($pl == "HT") ? 'selected' : ''}}>Quản trị hệ thống</option>
-                                    <option value="T" {{($pl == "T") ? 'selected' : ''}}>Cấp Tỉnh</option>
-                                    <option value="H" {{($pl == "H") ? 'selected' : ''}}>Cấp Huyện</option>
-                                    <option value="X" {{($pl == "X") ? 'selected' : ''}}>Cấp Xã</option>
+                                    <option value="T" {{($pl == "T") ? 'selected' : ''}}>Tổng hợp</option>
+                                    <option value="H" {{($pl == "H") ? 'selected' : ''}}>Quản lý</option>
+                                    <!--option value="X" {{($pl == "X") ? 'selected' : ''}}>Cấp Xã</option-->
                                     @endif
                                     @if(canGeneral('dvlt','dvlt') )
                                         @if(can('ttdn','dvlt'))

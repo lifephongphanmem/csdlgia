@@ -31,7 +31,7 @@
 @section('content')
 
     <h3 class="page-title">
-        Danh mục đơn vị<small>&nbsp;quận/huyện</small>
+        Danh mục đơn vị<small>&nbsp;quản lý</small>
     </h3>
     <!-- END PAGE HEADER-->
     <div class="row">

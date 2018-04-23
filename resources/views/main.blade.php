@@ -313,7 +313,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                     <ul class="sub-menu">
                         @if(session('admin')->sadmin == 'sa' || session('admin')->sadmin == 'ssa' )
-                            <li><a href="{{url('district')}}"> Danh mục đơn vị quận/huyện</a></li>
+                            <li><a href="{{url('district')}}"> Danh mục đơn vị quản lý</a></li>
                             <!--li><a href="{{url('town')}}"> Danh mục đơn vị xã/phường</a></li-->
 
                             <!-- Hệ thống giá hàng hóa, dịch vu -->
