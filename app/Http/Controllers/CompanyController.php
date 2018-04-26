@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\DiaBanHd;
 use App\District;
 use App\TtDnTd;
 use Carbon\Carbon;

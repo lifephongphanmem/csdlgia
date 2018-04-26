@@ -23,6 +23,19 @@
                 var url = '/giadichvuluutru?&loaihang='+loaihang;
                 window.location.href = url;
             });
+            $('#district').change(function() {
+                var loaihang = $('#loaihang').val();
+                var district = $('#district').val();
+                var url = '/giadichvuluutru?&loaihang='+loaihang+'&district='+district;
+                window.location.href = url;
+            });
+            $('#town').change(function() {
+                var loaihang = $('#loaihang').val();
+                var district = $('#district').val();
+                var town = $('#town').val();
+                var url = '/giadichvuluutru?&loaihang='+loaihang+'&district='+district+'&town='+town;
+                window.location.href = url;
+            });
         });
     </script>
 @stop
@@ -56,6 +69,28 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select id="district" name="district" class="form-control">
+                                        <option value="all" >--Chọn quận/huyện--</option>
+                                        @foreach($districts as $district)
+                                            <option value="{{$district->district}}" {{$district->district == $huyen ? 'selected' : ''}}>{{$district->diaban}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            @if($huyen != 'all')
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select id="town" name="town" class="form-control">
+                                        <option value="all" >--Chọn quận/huyện--</option>
+                                        @foreach($towns as $town)
+                                            <option value="{{$town->town}}" {{$town->town == $xa ? 'selected' : ''}}>{{$town->diaban}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                         <table class="table table-striped table-bordered table-hover" id="sample_3">
                             <thead>

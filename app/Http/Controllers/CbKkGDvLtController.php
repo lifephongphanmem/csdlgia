@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CbKkGDvLt;
 use App\CsKdDvLt;
+use App\DiaBanHd;
 use App\District;
 use App\KkGDvLt;
 use App\KkGDvLtCt;
@@ -15,10 +16,28 @@ class CbKkGDvLtController extends Controller
     public function index(Request $request){
         $inputs = $request->all();
         $inputs['loaihang'] = isset($inputs['loaihang']) ? $inputs['loaihang'] : '3';
-        $model = CsKdDvLt::where('loaihang',$inputs['loaihang'])
+        $inputs['district'] = isset($inputs['district']) ? $inputs['district'] : 'all';
+        $inputs['town'] = isset($inputs['town']) ? $inputs['town'] : 'all';
+        $districts = DiaBanHd::where('level','H')
             ->get();
+        $towns = DiaBanHd::where('level','X');
+        $model = CsKdDvLt::where('loaihang',$inputs['loaihang']);
+
+        if($inputs['district'] != 'all'){
+            $model = $model->where('district',$inputs['district']);
+            $towns = $towns->where('district',$inputs['district']);
+            if($inputs['town'] != 'all')
+                $model = $model->where('town',$inputs['town']);
+        }
+        $model = $model->get();
+        $towns = $towns->get();
+
         return view('congbo.dvlt.index')
             ->with('model',$model)
+            ->with('districts',$districts)
+            ->with('towns',$towns)
+            ->with('xa',$inputs['town'])
+            ->with('huyen',$inputs['district'])
             ->with('loaihang',$inputs['loaihang'])
             ->with('pageTitle','Thông tin cơ sở kinh doanh kê khai dịch vụ lưu trú');
     }

@@ -85,6 +85,27 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Quận/huyện</label>
+                                        <select name="district" id="district" class="form-control">
+                                            <option value="all">--Chọn quận/huyện--</option>
+                                            @foreach($districts as $district)
+                                                <option value="{{$district->district}}">{{$district->diaban}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Xã/phường</label>
+                                        <select name="town" id="town" class="form-control">
+                                            <option value="">--Chọn quận/huyện--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     <!-- END FORM-->
                 </div>
@@ -111,5 +132,26 @@
                 }
             });
         }
+    </script>
+    <script>
+        jQuery(function($){
+            $('select[name="district"]').change(function(){
+
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    url: '/ajax/getTown',
+                    type: 'GET',
+                    data: {
+                        _token: CSRF_TOKEN,
+                        district: $(this).val()
+                    },
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if(data.status == 'success')
+                            $('select[name="town"]').replaceWith(data.message);
+                    }
+                });
+            });
+        });
     </script>
 @stop

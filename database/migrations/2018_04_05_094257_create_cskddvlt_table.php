@@ -24,6 +24,8 @@ class CreateCskddvltTable extends Migration
             $table->string('telkd')->nullable();
             $table->string('link')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('town')->nullable();
+            $table->string('district')->nullable();
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ Route::get('/ajax/checkusername','AjaxController@checkusername');
 Route::get('/ajax/checkmaqhns','AjaxController@checkmaqhns');
 Route::get('/ajax/checkmasothue','AjaxController@checkmasothue');
 Route::get('/ajax/registerthongtin','AjaxController@registerthongtin');
+Route::get('/ajax/getTown','AjaxController@getTown');
 
 // <editor-fold defaultstate="collapsed" desc="--Đăng ký tài khoản--">
 Route::get('/ajax/registercheckmasothue','RegisterController@checkmasothue');
@@ -39,6 +40,7 @@ Route::resource('xetduyet_thaydoi_ttdoanhnghiep','XdTdTtDnController');
 Route::post('xetduyet_thaydoi_ttdoanhnghiep/tralai','XdTdTtDnController@tralai');
 Route::get('xetduyet_thaydoi_ttdoanhnghiep/{id}/duyet','XdTdTtDnController@duyet');
 
+Route::resource('diabanhoatdong','DiaBanHdController');
 
 //Users
 Route::get('login','UsersController@login');
@@ -87,5 +89,6 @@ include('manage/dvvt.php');
 
 include('congbo/congbo.php');
 Route::get('ghichuct','HomeController@ghichuct');
+
 
 

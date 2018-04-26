@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DiaBanHd;
 use App\District;
 use App\Register;
 use App\Town;
@@ -178,11 +179,44 @@ class AjaxController extends Controller
 
             $result['message'] = '<div class="form-group" id="tttralai"> ';
             $result['message'] .= '<label style="color: blue"><b>'.$modelhs->tendn.'</b> - Mã số thuế: <b>'.$modelhs->maxa.'</b></label>';
-            $result['message'] .= '<input type="text" id="idhs" name="idhs" value="'.$inputs['id'].'">';
+            $result['message'] .= '<input type="hidden" id="idhs" name="idhs" value="'.$inputs['id'].'">';
             $result['message'] .= '</div>';
 
             $result['status'] = 'success';
         }
+        die(json_encode($result));
+    }
+
+    public function getTown(Request $request){
+        $result = array(
+            'status' => 'fail',
+            'message' => 'error',
+        );
+        if(!Session::has('admin')) {
+            $result = array(
+                'status' => 'fail',
+                'message' => 'permission denied',
+            );
+            die(json_encode($result));
+        }
+        //dd($request);
+        $inputs = $request->all();
+
+            $model = DiaBanHd::where('district',$inputs['district'])
+                ->where('level','X')
+                ->get();
+
+            $result['message'] = '<select name="town" id="town" class="form-control"> ';
+            if(count($model) > 0) {
+                foreach($model as $tt) {
+                    $result['message'] .= '<option value="'.$tt->town.'">'.$tt->diaban.'</option>';
+                }
+            }else
+                $result['message'] .= '<option value="">--Chọn xã/phường--</option>';
+            $result['message'] .= '</select>';
+
+            $result['status'] = 'success';
+
         die(json_encode($result));
     }
 }

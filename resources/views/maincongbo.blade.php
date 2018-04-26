@@ -152,7 +152,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="container">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <h2 style="color: #18bc9c;text-transform: uppercase;"><b>GIÁ HÀNG HÓA - DỊCH VỤ {{isset(getGeneralConfigs()['diadanh']) ? getGeneralConfigs()['diadanh'] : ''}}</b></h2>
+                <h3 style="text-transform: uppercase;"><b style="color: #25aae2">GIÁ HÀNG HÓA - DỊCH VỤ</b>&nbsp;<b style="color: #454545">{{isset(getGeneralConfigs()['diadanh']) ? getGeneralConfigs()['diadanh'] : ''}}</b></h3>
             </div>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -160,7 +160,13 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN TOP NAVIGATION MENU -->
             <div class="top-menu">
-                <b style="color: #18bc9c;"><div id="clock"></div></b>
+                <b style="color: #25aae2"><div id="clock"></div></b>
+                @if(Illuminate\Support\Facades\Session::has('admin'))
+                    <a class="text-bold text-white no-underline" href="{{url('')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Vào chương trình</a>
+                @else
+                    <a class="text-bold text-white no-underline" href="{{url('login')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Đăng nhập</a>
+                    or <a class="text-bold text-white no-underline" href="{{url('searchtkdangky')}}" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Kiểm tra tài khoản đăng ký</a>
+                @endif
             </div>
             <!-- END TOP NAVIGATION MENU -->
         </div>
@@ -219,51 +225,6 @@ License: You must have a valid license purchased only from themeforest(the above
                             </li>
                             <li class=" dropdown">
                                 <a href="{{url('giavantaikhac')}}">
-                                    <i class="fa fa-paw"></i>
-                                    Giá thức ăn chăn nuôi </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-dropdown classic-menu-dropdown ">
-                        <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
-                            Giá hàng hoá <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu pull-left">
-                            <li class=" dropdown">
-                                <a href=":;">
-                                    <i class="icon-wallet"></i>
-                                    Giá dịch vụ lưu trú </a>
-                            </li>
-                            <li class=" dropdown-submenu">
-                                <a href=":;">
-                                    <i class="icon-bar-chart"></i>
-                                    Giá dịch vụ vận tải </a>
-                                <ul class="dropdown-menu">
-                                    <li class=" ">
-                                        <a href="charts_amcharts.html">
-                                            Giá vận tải xe khách </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="charts_flotcharts.html">
-                                            Giá vận tải xe buýt </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="charts_amcharts.html">
-                                            Giá vận tải xe taxi </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="charts_flotcharts.html">
-                                            Giá vận tải khác </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class=" dropdown">
-                                <a href="">
-                                    <i class="fa fa-spoon"></i>
-                                    Giá sữa </a>
-                            </li>
-                            <li class=" dropdown">
-                                <a href="">
                                     <i class="fa fa-paw"></i>
                                     Giá thức ăn chăn nuôi </a>
                             </li>

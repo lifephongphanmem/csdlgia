@@ -43,7 +43,7 @@ class HomeController extends Controller
                     ->with('pageTitle','Tổng quan');
             }
         }else
-            return view('welcome');
+            return redirect('giahanghoadichvu');
 
     }
 
@@ -79,7 +79,7 @@ class HomeController extends Controller
             ->with('modelvtch',$modelvtch)
             ->with('modelgs',$modelgs)
             ->with('modeltacn',$modeltacn)
-            ->with('pageTitle','Trang công bố giá dịch vụ, hàng hoá');
+            ->with('pageTitle','Giá hàng hóa - dịch vụ');
     }
 
     /*public function regdvlt(){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\CsKdDvLt;
+use App\DiaBanHd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -20,10 +21,8 @@ class CsKdDvLtController extends Controller
                     ->with('model', $model)
                     ->with('tendn',$tendn)
                     ->with('pageTitle', 'Danh sách cơ sở kinh doanh dịch vụ lưu trú');
-            }else{
+            }else
                 return view('errors.perm');
-            }
-
         }else
             return view('errors.notlogin');
     }
@@ -32,8 +31,11 @@ class CsKdDvLtController extends Controller
         if (Session::has('admin')) {
             if (session('admin')->level == 'DVLT') {
                 $tendn = Company::where('maxa',session('admin')->maxa)->first()->tendn;
+                $districts = DiaBanHd::where('level','H')
+                    ->get();
                 return view('manage.dvlt.cskd.create')
                     ->with('tendn',$tendn)
+                    ->with('districts',$districts)
                     ->with('pageTitle', 'Thêm mới cơ sở kinh doanh dịch vụ lưu trú');
             }else{
                 return view('errors.perm');
@@ -73,9 +75,19 @@ class CsKdDvLtController extends Controller
             if (session('admin')->level == 'DVLT') {
                 $model = CsKdDvLt::findOrFail($id);
                 $tendn = Company::where('maxa',session('admin')->maxa)->first()->tendn;
+                $districts = DiaBanHd::where('level','H')
+                    ->get();
+                if($model->district != '')
+                    $towns = DiaBanHd::where('district',$model->district)
+                        ->where('level','X')
+                        ->get();
+                else
+                    $towns = '';
                 return view('manage.dvlt.cskd.edit')
                     ->with('model',$model)
                     ->with('tendn',$tendn)
+                    ->with('districts',$districts)
+                    ->with('towns',$towns)
                     ->with('pageTitle', 'Chỉnh sửa cơ sở kinh doanh dịch vụ lưu trú');
             }else{
                 return view('errors.perm');

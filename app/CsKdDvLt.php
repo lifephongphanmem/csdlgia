@@ -17,6 +17,8 @@ class CsKdDvLt extends Model
         'diachikd',
         'telkd',
         'link',
-        'avatar'
+        'avatar',
+        'town',
+        'district',
     ];
 }
