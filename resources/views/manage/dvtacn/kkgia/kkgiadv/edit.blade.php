@@ -399,7 +399,9 @@
 @section('content')
 
     <h3 class="page-title">
-        Thông tin kê khai giá thức ăn chăn nuôi<small>&nbsp;chỉnh sửa</small>
+        Thông tin kê khai giá chỉnh sửa <br><small>&nbsp;Thức ăn chăn nuôi cho gia súc, gia cầm và thủy sản; thuốc thủ y để
+            tiêu độc, sát trùng, tay trùng, trị bệnh cho gia súc, gia cầm và thủy sản theo quy
+            định của Bộ Nông nghiệp và Phát trỉến nông thôn</small>
         <p><h5 style="color: blue">{{$modeldn->tendn}}&nbsp;- Mã số thuế: {{$modeldn->maxa}}</h5></p>
     </h3>
 

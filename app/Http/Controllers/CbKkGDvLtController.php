@@ -42,7 +42,6 @@ class CbKkGDvLtController extends Controller
             ->with('pageTitle','Thông tin cơ sở kinh doanh kê khai dịch vụ lưu trú');
     }
 
-
     public function show($macskd){
         $modelcskd = CsKdDvLt::where('macskd',$macskd)
             ->first();

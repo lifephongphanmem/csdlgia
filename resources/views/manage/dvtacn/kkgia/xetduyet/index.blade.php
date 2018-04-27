@@ -241,7 +241,9 @@
 @section('content')
 
     <h3 class="page-title">
-        Thông tin xét duyệt kê khai giá<small>&nbsp;thức ăn chăn nuôi</small>
+        Thông tin xét duyệt kê khai giá<br><small>&nbsp;Thức ăn chăn nuôi cho gia súc, gia cầm và thủy sản; thuốc thủ y để
+            tiêu độc, sát trùng, tay trùng, trị bệnh cho gia súc, gia cầm và thủy sản theo quy
+            định của Bộ Nông nghiệp và Phát trỉến nông thôn</small>
     </h3>
     <div class="row">
         <div class="col-md-2">

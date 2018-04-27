@@ -25,7 +25,9 @@
 @section('content')
 
     <h3 class="page-title">
-        Thông tin doanh nghiệp kê khai <small>&nbsp;giá thức ăn chăn nuôi</small>
+        Thông tin doanh nghiệp kê khai <br><small>&nbsp;Thức ăn chăn nuôi cho gia súc, gia cầm và thủy sản; thuốc thủ y để
+            tiêu độc, sát trùng, tay trùng, trị bệnh cho gia súc, gia cầm và thủy sản theo quy
+            định của Bộ Nông nghiệp và Phát trỉến nông thôn </small>
     </h3>
     <!-- END PAGE HEADER-->
     <div class="row">
