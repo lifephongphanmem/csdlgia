@@ -21,6 +21,7 @@ use App\KkGDvTaCn;
 use App\Register;
 use App\TtDn;
 use App\Users;
+use App\ViewPage;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -42,9 +43,19 @@ class HomeController extends Controller
                 return view('dashboard')
                     ->with('pageTitle','Tổng quan');
             }
-        }else
+        }else{
+            $ip = $_SERVER['REMOTE_ADDR'];
+            $session = Session::getId();
+            $model = ViewPage::where('ip',$ip)
+                ->where('session',$session)->count();
+            if($model == 0){
+                $model = new ViewPage();
+                $model->ip = $ip;
+                $model->session = $session;
+                $model->save();
+            }
             return redirect('giahanghoadichvu');
-
+        }
     }
 
     public function congbo(){
@@ -71,6 +82,8 @@ class HomeController extends Controller
         $modelvtch = Company::where('level','DVVT')
             ->where('vtch','1')
             ->get();
+
+        $viewpage = ViewPage::count();
         return view('dashboardcb')
             ->with('modellt',$modellt)
             ->with('modelvtxk',$modelvtxk)
@@ -79,6 +92,7 @@ class HomeController extends Controller
             ->with('modelvtch',$modelvtch)
             ->with('modelgs',$modelgs)
             ->with('modeltacn',$modeltacn)
+            ->with('viewpage',$viewpage)
             ->with('pageTitle','Giá hàng hóa - dịch vụ');
     }
 

@@ -8,12 +8,16 @@
                     <i class="icon-bar-chart theme-font hide"></i>
                     <span class="caption-subject theme-font bold uppercase">Mặt hàng thức ăn chăn nuôi</span>
                 </div>
-                <div class="actions">
-                    <a href="{{url('giathucanchannuoi')}}">Xem chi tiết...</a>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="reload" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="remove" data-original-title="" title="">
+                    </a>
                 </div>
             </div>
             <div class="portlet-body">
-
                 <div class="row list-separated">
                     @foreach($modeltacn as $tacn)
                         <div class="col-md-3">
@@ -25,6 +29,9 @@
                             <p><i class="fa fa-phone"></i> {{$tacn->tel}}</p>
                         </div>
                     @endforeach
+                </div>
+                <div class="actions" style="text-align: right">
+                    <a href="{{url('giathucanchannuoi')}}">Xem chi tiết...</a>
                 </div>
             </div>
         </div>

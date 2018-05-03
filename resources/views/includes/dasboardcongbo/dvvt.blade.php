@@ -8,12 +8,16 @@
                     <i class="icon-bar-chart theme-font hide"></i>
                     <span class="caption-subject theme-font bold uppercase">Vận tải xe khách</span>
                 </div>
-                <div class="actions">
-                    <a href="{{url('giavantaixekhach')}}">Xem chi tiết...</a>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="reload" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="remove" data-original-title="" title="">
+                    </a>
                 </div>
             </div>
             <div class="portlet-body">
-
                 <div class="row list-separated">
                     @foreach($modelvtxk as $xk)
                         <div class="col-md-3">
@@ -25,6 +29,9 @@
                             <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
                         </div>
                     @endforeach
+                </div>
+                <div class="actions" style="text-align: right">
+                    <a href="{{url('giavantaixekhach')}}">Xem chi tiết...</a>
                 </div>
             </div>
         </div>
@@ -42,12 +49,16 @@
                     <i class="icon-bar-chart theme-font hide"></i>
                     <span class="caption-subject theme-font bold uppercase">Vận tải xe buýt</span>
                 </div>
-                <div class="actions">
-                    <a href="{{url('giavantaixebus')}}">Xem chi tiết...</a>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="reload" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="remove" data-original-title="" title="">
+                    </a>
                 </div>
             </div>
             <div class="portlet-body">
-
                 <div class="row list-separated">
                     @foreach($modelvtxb as $xb)
                         <div class="col-md-3">
@@ -59,6 +70,9 @@
                             <p><i class="fa fa-phone"></i> {{$xb->tel}}</p>
                         </div>
                     @endforeach
+                </div>
+                <div class="actions" style="text-align: right">
+                    <a href="{{url('giavantaixebus')}}">Xem chi tiết...</a>
                 </div>
             </div>
         </div>
@@ -76,12 +90,16 @@
                     <i class="icon-bar-chart theme-font hide"></i>
                     <span class="caption-subject theme-font bold uppercase">Vận tải xe taxi</span>
                 </div>
-                <div class="actions">
-                    <a href="{{url('giavantaixetaxi')}}">Xem chi tiết...</a>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="reload" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="remove" data-original-title="" title="">
+                    </a>
                 </div>
             </div>
             <div class="portlet-body">
-
                 <div class="row list-separated">
                     @foreach($modelvtxtx as $tx)
                         <div class="col-md-3">
@@ -93,6 +111,9 @@
                             <p><i class="fa fa-phone"></i> {{$tx->tel}}</p>
                         </div>
                     @endforeach
+                </div>
+                <div class="actions" style="text-align: right">
+                    <a href="{{url('giavantaixetaxi')}}">Xem chi tiết...</a>
                 </div>
             </div>
         </div>
@@ -110,12 +131,16 @@
                     <i class="icon-bar-chart theme-font hide"></i>
                     <span class="caption-subject theme-font bold uppercase">Vận tải khác</span>
                 </div>
-                <div class="actions">
-                    <a href="{{url('giavantaikhac')}}">Xem chi tiết...</a>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="reload" data-original-title="" title="">
+                    </a>
+                    <a href="javascript:;" class="remove" data-original-title="" title="">
+                    </a>
                 </div>
             </div>
             <div class="portlet-body">
-
                 <div class="row list-separated">
                     @foreach($modelvtch as $ch)
                         <div class="col-md-3">
@@ -127,6 +152,9 @@
                             <p><i class="fa fa-phone"></i> {{$ch->tel}}</p>
                         </div>
                     @endforeach
+                </div>
+                <div class="actions" style="text-align: right">
+                    <a href="{{url('giavantaikhac')}}">Xem chi tiết...</a>
                 </div>
             </div>
         </div>
