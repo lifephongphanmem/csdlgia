@@ -13,7 +13,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
@@ -259,9 +259,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
             </div>
         </div>
-        <div class="form-group" style="text-align: center">
+        <!--div class="form-group" style="text-align: center">
             <div class="g-recaptcha" data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}" id="captcha" name="captcha"></div>
-        </div>
+        </div-->
         <div class="form-actions">
             <button id="register-back-btn" type="button" class="btn"><a href="{{url('login')}}">
                 <i class="m-icon-swapleft"></i> Quay lại </a> </button>

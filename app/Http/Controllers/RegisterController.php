@@ -221,11 +221,14 @@ class RegisterController extends Controller
             ->with('pageTitle','Đăng ký thông tin tài khoản doanh nghiệp');
     }
 
-    public function dangkytaikhoanstore(Request $request){
+    public function dangkytaikhoanstore(Request $request)
+    {
         $inputs = $request->all();
-        if($inputs['g-recaptcha-response'] != '') {
+
+        //Bỏ captcha phần vĩnh phúc
+        //if ($inputs['g-recaptcha-response'] != '') {
             $check = Company::where('maxa', $inputs['maxa'])
-                ->where('level',$inputs['level'])
+                ->where('level', $inputs['level'])
                 ->first();
             if (count($check) > 0) {
                 return view('errors.register-errors');
@@ -235,14 +238,24 @@ class RegisterController extends Controller
                     return view('errors.register-errors');
                 } else {
                     $inputs['ma'] = getdate()[0];
-                    $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
-                    $x = $inputs['roles'];
-                    $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
-                    $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
-                    $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
-                    $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
+                    if(isset($inputs['roles'])){
+                        $inputs['settingdvvt'] = json_encode($inputs['roles']);
+                        $x = $inputs['roles'];
+                        $inputs['vtxk'] = isset($inputs['dvvt']['vtxk']) ? 1 : 0;
+                        $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+                        $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+                        $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
+                    }else {
+                        $inputs['settingdvvt'] = '';
+                        $inputs['vtxk'] = 0;
+                        $inputs['vtxb'] = 0;
+                        $inputs['vtxtx'] = 0;
+                        $inputs['vtch'] = 0;
+                    }
+
                     $inputs['trangthai'] = 'Chờ duyệt';
                     $inputs['password'] = md5($inputs['rpassword']);
+
                     $model = new Register();
                     if ($model->create($inputs)) {
                         $tencqcq = District::where('mahuyen', $inputs['mahuyen'])->first();
@@ -268,8 +281,9 @@ class RegisterController extends Controller
                         ->with('ma', $inputs['ma']);
                 }
             }
-        }else
-            return view('errors.register-errors');
+        //} else {
+            //return view('errors.register-errors');
+        //}
     }
 
     public function dangkytaikhoanupdate(Request $request,$id){
