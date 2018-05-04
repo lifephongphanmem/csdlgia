@@ -93,12 +93,12 @@ License: You must have a valid license purchased only from themeforest(the above
 			<br>
 		</div>
 		{!! Form::close() !!}
-		<div class="forget-password">
+		<!--div class="forget-password">
 			<p>
 				Bạn quên mật khẩu truy cập? Click <a href="{{url('forgot_password')}}">
 					here </a>
 			</p>
-		</div>
+		</div-->
 		<div class="create-account">
 			<p>Hướng dẫn đăng ký tài khoản?&nbsp;<a href="http://help.csdlgia.vn/dang_ky_tai_khoan" target="_blank">Click here?</a> </p>
 			<p>
