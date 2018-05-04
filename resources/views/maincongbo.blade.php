@@ -303,7 +303,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
                 <h2>Contacts</h2>
                 <address class="margin-bottom-40">
-                    Phone: <br>
+                    Phone:<br>
                     Email:
                 </address>
             </div>
@@ -316,7 +316,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="col-md-6">
         2016 &copy; LifeSoft <a href="" >Tiện ích hơn - Hiệu quả hơn</a>
         </div>
-
+        <div class="col-md-6" style="text-align: right">
+            <a href="">{{number_format($viewpage)}}</a>&nbsp; Lượt truy cập
+        </div>
     </div>
 
 </div>
