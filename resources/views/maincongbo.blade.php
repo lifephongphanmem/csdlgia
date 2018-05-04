@@ -316,9 +316,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="col-md-6">
         2016 &copy; LifeSoft <a href="" >Tiện ích hơn - Hiệu quả hơn</a>
         </div>
-        <div class="col-md-6" style="text-align: right">
-            <a href="">{{number_format($viewpage)}}</a>&nbsp; Lượt truy cập
-        </div>
     </div>
 
 </div>
