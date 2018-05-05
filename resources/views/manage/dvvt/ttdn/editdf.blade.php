@@ -13,7 +13,7 @@
 
 @section('content')
     <h3 class="page-title">
-        Thông tin doanh nghiệp cung cấp dịch vụ vận tải<small> chỉnh sửa</small>
+        Thông tin doanh nghiệp <small> chỉnh sửa</small>
     </h3>
     <div class="row center">
         <div class="col-md-12 center">

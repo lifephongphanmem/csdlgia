@@ -72,7 +72,7 @@ class CbKkVtXbController extends Controller
             $result['message'] .= '<thead>';
             $result['message'] .= '<tr>';
             $result['message'] .= '<th width="2%" style="text-align: center">STT</th>';
-            $result['message'] .= '<th style="text-align: center">Tên hàng hoá</th>';
+            $result['message'] .= '<th style="text-align: center">Mô tả dịch vụ (tuyến đường)</th>';
             $result['message'] .= '<th style="text-align: center">Quy cách chất lượng</th>';
             $result['message'] .= '<th style="text-align: center">Đơn vị tính</th>';
             $result['message'] .= '<th style="text-align: center">Ghi chú</th>';
@@ -85,7 +85,7 @@ class CbKkVtXbController extends Controller
                 foreach($model as $key=>$ttphong){
                     $result['message'] .= '<tr>';
                     $result['message'] .= '<td style="text-align: center">'.($key +1).'</td>';
-                    $result['message'] .= '<td class="active">'.$ttphong->tenhh.'</td>';
+                    $result['message'] .= '<td class="active">'.$ttphong->tendichvu.'</td>';
                     $result['message'] .= '<td style="text-align: left">'.$ttphong->qccl.'</td>';
                     $result['message'] .= '<td style="text-align: left">'.$ttphong->dvt.'</td>';
                     $result['message'] .= '<td style="text-align: right">'.$ttphong->ghichu.'</td>';

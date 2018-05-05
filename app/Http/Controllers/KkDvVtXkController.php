@@ -138,10 +138,13 @@ class KkDvVtXkController extends Controller
                     ->get();
             }
 
+
+            /*
             $modeldv = Company::all();
             foreach($model as $dv){
                 $this->getTenDV($modeldv, $dv);
             }
+            */
 
             $per=array(
                 'index'=>can('kkdvvtxk','index'),
@@ -257,12 +260,15 @@ class KkDvVtXkController extends Controller
         if (Session::has('admin')) {
             $insert = $request->all();
             $makk=$insert['maxa']. '_' . getdate()[0];
-
+            $modeldn = Company::where('maxa', $insert['maxa'])
+                ->where('level', 'DVVT')->first();
             //dd($insert['ngaynhaplk']);
             $model = new KkDvVtXk();
             $model->masokk = $makk;
             $model->cqcq = $insert['cqcq'];
             $model->maxa = $insert['maxa'];
+
+            $model->tendn = count($modeldn)>0 ? $modeldn->tendn:'';
             $model->ngaynhap =getDateToDb($insert['ngaynhap']);
             $model->socv = $insert['socv'];
             $model->socvlk = $insert['socvlk'];
@@ -429,6 +435,7 @@ class KkDvVtXkController extends Controller
 
             $m_cb = new CbKkDvVtXk();
             $m_cb->maxa = $model->maxa;
+            $m_cb->tendn = $model->tendn;
             $m_cb->masokk = $model->masokk;
             $m_cb->socv = $model->socv;
             $m_cb->ngaynhap = $model->ngaynhap;

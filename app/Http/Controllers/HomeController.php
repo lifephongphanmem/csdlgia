@@ -32,6 +32,16 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    /*
+     * Thông tin email
+     *
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=587
+    MAIL_USERNAME=giadvvinhphuc@gmail.com
+    MAIL_PASSWORD=giadvvinhphuc123456
+    MAIL_ENCRYPTION=tls
+     * */
     public function index()
     {
         if (Session::has('admin')) {

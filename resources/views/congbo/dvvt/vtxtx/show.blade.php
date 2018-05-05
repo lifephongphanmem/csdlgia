@@ -63,7 +63,8 @@
                             <thead>
                             <tr>
                                 <th style="text-align: center" width="2%">STT</th>
-                                <th style="text-align: center">Tên hàng hoá</th>
+                                <th style="text-align: center">Loại xe</th>
+                                <th style="text-align: center">Mô tả dịch vụ (tuyến đường)</th>
                                 <th style="text-align: center">Quy cách chất lượng</th>
                                 <th style="text-align: center" >Đơn vị tính</th>
                                 <th style="text-align: center" width="10%">Giá kê khai</th>
@@ -74,7 +75,8 @@
                                 @foreach($modelcbct as $key=>$tt)
                                     <tr>
                                         <td style="text-align: center">{{$key+1}}</td>
-                                        <td>{{$tt->tenhh}}</td>
+                                        <td>{{$tt->loaixe}}</td>
+                                        <td>{{$tt->tendichvu}}</td>
                                         <td>{{$tt->qccl}}</td>
                                         <td>{{$tt->dvt}}</td>
                                         <td style="text-align: right">{{number_format($tt->giaZdv)}}</td>

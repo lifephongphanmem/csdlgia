@@ -388,7 +388,9 @@ License: You must have a valid license purchased only from themeforest(the above
                             @endif
                             <li><a href="{{url('dmtd/pl=all')}}">Thời điểm kê khai</a></li>
                             <li><a href="{{url('general')}}">Cấu hình hệ thống</a></li>
-                            <li><a href="{{url('diabanhoatdong')}}">Địa bàn hoạt động</a></li>
+                            @if(session('admin')->sadmin == 'ssa' || session('admin')->sadmin == 'sa')
+                                <li><a href="{{url('diabanhoatdong')}}">Địa bàn hoạt động</a></li>
+                             @endif
                         @endif
                         <li>
                             <a href="{{url('xetduyet_thaydoi_ttdoanhnghiep')}}">

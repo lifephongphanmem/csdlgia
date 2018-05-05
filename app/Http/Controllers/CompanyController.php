@@ -132,7 +132,7 @@ class CompanyController extends Controller
     public function ttdnedit($id){
         if (Session::has('admin')) {
             if (session('admin')->level == 'DVLT' || session('admin')->level == 'DVVT' ||
-                session('admin')->level == 'DVGS' || session('admin')->level == 'TACN') {
+                session('admin')->level == 'DVGS' || session('admin')->level == 'DVTACN') {
                 //Kiểm tra thông tin có thuộc quyền quản lý hay k
                 $model = Company::findOrFail($id);
                 if(session('admin')->maxa == $model->maxa) {

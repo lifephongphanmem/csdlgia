@@ -36,7 +36,7 @@
                     <div class="portlet-title">
                         <div class="caption caption-md">
                             <i class="icon-bar-chart theme-font hide"></i>
-                            <span class="caption-subject theme-font bold uppercase">Vận tải xe khách</span>
+                            <span class="caption-subject theme-font bold uppercase">Vận tải khác (chở hàng)</span>
                         </div>
                         <div class="actions">
                         </div>
@@ -62,7 +62,7 @@
                                     <td><a href="{{$tt->link}}" target="_blank">{{$tt->tendn}}</a></td>
                                     <td>{{$tt->diachi}}</td>
                                     <td>
-                                        <a href="{{url('giavantaixekhach/'.$tt->maxa)}}" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem thông tin </a>
+                                        <a href="{{url('giavantaikhac/'.$tt->maxa)}}" class="btn btn-default btn-xs mbs"><i class="fa fa-eye"></i>&nbsp;Xem thông tin </a>
                                     </td>
                                 </tr>
                             @endforeach

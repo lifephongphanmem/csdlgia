@@ -190,44 +190,69 @@ License: You must have a valid license purchased only from themeforest(the above
                             Giá dịch vụ <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-left">
-                            <li class=" dropdown">
-                                <a href="{{url('giadichvuluutru')}}">
-                                    <i class="fa fa-building"></i>
-                                    Giá dịch vụ lưu trú </a>
-                            </li>
-                            <li class=" dropdown-submenu">
+                            @if(canGeneral('dvlt','dvlt')
+                                ||canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch')
+                                || canGeneral('dvgs','dvgs')
+                                ||canGeneral('dvtacn','dvtacn')
+                            )
+                                @if(canGeneral('dvlt','dvlt'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('giadichvuluutru')}}">
+                                            <i class="fa fa-building"></i>
+                                            Giá dịch vụ lưu trú </a>
+                                    </li>
+                                @endif
+                                @if((canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch')))
+                                    <li class=" dropdown-submenu">
                                 <a href="">
                                     <i class="fa fa-automobile"></i>
                                     Giá dịch vụ vận tải </a>
                                 <ul class="dropdown-menu">
-                                    <li class=" ">
-                                        <a href="{{url('giavantaixekhach')}}">
-                                            Giá vận tải xe khách </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="{{url('giavantaixebus')}}">
-                                            Giá vận tải xe buýt </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="{{url('giavantaixetaxi')}}">
-                                            Giá vận tải xe taxi </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="{{url('giavantaikhac')}}">
-                                            Giá vận tải khác </a>
-                                    </li>
+                                    @if(canGeneral('dvvt','vtxk'))
+                                        <li class=" ">
+                                            <a href="{{url('giavantaixekhach')}}">
+                                                Giá vận tải xe khách </a>
+                                        </li>
+                                    @endif
+
+                                    @if(canGeneral('dvvt','vtxb'))
+                                        <li class="">
+                                            <a href="{{url('giavantaixebus')}}">
+                                                Giá vận tải xe buýt </a>
+                                        </li>
+                                    @endif
+
+                                    @if(canGeneral('dvvt','vtxtx'))
+                                        <li class=" ">
+                                            <a href="{{url('giavantaixetaxi')}}">
+                                                Giá vận tải xe taxi </a>
+                                        </li>
+                                    @endif
+
+                                    @if(canGeneral('dvvt','vtch'))
+                                        <li class=" ">
+                                            <a href="{{url('giavantaikhac')}}">
+                                                Giá vận tải khác </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </li>
-                            <li class=" dropdown">
-                                <a href="{{url('giamathangsua')}}">
-                                    <i class="fa fa-spoon"></i>
-                                    Giá mặt hàng sữa </a>
-                            </li>
-                            <li class=" dropdown">
-                                <a href="{{url('giavantaikhac')}}">
-                                    <i class="fa fa-paw"></i>
-                                    Giá thức ăn chăn nuôi </a>
-                            </li>
+                                @endif
+                                @if(canGeneral('dvgs','dvgs'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('giamathangsua')}}">
+                                            <i class="fa fa-spoon"></i>
+                                            Giá mặt hàng sữa </a>
+                                    </li>
+                                @endif
+                                @if(canGeneral('dvtacn','dvtacn'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('giathucanchannuoi')}}">
+                                            <i class="fa fa-paw"></i>
+                                            Giá thức ăn chăn nuôi </a>
+                                    </li>
+                                @endif
+                            @endif
                         </ul>
                     </li>
                 </ul>

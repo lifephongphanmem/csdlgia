@@ -71,7 +71,7 @@
                     <div class="portlet-title">
                         <div class="caption caption-md">
                             <i class="icon-bar-chart theme-font hide"></i>
-                            <span class="caption-subject theme-font bold uppercase">Thông tin hồ sơ kê khai vận tải xe khách</span>
+                            <span class="caption-subject theme-font bold uppercase">Thông tin hồ sơ kê khai vận tải xe taxi</span>
                         </div>
                         <div class="actions">
                         </div>

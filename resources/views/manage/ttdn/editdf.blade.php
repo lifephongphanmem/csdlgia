@@ -13,7 +13,7 @@
 
 @section('content')
     <h3 class="page-title">
-        Thông tin doanh nghiệp dịch vụ lưu trú<small> chỉnh sửa</small>
+        Thông tin doanh nghiệp<small> chỉnh sửa</small>
     </h3>
     <!-- END PAGE HEADER-->
 

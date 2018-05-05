@@ -61,7 +61,7 @@
                     @foreach($model as $kk)
                         <tr>
                             <td style="text-align: center">{{$i++}}</td>
-                            <td class="active">{{$kk->tendonvi}}</td>
+                            <td class="active">{{$kk->tendn}}</td>
                             <td style="text-align: center">{{getDayVn($kk->ngaynhap)}}</td>
                             <td style="text-align: center">{{getDayVn($kk->ngayhieuluc)}}</td>
                             <td style="text-align: center" class="danger">{{$kk->socv}}

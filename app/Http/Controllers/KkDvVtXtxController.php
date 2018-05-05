@@ -228,12 +228,14 @@ class KkDvVtXtxController extends Controller
         if (Session::has('admin')) {
             $insert = $request->all();
             $makk=$insert['maxa'] . '_' . getdate()[0];
-
+            $modeldn = Company::where('maxa', $insert['maxa'])
+                ->where('level', 'DVVT')->first();
             $model = new KkDvVtXtx();
             $model->masokk = $makk;
             $model->cqcq = $insert['cqcq'];
             $model->maxa = $insert['maxa'];
-            $model->ngaynhap =getDateToDb($insert['ngaynhap']) ;
+            $model->tendn = count($modeldn)>0 ? $modeldn->tendn:'';
+            $model->ngaynhap = getDateToDb($insert['ngaynhap']) ;
             $model->socv = $insert['socv'];
             $model->socvlk = $insert['socvlk'];
             $model->ngaynhaplk = getDateToDb($insert['ngaynhaplk']);
@@ -391,6 +393,7 @@ class KkDvVtXtxController extends Controller
 
             $m_cb = new CbKkDvVtXtx();
             $m_cb->maxa = $model->maxa;
+            $m_cb->tendn = $model->tendn;
             $m_cb->masokk = $model->masokk;
             $m_cb->socv = $model->socv;
             $m_cb->ngaynhap = $model->ngaynhap;

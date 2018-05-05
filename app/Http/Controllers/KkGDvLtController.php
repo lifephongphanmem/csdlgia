@@ -87,7 +87,7 @@ class KkGDvLtController extends Controller
                 ->where('level','DVLT')->count();
             if (session('admin')->level == 'T'
                 || session('admin')->level == 'H' && $check > 0
-                || session('admin')->level == 'DVLT' && session('admin')->maxa = $inputs['masothue']) {
+                || session('admin')->level == 'DVLT' && session('admin')->maxa == $inputs['masothue']) {
                 $modeldelctdf = KkGDvLtCtDf::where('maxa',$inputs['masothue'])->delete();
 
                 $modelcskd = CsKdDvLt::where('macskd', $inputs['macskd'])->first();

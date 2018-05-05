@@ -1,5 +1,5 @@
 @if(canGeneral('dvvt','vtxk') || canGeneral('dvvt','vtxb') || canGeneral('dvvt','vtxtx') || canGeneral('dvvt','vtch'))
-
+@if(can('dvvtxk','index') ||can('dvvtxb','index')|| can('dvvtxtx','index')|| can('dvvtch','index'))
     <li>
         <a href="">
             <i class="fa fa-laptop"></i>
@@ -99,5 +99,5 @@
 
         </ul>
     </li>
-
+@endif
 @endif

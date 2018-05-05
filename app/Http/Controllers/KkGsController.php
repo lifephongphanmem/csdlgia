@@ -85,7 +85,7 @@ class KkGsController extends Controller
                 ->where('level','DVGS')->count();
             if (session('admin')->level == 'T'
                 || session('admin')->level == 'H' && $check > 0
-                || session('admin')->level == 'DVGS' && session('admin')->maxa = $inputs['masothue']) {
+                || session('admin')->level == 'DVGS' && session('admin')->maxa == $inputs['masothue']) {
                 $modeldelctdf = KkGsCtDf::where('maxa',$inputs['masothue'])->delete();
 
                 $modeldn = Company::where('maxa', $inputs['masothue'])
@@ -112,7 +112,7 @@ class KkGsController extends Controller
 
     public function store(Request $request){
         if (Session::has('admin')) {
-            if (session('admin')->level == 'DVLT' || session('admin')->level == 'T' || session('admin')->level == 'H') {
+            if (session('admin')->level == 'DVGS' || session('admin')->level == 'T' || session('admin')->level == 'H') {
                 $inputs = $request->all();
                 $inputs['mahs'] = $inputs['maxa'].getdate()[0];
                 $inputs['ngaynhap'] = getDateToDb($inputs['ngaynhap']);

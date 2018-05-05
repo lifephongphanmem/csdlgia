@@ -227,11 +227,13 @@ class KkDvVtKhacController extends Controller
             $insert = $request->all();
             $makk=$insert['maxa'] . '_' . getdate()[0];
 //Lấy tên đơn vị insert vào kê khai
-
+            $modeldn = Company::where('maxa', $insert['maxa'])
+                ->where('level', 'DVVT')->first();
             //dd($insert['ngaynhaplk']);
             $model = new KkDvVtKhac();
             $model->cqcq = $insert['cqcq'];
             $model->maxa = $insert['maxa'];
+            $model->tendn = count($modeldn)>0 ? $modeldn->tendn:'';
             $model->masokk = $makk;
             $model->ngaynhap =getDateToDb($insert['ngaynhap']);
             $model->socv = $insert['socv'];
@@ -394,6 +396,7 @@ class KkDvVtKhacController extends Controller
 
             $m_cb = new CbKkDvVtKhac();
             $m_cb->maxa = $model->maxa;
+            $m_cb->tendn = $model->tendn;
             //tên dv
             $m_cb->masokk = $model->masokk;
             $m_cb->socv = $model->socv;
