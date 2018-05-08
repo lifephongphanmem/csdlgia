@@ -161,7 +161,7 @@ class RegisterController extends Controller
                 return view('system.register.view.register-tralai')
                     ->with('lydo',$check1->lydo);
         }else{
-            $check2 = Users::where('mahuyen',$input['masothue'])
+            $check2 = Users::where('maxa',$input['maxa'])
                 ->first();
             if(isset($check2)){
                 return view('system.register.view.register-usersuccess');

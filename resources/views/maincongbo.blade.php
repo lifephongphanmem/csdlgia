@@ -342,7 +342,6 @@ License: You must have a valid license purchased only from themeforest(the above
         2016 &copy; LifeSoft <a href="" >Tiện ích hơn - Hiệu quả hơn</a>
         </div>
     </div>
-
 </div>
 <div class="scroll-to-top">
     <i class="icon-arrow-up"></i>
