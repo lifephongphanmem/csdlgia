@@ -57,8 +57,8 @@ class KkGTaCnCtController extends Controller
                     $result['message'] .= '<td style="text-align: left">'.$tt->qccl.'</td>';
                     $result['message'] .= '<td style="text-align: center">'.$tt->dvt.'</td>';
                     $result['message'] .= '<td style="text-align: left">'.$tt->ghichu.'</td>';
-                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->giazdvlk).'</td>';
-                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->giazdv).'</td>';
+                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->gbdctlk).'</td>';
+                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->gbdct).'</td>';
                     $result['message'] .= '<td>'.
                         '<button type="button" data-target="#modal-kkgialk" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgialk('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá liền kề</button>'.
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
@@ -183,8 +183,8 @@ class KkGTaCnCtController extends Controller
                     $result['message'] .= '<td style="text-align: left">'.$tt->qccl.'</td>';
                     $result['message'] .= '<td style="text-align: center">'.$tt->dvt.'</td>';
                     $result['message'] .= '<td style="text-align: left">'.$tt->ghichu.'</td>';
-                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->giazdvlk).'</td>';
-                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->giazdv).'</td>';
+                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->gbdctlk).'</td>';
+                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->gbdct).'</td>';
                     $result['message'] .= '<td>'.
                         '<button type="button" data-target="#modal-kkgialk" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgialk('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá liền kề</button>'.
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
@@ -252,8 +252,8 @@ class KkGTaCnCtController extends Controller
                     $result['message'] .= '<td style="text-align: left">'.$tt->qccl.'</td>';
                     $result['message'] .= '<td style="text-align: center">'.$tt->dvt.'</td>';
                     $result['message'] .= '<td style="text-align: left">'.$tt->ghichu.'</td>';
-                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->giaZdvlk).'</td>';
-                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->giaZdv).'</td>';
+                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->gbdctlk).'</td>';
+                    $result['message'] .= '<td style="text-align: right">'.number_format($tt->gbdct).'</td>';
                     $result['message'] .= '<td>'.
                         '<button type="button" data-target="#modal-kkgialk" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgialk('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá liền kề</button>'.
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
@@ -308,6 +308,30 @@ class KkGTaCnCtController extends Controller
             ($model->giaCPlk != null)? $giaCPlk = $model->giaCPlk : $giaCPlk = 0;
             ($model->giaZlk != null)? $giaZlk = $model->giaZlk : $giaZlk = 0;
             ($model->giaZdvlk != null)? $giaZdvlk = $model->giaZdvlk : $giaZdvlk = 0;
+
+
+
+            ($model->cpnvlttlk != null)? $cpnvlttlk = $model->cpnvlttlk : $cpnvlttlk = 0;
+            ($model->cpncttlk != null)? $cpncttlk = $model->cpncttlk : $cpncttlk = 0;
+            ($model->cpsxclk != null)? $cpsxclk = $model->cpsxclk : $cpsxclk = 0;
+            ($model->cpnvpxlk != null)? $cpnvpxlk = $model->cpnvpxlk : $cpnvpxlk = 0;
+            ($model->cpvllk != null)? $cpvllk = $model->cpvllk : $cpvllk = 0;
+            ($model->cpdcsxlk != null)? $cpdcsxlk = $model->cpdcsxlk : $cpdcsxlk = 0;
+            ($model->cpkhtscdlk != null)? $cpkhtscdlk = $model->cpkhtscdlk : $cpkhtscdlk = 0;
+            ($model->cpdvmnlk != null)? $cpdvmnlk = $model->cpdvmnlk : $cpdvmnlk = 0;
+            ($model->cpbtklk != null)? $cpbtklk = $model->cpbtklk : $cpbtklk = 0;
+            ($model->cpklk != null)? $cpklk = $model->cpklk : $cpklk = 0;
+            ($model->tcpsxlk != null)? $tcpsxlk = $model->tcpsxlk : $tcpsxlk = 0;
+            ($model->cpbhlk != null)? $cpbhlk = $model->cpbhlk : $cpbhlk = 0;
+            ($model->cpqldnlk != null)? $cpqldnlk = $model->cpqldnlk : $cpqldnlk = 0;
+            ($model->cptclk != null)? $cptclk = $model->cptclk : $cptclk = 0;
+            ($model->tgttblk != null)? $tgttblk = $model->tgttblk : $tgttblk = 0;
+            ($model->lndklk != null)? $lndklk = $model->lndklk : $lndklk = 0;
+            ($model->gbctlk != null)? $gbctlk = $model->gbctlk : $gbctlk = 0;
+            ($model->thuettdblk != null)? $thuettdblk = $model->thuettdblk : $thuettdblk = 0;
+            ($model->cpbtklk != null)? $cpbtklk = $model->cpbtklk : $cpbtklk = 0;
+            ($model->thuegtgtlk != null)? $thuegtgtlk = $model->thuegtgtlk : $thuegtgtlk = 0;
+            ($model->gbdctlk != null)? $gbdctlk = $model->gbdctlk : $gbdctlk = 0;
 
             $result['message'] = '<div class="form-horizontal" id="ttkkgialk">';
             $result['message'] .= '<div class="form-group">';

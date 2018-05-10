@@ -167,7 +167,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <div class="input-icon">
                         <i class="fa fa-file"></i>
@@ -181,6 +181,16 @@ License: You must have a valid license purchased only from themeforest(the above
                     </p>
                 </div>
             </div>
+            @if($model->level != 'DVVT' && $model->level != 'DVLT')
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="form-control" name="pl" id="pl">
+                            <option value="SX" {{$model->pl == 'SX' ? 'selected' : ''}} >Đơn vị Sản xuất</option>
+                            <option value="PP" {{$model->pl == 'PP' ? 'selected' : ''}}>Đơn vị Phân phối</option>
+                        </select>
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="row">
             <div class="col-md-6">

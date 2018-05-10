@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\KkGTaCnCtDf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,14 +21,11 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['tenhh'])){
             $modelkkgia = new KkGTaCnCtDf();
             $modelkkgia->create($inputs);
-
             $model = KkGTaCnCtDf::where('maxa',$inputs['maxa'])
                 ->get();
-
             $result['message'] = '<div class="row" id="dsts">';
             $result['message'] .= '<div class="col-md-12">';
             $result['message'] .= '<table class="table table-striped table-bordered table-hover" id="sample_3">';
@@ -46,8 +41,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<th style="text-align: center" width="20%">Thao tác</th>';
             $result['message'] .= '</tr>';
             $result['message'] .= '</thead>';
-
-
             $result['message'] .= '<tbody>';
             if(count($model) > 0){
                 foreach($model as $key=>$tt){
@@ -64,7 +57,6 @@ class KkGTaCnCtDfController extends Controller
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
                         '<button type="button" data-target="#modal-edit" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="editTtPh('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa thông tin</button>'.
                         '<button type="button" data-target="#modal-delete" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="getid('.$tt->id.');" ><i class="fa fa-trash-o"></i>&nbsp;Xóa</button>'
-
                         .'</td>';
                     $result['message'] .= '</tr>';
                 }
@@ -77,7 +69,6 @@ class KkGTaCnCtDfController extends Controller
         }
         die(json_encode($result));
     }
-
     public function edit(Request $request){
         $result = array(
             'status' => 'fail',
@@ -92,10 +83,8 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
             $id = $inputs['id'];
-
             $model = KkGTaCnCtDf::findOrFail($id);
             //dd($model);
             $result['message'] = '<div class="modal-body" id="ttpedit">';
@@ -111,7 +100,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
-
             $result['message'] .= '<div class="row">';
             $result['message'] .= '<div class="col-md-12">';
             $result['message'] .= '<div class="form-group"><label for="selGender" class="control-label"><b>Quy cách chất lượng</b><span class="require">*</span></label>';
@@ -119,7 +107,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
-
             $result['message'] .= '<div class="row">';
             $result['message'] .= '<div class="col-md-12">';
             $result['message'] .= '<div class="form-group"><label for="selGender" class="control-label"><b>Ghi chú</b><span class="require">*</span></label>';
@@ -127,15 +114,12 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
-
             $result['message'] .= '<input type="hidden" id="idedit" name="idedit" value="'.$model->id.'">';
             $result['message'] .= '</div>';
             $result['status'] = 'success';
-
         }
         die(json_encode($result));
     }
-
     public function update(Request $request){
         $result = array(
             'status' => 'fail',
@@ -150,14 +134,11 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
             $modelkkgia = KkGTaCnCtDf::where('id',$inputs['id'])->first();
             $modelkkgia->update($inputs);
-
             $model = KkGTaCnCtDf::where('maxa',$inputs['maxa'])
                 ->get();
-
             $result['message'] = '<div class="row" id="dsts">';
             $result['message'] .= '<div class="col-md-12">';
             $result['message'] .= '<table class="table table-striped table-bordered table-hover" id="sample_3">';
@@ -173,8 +154,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<th style="text-align: center" width="20%">Thao tác</th>';
             $result['message'] .= '</tr>';
             $result['message'] .= '</thead>';
-
-
             $result['message'] .= '<tbody>';
             if(count($model) > 0){
                 foreach($model as $key=>$tt){
@@ -191,7 +170,6 @@ class KkGTaCnCtDfController extends Controller
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
                         '<button type="button" data-target="#modal-edit" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="editTtPh('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa thông tin</button>'.
                         '<button type="button" data-target="#modal-delete" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="getid('.$tt->id.');" ><i class="fa fa-trash-o"></i>&nbsp;Xóa</button>'
-
                         .'</td>';
                     $result['message'] .= '</tr>';
                 }
@@ -204,7 +182,6 @@ class KkGTaCnCtDfController extends Controller
         }
         die(json_encode($result));
     }
-
     public function delete(Request $request){
         $result = array(
             'status' => 'fail',
@@ -219,14 +196,11 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
             $modelkkgia = KkGTaCnCtDf::where('id',$inputs['id'])->first();
             $modelkkgia->delete();
-
             $model = KkGTaCnCtDf::where('maxa',$inputs['maxa'])
                 ->get();
-
             $result['message'] = '<div class="row" id="dsts">';
             $result['message'] .= '<div class="col-md-12">';
             $result['message'] .= '<table class="table table-striped table-bordered table-hover" id="sample_3">';
@@ -242,8 +216,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<th style="text-align: center" width="20%">Thao tác</th>';
             $result['message'] .= '</tr>';
             $result['message'] .= '</thead>';
-
-
             $result['message'] .= '<tbody>';
             if(count($model) > 0){
                 foreach($model as $key=>$tt){
@@ -260,7 +232,6 @@ class KkGTaCnCtDfController extends Controller
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
                         '<button type="button" data-target="#modal-edit" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="editTtPh('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa thông tin</button>'.
                         '<button type="button" data-target="#modal-delete" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="getid('.$tt->id.');" ><i class="fa fa-trash-o"></i>&nbsp;Xóa</button>'
-
                         .'</td>';
                     $result['message'] .= '</tr>';
                 }
@@ -273,7 +244,6 @@ class KkGTaCnCtDfController extends Controller
         }
         die(json_encode($result));
     }
-
     public function kkgialk(Request $request){
         $result = array(
             'status' => 'fail',
@@ -288,9 +258,7 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
-
             $model = KkGTaCnCtDf::where('id',$inputs['id'])
                 ->first();
             ($model->giaQlk != null)? $giaQlk = $model->giaQlk : $giaQlk = 0;
@@ -309,7 +277,6 @@ class KkGTaCnCtDfController extends Controller
             ($model->giaCPlk != null)? $giaCPlk = $model->giaCPlk : $giaCPlk = 0;
             ($model->giaZlk != null)? $giaZlk = $model->giaZlk : $giaZlk = 0;
             ($model->giaZdvlk != null)? $giaZdvlk = $model->giaZdvlk : $giaZdvlk = 0;
-
             $result['message'] = '<div class="form-horizontal" id="ttkkgialk">';
             $result['message'] .= '<div class="form-group">';
             $result['message'] .= '<label class="col-md-9 control-label" style="text-align: left"><b>A.Sản lượng tính giá (Q)</b></label>';
@@ -414,7 +381,6 @@ class KkGTaCnCtDfController extends Controller
         }
         die(json_encode($result));
     }
-
     public function upkkgialk(Request $request){
         $result = array(
             'status' => 'fail',
@@ -429,7 +395,6 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
             $modelkkgia = KkGTaCnCtDf::where('id',$inputs['id'])->first();
             $inputs['giaQlk'] = getMoneyToDb($inputs['giaQlk']);
@@ -448,9 +413,7 @@ class KkGTaCnCtDfController extends Controller
             $inputs['giaCPlk'] = getMoneyToDb($inputs['giaCPlk']);
             $inputs['giaZlk'] = getMoneyToDb($inputs['giaZlk']);
             $inputs['giaZdvlk'] = getMoneyToDb($inputs['giaZdvlk']);
-
             $modelkkgia->update($inputs);
-
             $model = KkGTaCnCtDf::where('maxa',$inputs['maxa'])
                 ->get();
             $result['message'] = '<div class="row" id="dsts">';
@@ -468,7 +431,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<th style="text-align: center" width="20%">Thao tác</th>';
             $result['message'] .= '</tr>';
             $result['message'] .= '</thead>';
-
             $result['message'] .= '<tbody>';
             if(count($model) > 0){
                 foreach($model as $key=>$tt){
@@ -485,7 +447,6 @@ class KkGTaCnCtDfController extends Controller
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
                         '<button type="button" data-target="#modal-edit" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="editTtPh('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa thông tin</button>'.
                         '<button type="button" data-target="#modal-delete" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="getid('.$tt->id.');" ><i class="fa fa-trash-o"></i>&nbsp;Xóa</button>'
-
                         .'</td>';
                     $result['message'] .= '</tr>';
                 }
@@ -498,7 +459,6 @@ class KkGTaCnCtDfController extends Controller
         }
         die(json_encode($result));
     }
-
     public function kkgia(Request $request){
         $result = array(
             'status' => 'fail',
@@ -513,9 +473,7 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
-
             $model = KkGTaCnCtDf::where('id',$inputs['id'])
                 ->first();
             ($model->giaQ != null)? $giaQ = $model->giaQ : $giaQ = 0;
@@ -534,7 +492,6 @@ class KkGTaCnCtDfController extends Controller
             ($model->giaCP != null)? $giaCP = $model->giaCP : $giaCP = 0;
             ($model->giaZ != null)? $giaZ = $model->giaZ : $giaZ = 0;
             ($model->giaZdv != null)? $giaZdv = $model->giaZdv : $giaZdv = 0;
-
             $result['message'] = '<div class="form-horizontal" id="ttkkgia">';
             $result['message'] .= '<div class="form-group">';
             $result['message'] .= '<label class="col-md-9 control-label" style="text-align: left"><b>A.Sản lượng tính giá (Q)</b></label>';
@@ -639,7 +596,6 @@ class KkGTaCnCtDfController extends Controller
         }
         die(json_encode($result));
     }
-
     public function upkkgia(Request $request){
         $result = array(
             'status' => 'fail',
@@ -654,7 +610,6 @@ class KkGTaCnCtDfController extends Controller
         }
         //dd($request);
         $inputs = $request->all();
-
         if(isset($inputs['id'])){
             $modelkkgia = KkGTaCnCtDf::where('id',$inputs['id'])->first();
             $inputs['giaQ'] = getMoneyToDb($inputs['giaQ']);
@@ -674,7 +629,6 @@ class KkGTaCnCtDfController extends Controller
             $inputs['giaZ'] = getMoneyToDb($inputs['giaZ']);
             $inputs['giaZdv'] = getMoneyToDb($inputs['giaZdv']);
             $modelkkgia->update($inputs);
-
             $model = KkGTaCnCtDf::where('maxa',$inputs['maxa'])
                 ->get();
             $result['message'] = '<div class="row" id="dsts">';
@@ -692,7 +646,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<th style="text-align: center" width="20%">Thao tác</th>';
             $result['message'] .= '</tr>';
             $result['message'] .= '</thead>';
-
             $result['message'] .= '<tbody>';
             if(count($model) > 0){
                 foreach($model as $key=>$tt){
@@ -709,7 +662,6 @@ class KkGTaCnCtDfController extends Controller
                         '<button type="button" data-target="#modal-kkgia" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="kkgia('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Kê khai giá</button>'.
                         '<button type="button" data-target="#modal-edit" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="editTtPh('.$tt->id.');"><i class="fa fa-edit"></i>&nbsp;Chỉnh sửa thông tin</button>'.
                         '<button type="button" data-target="#modal-delete" data-toggle="modal" class="btn btn-default btn-xs mbs" onclick="getid('.$tt->id.');" ><i class="fa fa-trash-o"></i>&nbsp;Xóa</button>'
-
                         .'</td>';
                     $result['message'] .= '</tr>';
                 }

@@ -34,5 +34,6 @@ class Register extends Model
         'trangthai',
         'lydo',
         'ma',
+        'pl'
     ];
 }

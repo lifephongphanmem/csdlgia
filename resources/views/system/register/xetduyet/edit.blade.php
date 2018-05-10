@@ -87,8 +87,20 @@
                                     <input type="text" class="form-control required" name="giayphepkd" id="giayphepkd" value="{{$model->giayphepkd}}">
                                 </div>
                             </div>
-
                         </div>
+                        @if($model->level != 'DVVT' && $model->level != 'DVLT')
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Phân loại đơn vị</label>
+                                        <select class="form-control" name="pl" id="pl">
+                                            <option value="SX" {{$model->pl == 'SX' ? 'selected' : ''}} >Đơn vị Sản xuất</option>
+                                            <option value="PP" {{$model->pl == 'PP' ? 'selected' : ''}}>Đơn vị Phân phối</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

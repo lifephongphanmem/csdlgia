@@ -30,6 +30,7 @@ class Company extends Model
         'tailieu',
         'giayphepkd',
         'level',
-        'avatar'
+        'avatar',
+        'pl'
     ];
 }

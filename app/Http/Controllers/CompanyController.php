@@ -156,12 +156,28 @@ class CompanyController extends Controller
                 ->where('level',$inputs['level'])
                 ->delete();
             $model = new TtDnTd();
-            $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+
+            if(isset($inputs['roles'])){
+                $inputs['settingdvvt'] = json_encode($inputs['roles']);
+                $x = $inputs['roles'];
+                $inputs['vtxk'] = isset($inputs['dvvt']['vtxk']) ? 1 : 0;
+                $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+                $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+                $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
+            }else {
+                $inputs['settingdvvt'] = '';
+                $inputs['vtxk'] = 0;
+                $inputs['vtxb'] = 0;
+                $inputs['vtxtx'] = 0;
+                $inputs['vtch'] = 0;
+            }
+            /*$inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+
             $x = $inputs['roles'];
             $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
             $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
             $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
-            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
+            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;*/
             $inputs['trangthai'] = 'Chờ chuyển';
             $model->create($inputs);
 
@@ -194,12 +210,26 @@ class CompanyController extends Controller
         if (Session::has('admin')) {
             $inputs =$request->all();
             $model = TtDnTd::findOrFail($id);
-            $inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
+            if(isset($inputs['roles'])){
+                $inputs['settingdvvt'] = json_encode($inputs['roles']);
+                $x = $inputs['roles'];
+                $inputs['vtxk'] = isset($inputs['dvvt']['vtxk']) ? 1 : 0;
+                $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
+                $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
+                $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
+            }else {
+                $inputs['settingdvvt'] = '';
+                $inputs['vtxk'] = 0;
+                $inputs['vtxb'] = 0;
+                $inputs['vtxtx'] = 0;
+                $inputs['vtch'] = 0;
+            }
+            /*$inputs['settingdvvt'] = isset($inputs['roles']) ? json_encode($inputs['roles']) : '';
             $x = $inputs['roles'];
             $inputs['vtxk'] = isset($x['dvvt']['vtxk']) ? 1 : 0;
             $inputs['vtxb'] = isset($x['dvvt']['vtxb']) ? 1 : 0;
             $inputs['vtxtx'] = isset($x['dvvt']['vtxtx']) ? 1 : 0;
-            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;
+            $inputs['vtch'] = isset($x['dvvt']['vtch']) ? 1 : 0;*/
             $inputs['trangthai'] = 'Chờ chuyển';
             $model->update($inputs);
 
