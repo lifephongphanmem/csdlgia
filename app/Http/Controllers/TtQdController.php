@@ -630,13 +630,7 @@ class TtQdController extends Controller
             'status' => 'fail',
             'message' => 'error',
         );
-        if (!Session::has('admin')) {
-            $result = array(
-                'status' => 'fail',
-                'message' => 'permission denied',
-            );
-            die(json_encode($result));
-        }
+
         $inputs = $request->all();
 
         $model = TtQd::find($inputs['id']);

@@ -109,7 +109,7 @@
                             <th width="2%" style="text-align: center">STT</th>
                             <th style="text-align: center">Phòng ban</th>
                             <th style="text-align: center" width="20%">Ngày nhập</th>
-                            <th style="text-align: center" width="25%%">Thị trường</th>
+                            <th style="text-align: center" width="25%">Thị trường</th>
                             <!--th style="text-align: center">Loại giá</th>
                             <th style="text-align: center">Loại hàng hóa</th-->
                             <!--th style="text-align: center">Trạng thái</th-->

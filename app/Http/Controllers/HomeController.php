@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\CsKdDvLt;
+use App\District;
 use App\DmDvQl;
+use App\dmvitridat;
 use App\DnDvGs;
 use App\DnDvLt;
 use App\DnDvLtReg;
@@ -20,6 +22,7 @@ use App\KkGDvLt;
 use App\KkGDvTaCn;
 use App\Register;
 use App\TtDn;
+use App\TtQd;
 use App\Users;
 use App\ViewPage;
 use Carbon\Carbon;
@@ -93,6 +96,54 @@ class HomeController extends Controller
             ->where('vtch','1')
             ->get();
 
+        $model_hhtt =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsGiaHhTt')->where('trangthai','Hoàn tất')->get();
+        })->take(4)->get();
+
+        $model_hhtw =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsGiaHangHoa')
+                ->where('trangthai','Hoàn tất')
+                ->where('phanloai','TW')
+                ->get();
+        })->take(4)->get();
+
+        $model_hhdp =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsGiaHangHoa')
+                ->where('trangthai','Hoàn tất')
+                ->where('phanloai','DP')
+                ->get();
+        })->take(4)->get();
+
+        $model_thuetb =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsGiaThueTb')
+                ->where('trangthai','Hoàn tất')
+                ->get();
+        })->take(4)->get();
+
+        $model_thuetn =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsThueTn')
+                ->where('trangthai','Hoàn tất')
+                ->get();
+        })->take(4)->get();
+
+        $model_tdg =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsThamDinhGia')
+                ->where('trangthai','Hoàn tất')
+                ->get();
+        })->take(4)->get();
+
+        $model_cbg =District::wherein('mahuyen',function($qr){
+            $qr->select('mahuyen')->from('HsCongBoGia')
+                ->where('trangthai','Hoàn tất')
+                ->get();
+        })->take(4)->get();
+
+        $model_vtd = dmvitridat::where('capdo','1')->take(4)->get();
+
+        $model_vbpl =TtQd::orderByRaw("RAND()")
+            ->take(4)
+            ->get();
+
         $viewpage = ViewPage::count();
         return view('dashboardcb')
             ->with('modellt',$modellt)
@@ -102,6 +153,17 @@ class HomeController extends Controller
             ->with('modelvtch',$modelvtch)
             ->with('modelgs',$modelgs)
             ->with('modeltacn',$modeltacn)
+            ->with('model_hhtt',$model_hhtt)
+
+            ->with('model_hhtw',$model_hhtw)
+            ->with('model_hhdp',$model_hhdp)
+            ->with('model_thuetb',$model_thuetb)
+            ->with('model_thuetn',$model_thuetn)
+            ->with('model_tdg',$model_tdg)
+            ->with('model_cbg',$model_cbg)
+            ->with('model_vtd',$model_vtd)
+            ->with('model_vbpl',$model_vbpl)
+
             ->with('viewpage',$viewpage)
             ->with('pageTitle','Giá hàng hóa - dịch vụ');
     }

@@ -187,6 +187,132 @@ License: You must have a valid license purchased only from themeforest(the above
                     </li>
                     <li class="menu-dropdown classic-menu-dropdown ">
                         <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
+                            Cơ sở dữ liệu giá<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            @if(canGeneral('hhtt','hhtt')||canGeneral('hhxnk','hhxnk')||canGeneral('hhdvtn','hhdvtn')
+                            ||canGeneral('kkgtw','kkgtw')||canGeneral('kkgdp','kkgdp')||canGeneral('tsnnnhadat','tsnnnhadat')
+                            ||canGeneral('tsnnotokhac','tsnnotokhac')||canGeneral('gttruocba','gttruocba')||canGeneral('gthuetn','gthuetn')
+                            ||canGeneral('tdgia','tdgia')||canGeneral('congbogia','congbogia')||canGeneral('loaidat','loaidat')||canGeneral('vitri','vitri')
+                            ||canGeneral('ttqd','ttqd')
+                            )
+                                @if(canGeneral('hhtt','hhtt'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('hanghoathitruong')}}">
+                                            <i class="fa fa-building"></i>
+                                            Hàng hóa thị trường</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('hhxnk','hhxnk'))
+                                    <!-- Chưa làm -->
+                                    <li class=" dropdown">
+                                        <a href="{{url('')}}">
+                                            <i class="fa fa-building"></i>
+                                            Hàng hóa xuất, nhập khẩu</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('hhdvtn','hhdvtn'))
+                                    <!-- Chưa làm -->
+                                    <li class=" dropdown">
+                                        <a href="{{url('')}}">
+                                            <i class="fa fa-building"></i>
+                                            Hàng hóa, dịch vụ trong nước</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('kkgtw','kkgtw'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('hanghoatw')}}">
+                                            <i class="fa fa-building"></i>
+                                            Hàng hóa TW quy định</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('kkgdp','kkgdp'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('hanghoadp')}}">
+                                            <i class="fa fa-building"></i>
+                                            Hàng hóa ĐP quy định</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('tsnnnhadat','tsnnnhadat'))
+                                    <!-- Chưa làm -->
+                                    <li class=" dropdown">
+                                        <a href="{{url('giadichvuluutru')}}">
+                                            <i class="fa fa-building"></i>
+                                            Tài sản nhà nước</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('tsnnotokhac','tsnnotokhac'))
+                                    <!-- Chưa làm -->
+                                    <li class=" dropdown">
+                                        <a href="{{url('giadichvuluutru')}}">
+                                            <i class="fa fa-building"></i>
+                                            Tài sản ôtô- tài sản khác</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('gttruocba','gttruocba'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('thuetb')}}">
+                                            <i class="fa fa-building"></i>
+                                            Giá thuế trước bạ</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('gthuetn','gthuetn'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('thuetn')}}">
+                                            <i class="fa fa-building"></i>
+                                            Giá thuế tài nguyên</a>
+                                    </li>
+                                @endif
+
+                                @if(canGeneral('tdgia','tdgia'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('thamdg')}}">
+                                            <i class="fa fa-building"></i>
+                                            Thẩm định giá</a>
+                                    </li>
+                                @endif
+                                @if(canGeneral('congbogia','congbogia'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('congbg')}}">
+                                            <i class="fa fa-building"></i>
+                                            Công bố giá </a>
+                                    </li>
+                                @endif
+                                @if(canGeneral('loaidat','loaidat'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('pldat')}}">
+                                            <i class="fa fa-building"></i>
+                                            Giá đất theo phân loại</a>
+                                    </li>
+                                @endif
+                                @if(canGeneral('vitri','vitri'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('vtdat?maso=ALL')}}">
+                                            <i class="fa fa-building"></i>
+                                            Giá theo vị trí đất</a>
+                                    </li>
+                                @endif
+                                @if(canGeneral('ttqd','ttqd'))
+                                    <li class=" dropdown">
+                                        <a href="{{url('vbpl')}}">
+                                            <i class="fa fa-building"></i>
+                                            Văn bản QLNN về giá</a>
+                                    </li>
+                                @endif
+                            @endif
+                        </ul>
+                    </li>
+
+                    <li class="menu-dropdown classic-menu-dropdown ">
+                        <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;">
                             Giá dịch vụ <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-left">
@@ -255,6 +381,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             @endif
                         </ul>
                     </li>
+
+
                 </ul>
             </div>
             <!-- END MEGA MENU -->
