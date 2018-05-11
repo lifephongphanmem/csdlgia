@@ -18,7 +18,25 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="2%">STT</th>
+                            <th style="text-align: center" width="10%">Tên đơn vị</th>
+                            <th style="text-align: center" width="10%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_hhtt as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->tendv}}</td>
+                                <td></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <!--div class="row list-separated">
                         @foreach($model_hhtt as $xk)
                             <div class="col-md-3">
                                 <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
@@ -27,7 +45,7 @@
                                 <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
                             </div>
                         @endforeach
-                    </div>
+                    </div-->
                     <div class="actions" style="text-align: right">
                         <a href="{{url('hanghoathitruong')}}">Xem chi tiết...</a>
                     </div>
@@ -58,7 +76,25 @@
                 </div>
             </div>
             <div class="portlet-body">
-                <div class="row list-separated">
+                <table class="table table-striped table-bordered table-hover table-dulieubang">
+                    <thead>
+                    <tr>
+                        <th style="text-align: center" width="2%">STT</th>
+                        <th style="text-align: center" width="10%">Tên đơn vị</th>
+                        <th style="text-align: center" width="10%">Thao tác</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($model_hhtw as $key=>$xk)
+                        <tr>
+                            <td align="center">{{$key+1}}</td>
+                            <td>{{$xk->tendv}}</td>
+                            <td></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                <!--div class="row list-separated">
                     @foreach($model_hhtw as $xk)
                         <div class="col-md-3">
                             <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
@@ -67,7 +103,7 @@
                             <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
                         </div>
                     @endforeach
-                </div>
+                </div-->
                 <div class="actions" style="text-align: right">
                     <a href="{{url('hanghoatw')}}">Xem chi tiết...</a>
                 </div>
