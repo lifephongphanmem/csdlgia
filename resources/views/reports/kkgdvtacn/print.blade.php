@@ -143,8 +143,8 @@
         <td>{{$tt->tenhh}}</td>
         <td>{{$tt->qccl}}</td>
         <td style="text-align: center">{{$tt->dvt}}</td>
-        <td style="text-align: right">{{number_format($tt->giaZdvlk)}}</td>
-        <td style="text-align: right">{{number_format($tt->giaZdv)}}</td>
+        <td style="text-align: right">{{number_format($tt->gbdctlk)}}</td>
+        <td style="text-align: right">{{number_format($tt->gbdct)}}</td>
         <td></td>
         <td></td>
         <td>{{$tt->ghichu}}</td>
@@ -190,113 +190,148 @@
             </td>
         </tr>
     </table>
-    <p style="text-align: center; font-weight: bold; font-size: 16px;"><b>PHƯƠNG ÁN GIÁ</b></p>
+    <p style="text-align: center; font-weight: bold; font-size: 16px;"><b>THUYẾT MINH CƠ CẤU TÍNH GIÁ<br>
+            HÀNG HÓA, DỊCH VỤ  ĐĂNG KÝ GIÁ
+        </b></p>
+    <p style="text-align: center;">(Kèm theo công văn số {{$modelkk->socv}}  ngày {{ date("d",strtotime($modelkk->ngaynhap))}} tháng {{ date("m",strtotime($modelkk->ngaynhap))}} năm {{ date("Y",strtotime($modelkk->ngaynhap))}} của {{$modeldn->tendn}})</p>
+    <p style="text-align: center"><b>(Đối với mặt hàng sản xuất trong nước)</b></p>
     <p style="text-align: left; font-size: 16px;"><b>Tên mặt hàng: {{$ttpag->tenhh}}</b></p>
     <p style="text-align: left; font-size: 16px;"><b>Quy cách chất lượng: {{$ttpag->qccl}}</b></p>
     <p style="text-align: left; font-size: 16px;"><b>Đơn vị tính: {{$ttpag->dvt}}</b></p>
     <p style="text-align: left; font-size: 16px;"><b>Ghi chú: {{$ttpag->ghichu}}<b></b></p>
+    <p><b>I. BẢNG TỔNG HỢP TÍNH GIÁ VỐN, GIÁ BÁN HÀNG HÓA, DỊCH VỤ</b></p>
     <table cellspacing="0" cellpadding="0" border="1" style="margin: 20px auto; border-collapse: collapse;">
         <tr>
             <th width="2%">STT</th>
-            <th>Nội dung chi phí</th>
-            <th>Ký hiệu</th>
-            <th>Thành tièn</th>
+            <th>Khoản mục chi phí</th>
+            <th>ĐVT</th>
+            <th>Thành tiền</th>
         </tr>
         <tr>
-            <td style="text-align: center"><b>A</b></td>
-            <td><b>Sản lượng tính giá</b></td>
-            <td style="text-align: center"><b>Q</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaQ)}}</b></td>
+            <td style="text-align: center"><b>1</b></td>
+            <td><b>Chi phí sản xuất</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b></b></td>
         </tr>
         <tr>
-            <td style="text-align: center"><b>B</b></td>
-            <td><b>Chi phí sản xuất, kinh doanh</b></td>
-            <td style="text-align: center"><b>C</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaC)}}</b></td>
+            <td style="text-align: center">1.1</td>
+            <td><b>Chi phí phí nguyên liệu, vật liệu trực tiếp</b></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->cpnvltt)}}</b></td>
         </tr>
         <tr>
-            <td style="text-align: center"><b>I</b></td>
-            <td><b>Chi phí trực tiếp</b></td>
-            <td style="text-align: center"><b>Ctt</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaCtt)}}</b></td>
+            <td style="text-align: center">1.2</td>
+            <td><b>Chi phí nhân công trực tiếp</b></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->cpnctt)}}</b></td>
         </tr>
         <tr>
-            <td style="text-align: center">1</td>
-            <td>Chi phí nguyên liệu, vật liệu, công cụ, dụng cụ, nhiên liệu, năng lượng trực tiếp</td>
-            <td style="text-align: center">Cvt</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCvt)}}</td>
+            <td style="text-align: center">1.3</td>
+            <td>Chi phí sản xuất chung:</td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right"></td>
         </tr>
         <tr>
-            <td style="text-align: center">2</td>
-            <td>Chi phí nhân công trực tiếp</td>
-            <td style="text-align: center">Cnc</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCnc)}}</td>
+            <td style="text-align: center">a</td>
+            <td><i>Chi phí nhân viên phân xưởng</i></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->cpnvpx)}}</td>
         </tr>
         <tr>
-            <td style="text-align: center">3</td>
-            <td>Chi phí khấu hao máy móc thiết bị trực tiếp (trường hợp được trích khấu hao)</td>
-            <td style="text-align: center">Ckh</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCkh)}}</td>
+            <td style="text-align: center">b</td>
+            <td><i>Chi phí vật liệu</i></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->cpvl)}}</td>
         </tr>
         <tr>
-            <td style="text-align: center">4</td>
-            <td>Chi phí sản xuất, kinh doanh (chưa tính ở trên) theo đặc thù của từng ngành, lĩnh vực</td>
-            <td style="text-align: center">Ck</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCk)}}</td>
+            <td style="text-align: center">c</td>
+            <td>Chi phí dụng cụ sản xuất</td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->cpdcsx)}}</td>
         </tr>
         <tr>
-            <td style="text-align: center"><b>II</b></td>
-            <td><b>Chi phí chung</b></td>
-            <td style="text-align: center"><b>Cc</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaCc)}}</b></td>
+            <td style="text-align: center">d</td>
+            <td>Chi phí khấu hao TSCĐ</td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->cpkhtscd)}}</b></td>
         </tr>
         <tr>
-            <td style="text-align: center">5</td>
-            <td>Chi phí sản xuất chung (đối với doanh nghiệp)</td>
-            <td style="text-align: center">Ccm</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCcm)}}</td>
+            <td style="text-align: center">đ</td>
+            <td><i>Chi phí dịch vụ mua ngoài</i></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->cpdvmn)}}</td>
         </tr>
         <tr>
-            <td style="text-align: center">6</td>
-            <td>Chi phí tài chính (nếu có)</td>
-            <td style="text-align: center">Ctc</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCtc)}}</td>
+            <td style="text-align: center">e</td>
+            <td><i>Chi phí bằng tiền khác</i></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->cpbtk)}}</td>
         </tr>
         <tr>
-            <td style="text-align: center">7</td>
-            <td>Chi phí bán hàng</td>
-            <td style="text-align: center">Cbh</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCbh)}}</td>
+            <td style="text-align: center">1.4</td>
+            <td>Chi phí khác</td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->cpk)}}</td>
         </tr>
         <tr>
-            <td style="text-align: center">8</td>
-            <td>Chi phí quản lý</td>
-            <td style="text-align: center">Cql</td>
-            <td style="text-align: right">{{number_format($ttpag->giaCql)}}</td>
+            <td style="text-align: center"></td>
+            <td><b>Tổng chi phí sản xuất:</b></td>
+            <td style="text-align: center"></td>
+            <td style="text-align: right">{{number_format($ttpag->tcpsx)}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center"><b>2</b></td>
+            <td><b>Chi phí bán hàng</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->cpbh)}}</b></td>
+        </tr>
+        <tr>
+            <td style="text-align: center"><b>3</b></td>
+            <td><b>Chi phí quản lý doanh nghiệp</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->cpqldn)}}</b></td>
+        </tr>
+        <tr>
+            <td style="text-align: center"><b>4</b></td>
+            <td><b>Chi phí tài chính</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->cptc)}}</b></td>
         </tr>
         <tr>
             <td style="text-align: center"><b></b></td>
-            <td><b>Tổng chi phí sản xuất, kinh doanh</b></td>
-            <td style="text-align: center"><b>TC</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaTC)}}</b></td>
+            <td><b>Tổng giá thành toàn bộ</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->tgttb)}}</b></td>
         </tr>
         <tr>
-            <td style="text-align: center"><b>C</b></td>
-            <td><b>Chi phí phân bổ cho sản phẩm phụ (nếu có)</b></td>
-            <td style="text-align: center"><b>CP</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaCP)}}</b></td>
+            <td style="text-align: center"><b>5</b></td>
+            <td><b>Lợi nhuận dự kiến</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->lndk)}}</b></td>
         </tr>
         <tr>
-            <td style="text-align: center"><b>D</b></td>
-            <td><b>Giá thành toàn bộ (TC-CP)</b></td>
-            <td style="text-align: center"><b>Z</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaZ)}}</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td><b>Giá bán chưa thuế</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->gbct)}}</b></td>
         </tr>
         <tr>
-            <td style="text-align: center"><b>Đ</b></td>
-            <td><b>Giá thành toàn bộ 01 (một) đơn vị sản phẩm (TC-CP)/Q</b></td>
-            <td style="text-align: center"><b>Zđv</b></td>
-            <td style="text-align: right"><b>{{number_format($ttpag->giaZdv)}}</b></td>
+            <td style="text-align: center"><b>6</b></td>
+            <td><b>Thuế tiêu thụ đặc biệt (nếu có)</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->thuettdb)}}</b></td>
+        </tr>
+        <tr>
+            <td style="text-align: center"><b>7</b></td>
+            <td><b>Thuế giá trị gia tăng (nếu có)</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->thuegtgt)}}</b></td>
+        </tr>
+        <tr>
+            <td style="text-align: center"><b></b></td>
+            <td><b>Giá bán (đã có thuế)</b></td>
+            <td style="text-align: center"><b></b></td>
+            <td style="text-align: right"><b>{{number_format($ttpag->gbdct)}}</b></td>
         </tr>
     </table>
 @endforeach

@@ -305,7 +305,6 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<div class="form-group">';
             $result['message'] .= '<label class="col-md-9 control-label" style="text-align: left">1. 3. Chi phí sản xuất chung:</label>';
             $result['message'] .= '<div class="col-md-3">';
-            $result['message'] .= '<input type="text" id="cpsxclk" name="cpsxclk" class="form-control pag" data-mask="fdecimal" style="text-align: right" value="'.$cpsxclk.'">';
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
             $result['message'] .= '<div class="form-group">';
@@ -424,7 +423,7 @@ class KkGTaCnCtDfController extends Controller
             $modelkkgia = KkGTaCnCtDf::where('id',$inputs['id'])->first();
             $inputs['cpnvlttlk'] = getMoneyToDb($inputs['cpnvlttlk']);
             $inputs['cpncttlk'] = getMoneyToDb($inputs['cpncttlk']);
-            $inputs['cpsxclk'] = getMoneyToDb($inputs['cpsxclk']);
+            //$inputs['cpsxclk'] = getMoneyToDb($inputs['cpsxclk']);
             $inputs['cpnvpxlk'] = getMoneyToDb($inputs['cpnvpxlk']);
             $inputs['cpvllk'] = getMoneyToDb($inputs['cpvllk']);
             $inputs['cpdcsxlk'] = getMoneyToDb($inputs['cpdcsxlk']);
@@ -432,11 +431,14 @@ class KkGTaCnCtDfController extends Controller
             $inputs['cpdvmnlk'] = getMoneyToDb($inputs['cpdvmnlk']);
             $inputs['cpbtklk'] = getMoneyToDb($inputs['cpbtklk']);
             $inputs['cpklk'] = getMoneyToDb($inputs['cpklk']);
-            //$inputs['tcpsxlk'] = getMoneyToDb($inputs['tcpsxlk']);
+            $inputs['tcpsxlk'] = $inputs['cpnvlttlk'] + $inputs['cpncttlk']
+                + $inputs['cpnvpxlk'] + $inputs['cpvllk']
+                + $inputs['cpdcsxlk'] + $inputs['cpkhtscdlk'] + $inputs['cpdvmnlk']
+                + $inputs['cpbtklk'] + $inputs['cpklk'];
             $inputs['cpbhlk'] = getMoneyToDb($inputs['cpbhlk']);
             $inputs['cpqldnlk'] = getMoneyToDb($inputs['cpqldnlk']);
             $inputs['cptclk'] = getMoneyToDb($inputs['cptclk']);
-            //$inputs['tgttblk'] = getMoneyToDb($inputs['tgttblk']);
+            $inputs['tgttblk'] = $inputs['tcpsxlk'] + $inputs['cpbhlk'] + $inputs['cpqldnlk']  + $inputs['cptclk'];
             $inputs['lndklk'] = getMoneyToDb($inputs['lndklk']);
             $inputs['gbctlk'] = getMoneyToDb($inputs['gbctlk']);
             $inputs['thuettdblk'] = getMoneyToDb($inputs['thuettdblk']);
@@ -549,7 +551,7 @@ class KkGTaCnCtDfController extends Controller
             $result['message'] .= '<div class="form-group">';
             $result['message'] .= '<label class="col-md-9 control-label" style="text-align: left">1. 3. Chi phí sản xuất chung:</label>';
             $result['message'] .= '<div class="col-md-3">';
-            $result['message'] .= '<input type="text" id="cpsxc" name="cpsxc" class="form-control pag" data-mask="fdecimal" style="text-align: right" value="'.$cpsxc.'">';
+            //$result['message'] .= '<input type="text" id="cpsxc" name="cpsxc" class="form-control pag" data-mask="fdecimal" style="text-align: right" value="'.$cpsxc.'">';
             $result['message'] .= '</div>';
             $result['message'] .= '</div>';
             $result['message'] .= '<div class="form-group">';
@@ -668,7 +670,7 @@ class KkGTaCnCtDfController extends Controller
             $modelkkgia = KkGTaCnCtDf::where('id',$inputs['id'])->first();
             $inputs['cpnvltt'] = getMoneyToDb($inputs['cpnvltt']);
             $inputs['cpnctt'] = getMoneyToDb($inputs['cpnctt']);
-            $inputs['cpsxc'] = getMoneyToDb($inputs['cpsxc']);
+            //$inputs['cpsxc'] = getMoneyToDb($inputs['cpsxc']);
             $inputs['cpnvpx'] = getMoneyToDb($inputs['cpnvpx']);
             $inputs['cpvl'] = getMoneyToDb($inputs['cpvl']);
             $inputs['cpdcsx'] = getMoneyToDb($inputs['cpdcsx']);
@@ -676,11 +678,13 @@ class KkGTaCnCtDfController extends Controller
             $inputs['cpdvmn'] = getMoneyToDb($inputs['cpdvmn']);
             $inputs['cpbtk'] = getMoneyToDb($inputs['cpbtk']);
             $inputs['cpk'] = getMoneyToDb($inputs['cpk']);
-            //$inputs['tcpsx'] = getMoneyToDb($inputs['tcpsx']);
+            $inputs['tcpsx'] = $inputs['cpnvltt'] + $inputs['cpnctt']
+                + $inputs['cpnvpx'] + $inputs['cpvl'] + $inputs['cpdcsx']
+                + $inputs['cpkhtscd'] + $inputs['cpdvmn'] + $inputs['cpbtk'] + $inputs['cpk'];
             $inputs['cpbh'] = getMoneyToDb($inputs['cpbh']);
             $inputs['cpqldn'] = getMoneyToDb($inputs['cpqldn']);
             $inputs['cptc'] = getMoneyToDb($inputs['cptc']);
-            //$inputs['tgttb'] = getMoneyToDb($inputs['tgttb']);
+            $inputs['tgttb'] = $inputs['tcpsx']  + $inputs['cpbh'] + $inputs['cpqldn'] + $inputs['cptc'];
             $inputs['lndk'] = getMoneyToDb($inputs['lndk']);
             $inputs['gbct'] = getMoneyToDb($inputs['gbct']);
             $inputs['thuettdb'] = getMoneyToDb($inputs['thuettdb']);

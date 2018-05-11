@@ -33,7 +33,6 @@ class KkGTaCnCtDf extends Model
         'lndklk',
         'gbctlk',
         'thuettdblk',
-
         'thuegtgtlk',
         'gbdctlk',
 
@@ -55,7 +54,6 @@ class KkGTaCnCtDf extends Model
         'lndk',
         'gbct',
         'thuettdb',
-        'cpbtk',
         'thuegtgt',
         'gbdct',
     ];
