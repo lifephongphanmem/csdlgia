@@ -55,7 +55,7 @@
                                 <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Số điện thoại<span class="require">*</span></label>
+                                        <label class="control-label">Thông tin liên hệ<span class="require">*</span></label>
                                         <input type="text" class="form-control required" name="tel" id="tel">
                                     </div>
                                 </div>

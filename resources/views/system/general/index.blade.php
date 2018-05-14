@@ -80,6 +80,24 @@
                         </tr>
                         <tr>
                             <td style="width:15%">
+                                <b>Địa chỉ</b>
+                            </td>
+                            <td style="width:35%">
+                                <span class="text-muted" style="color: #0000ff">{{isset($model) ? $model->diachi : ''}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%">
+                                <b>Thông tin liên hệ</b>
+                            </td>
+                            <td style="width:35%">
+                                <span class="text-muted" style="color: #0000ff">{{isset($model) ? $model->tel : ''}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%">
                                 <b>Thông tin hợp đồng</b>
                             </td>
                             <td style="width:35%">

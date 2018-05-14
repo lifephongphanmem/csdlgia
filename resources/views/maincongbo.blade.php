@@ -408,57 +408,11 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="page-prefooter">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                <h2>About</h2>
-                <p>
-
-                </p>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs12 footer-block">
-                <h2>Subscribe Email</h2>
-                <div class="subscribe-form">
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" placeholder="mail@email.com" class="form-control">
-							<span class="input-group-btn">
-							<button class="btn" type="submit">Submit</button>
-							</span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                <h2>Follow Us On</h2>
-                <ul class="social-icons">
-                    <li>
-                        <a href="" data-original-title="rss" class="rss"></a>
-                    </li>
-                    <li>
-                        <a href="" data-original-title="facebook" class="facebook"></a>
-                    </li>
-                    <li>
-                        <a href="" data-original-title="twitter" class="twitter"></a>
-                    </li>
-                    <li>
-                        <a href="" data-original-title="googleplus" class="googleplus"></a>
-                    </li>
-                    <li>
-                        <a href="" data-original-title="linkedin" class="linkedin"></a>
-                    </li>
-                    <li>
-                        <a href="" data-original-title="youtube" class="youtube"></a>
-                    </li>
-                    <li>
-                        <a href="" data-original-title="vimeo" class="vimeo"></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                <h2>Contacts</h2>
-                <address class="margin-bottom-40">
-                    Phone:<br>
-                    Email:
-                </address>
+            <div class="col-md-12 footer-block" style="text-align: center">
+                <h2><strong>Giá hàng hóa dịch vụ&nbsp;<b style="color: #25aae2">{{isset(getGeneralConfigs()['diadanh']) ? getGeneralConfigs()['diadanh'] : ''}}</b></strong></h2>
+                <p>Bản quyền thuộc về &nbsp;<b style="color: #25aae2">{{isset(getGeneralConfigs()['tendonvi']) ? getGeneralConfigs()['tendonvi'] : ''}}</b></p>
+                <p>Địa chỉ: &nbsp;<b style="color: #25aae2">{{isset(getGeneralConfigs()['diachi']) ? getGeneralConfigs()['diachi'] : ''}}</b></p>
+                <p>Thông tin liên hệ: &nbsp;<b style="color: #25aae2">{{isset(getGeneralConfigs()['tel']) ? getGeneralConfigs()['tel'] : ''}}</b></p>
             </div>
         </div>
     </div>
@@ -466,7 +420,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <div class="page-footer">
     <div class="container">
-        <div class="col-md-6">
+
+        <div class="col-md-12">
         2016 &copy; LifeSoft <a href="" >Tiện ích hơn - Hiệu quả hơn</a>
         </div>
     </div>
