@@ -17,7 +17,20 @@
         jQuery(document).ready(function() {
             TableManaged.init();
         });
-
+        $(function(){
+            $('#nambc').change(function() {
+                var nambc = $('#nambc').val();
+                var ttpb = $('#ttpb').val();
+                var url = '/thuetn?nam='+nambc+'&pb='+ttpb;
+                window.location.href = url;
+            });
+            $('#ttpb').change(function() {
+                var nambc = $('#nambc').val();
+                var ttpb = $('#ttpb').val();
+                var url = '/thuetn?nam='+nambc+'&pb='+ttpb;
+                window.location.href = url;
+            });
+        });
     </script>
 @stop
 
@@ -36,6 +49,30 @@
                         </div>
                     </div>
                     <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <select name="nambc" id="nambc" class="form-control">
+                                        @if ($nam_start = intval(date('Y')) - 5 ) @endif
+                                        @if ($nam_stop = intval(date('Y'))) @endif
+                                        @for($i = $nam_start; $i <= $nam_stop; $i++)
+                                            <option value="{{$i}}" {{$i == $inputs['nam'] ? 'selected' : ''}}>Năm {{$i}}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control select2me" id="ttpb" name="ttpb">
+                                        <option value="all">--Tất cả phòng ban--</option>
+                                        @foreach($modelpb as $ttpb)
+                                            <option value="{{$ttpb->mahuyen}}" {{($inputs['pb'] == $ttpb->mahuyen) ? 'selected' : ''}}>{{$ttpb->tendv}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <table class="table table-striped table-bordered table-hover" id="sample_3">
                             <thead>
                             <tr>

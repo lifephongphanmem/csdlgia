@@ -241,7 +241,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 @if(canGeneral('tsnnnhadat','tsnnnhadat'))
                                     <!-- Chưa làm -->
                                     <li class=" dropdown">
-                                        <a href="{{url('giadichvuluutru')}}">
+                                        <a href="{{url('')}}">
                                             <i class="fa fa-building"></i>
                                             Tài sản nhà nước</a>
                                     </li>
@@ -250,7 +250,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 @if(canGeneral('tsnnotokhac','tsnnotokhac'))
                                     <!-- Chưa làm -->
                                     <li class=" dropdown">
-                                        <a href="{{url('giadichvuluutru')}}">
+                                        <a href="{{url('')}}">
                                             <i class="fa fa-building"></i>
                                             Tài sản ôtô- tài sản khác</a>
                                     </li>
@@ -258,7 +258,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 @if(canGeneral('gttruocba','gttruocba'))
                                     <li class=" dropdown">
-                                        <a href="{{url('thuetb')}}">
+                                        <a href="{{url('thuetb?nam='.date('Y').'&pb=all')}}">
                                             <i class="fa fa-building"></i>
                                             Giá thuế trước bạ</a>
                                     </li>
@@ -266,7 +266,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 @if(canGeneral('gthuetn','gthuetn'))
                                     <li class=" dropdown">
-                                        <a href="{{url('thuetn')}}">
+                                        <a href="{{url('thuetn?nam='.date('Y').'&pb=all')}}">
                                             <i class="fa fa-building"></i>
                                             Giá thuế tài nguyên</a>
                                     </li>
@@ -274,14 +274,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 @if(canGeneral('tdgia','tdgia'))
                                     <li class=" dropdown">
-                                        <a href="{{url('thamdg')}}">
+                                        <a href="{{url('thamdg?nam='.date('Y').'&pb=all')}}">
                                             <i class="fa fa-building"></i>
                                             Thẩm định giá</a>
                                     </li>
                                 @endif
                                 @if(canGeneral('congbogia','congbogia'))
                                     <li class=" dropdown">
-                                        <a href="{{url('congbg')}}">
+                                        <a href="{{url('congbg?nam='.date('Y').'&pb=all')}}">
                                             <i class="fa fa-building"></i>
                                             Công bố giá </a>
                                     </li>

@@ -10,11 +10,15 @@ use App\Http\Controllers\Controller;
 
 class CbThueTNController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $model = HsThueTn::where('nam',date('Y'))
+        $inputs = $request->all();
+        $model = HsThueTn::where('nam',$inputs['nam'])
             ->where('trangthai','Hoàn tất')
             ->get();
+        if($inputs['pb'] != 'all'){
+            $model = $model->where('mahuyen',$inputs['pb']);
+        }
         $modelpb = District::all();
 
         foreach($model as $tt){
@@ -23,6 +27,8 @@ class CbThueTNController extends Controller
 
         return view('congbo.thuetn.index')
             ->with('model',$model)
+            ->with('inputs',$inputs)
+            ->with('modelpb',$modelpb)
             ->with('pageTitle','Thông tin giá thuế tài nguyên');
     }
 

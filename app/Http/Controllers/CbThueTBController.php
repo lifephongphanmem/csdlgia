@@ -12,11 +12,16 @@ use App\Http\Controllers\Controller;
 class CbThueTBController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $model = HsGiaThueTb::where('nam',date('Y'))
+        //dd($request);
+        $inputs = $request->all();
+        $model = HsGiaThueTb::where('nam',$inputs['nam'])
             ->where('trangthai','Hoàn tất')
             ->get();
+        if($inputs['pb'] != 'all'){
+            $model = $model->where('mahuyen',$inputs['pb']);
+        }
         $modelloai = DmLoaiXeThueTb::all();
         $modelpb = District::all();
         foreach($model as $tt){
@@ -26,6 +31,8 @@ class CbThueTBController extends Controller
 
         return view('congbo.thuetb.index')
             ->with('model',$model)
+            ->with('inputs',$inputs)
+            ->with('modelpb',$modelpb)
             ->with('pageTitle','Thông tin giá thuế trước bạ');
     }
 

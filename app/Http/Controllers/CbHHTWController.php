@@ -25,15 +25,19 @@ class CbHHTWController extends Controller
     public function index(Request $request)
     {
         $inputs = $request->all();
-        $model = HsGiaHangHoa::where('mathoidiem',$inputs['thoidiem'])
-            ->where('nam',$inputs['nam'])
+        $model = HsGiaHangHoa::where('nam',$inputs['nam'])
             ->where('phanloai','TW')
             ->where('trangthai','Hoàn tất')
             ->get();
+        if (!isset($inputs['thoidiem'])){
+            $inputs['thoidiem'] = $model->first()->mathoidiem;
+        }
+
         if($inputs['pb'] != 'all'){
             $model = $model->where('mahuyen',$inputs['pb']);
         }
 
+        $model = $model->where('mathoidiem',$inputs['thoidiem']);
         $modelpb = District::all();
 
         foreach($model as $tt){

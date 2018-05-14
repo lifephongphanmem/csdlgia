@@ -21,9 +21,9 @@
                     <table class="table table-striped table-bordered table-hover table-dulieubang">
                         <thead>
                         <tr>
-                            <th style="text-align: center" width="2%">STT</th>
-                            <th style="text-align: center" width="10%">Tên đơn vị</th>
-                            <th style="text-align: center" width="10%">Thao tác</th>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -31,21 +31,12 @@
                             <tr>
                                 <td align="center">{{$key+1}}</td>
                                 <td>{{$xk->tendv}}</td>
-                                <td></td>
+                                <td><a href="{{url('hanghoathitruong/index?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    <!--div class="row list-separated">
-                        @foreach($model_hhtt as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                                <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                                <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                            </div>
-                        @endforeach
-                    </div-->
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('hanghoathitruong')}}">Xem chi tiết...</a>
                     </div>
@@ -78,32 +69,23 @@
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover table-dulieubang">
                     <thead>
-                    <tr>
-                        <th style="text-align: center" width="2%">STT</th>
-                        <th style="text-align: center" width="10%">Tên đơn vị</th>
-                        <th style="text-align: center" width="10%">Thao tác</th>
-                    </tr>
+                        <tr>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
                     </thead>
                     <tbody>
                     @foreach($model_hhtw as $key=>$xk)
                         <tr>
                             <td align="center">{{$key+1}}</td>
                             <td>{{$xk->tendv}}</td>
-                            <td></td>
+                            <td><a href="{{url('hanghoatw/index?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                <!--div class="row list-separated">
-                    @foreach($model_hhtw as $xk)
-                        <div class="col-md-3">
-                            <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                            <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                            <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                            <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                        </div>
-                    @endforeach
-                </div-->
+
                 <div class="actions" style="text-align: right">
                     <a href="{{url('hanghoatw')}}">Xem chi tiết...</a>
                 </div>
@@ -134,16 +116,26 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_hhdp as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                                <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                                <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_hhdp as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->tendv}}</td>
+                                <td><a href="{{url('hanghoadp/index?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
+                            </tr>
                         @endforeach
-                    </div>
+                        </tbody>
+                    </table>
+
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('hanghoadp')}}">Xem chi tiết...</a>
                     </div>
@@ -174,16 +166,26 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_thuetb as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                                <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                                <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="7%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_thuetb as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->tendv}}</td>
+                                <td><a href="{{url('thuetb?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
+                            </tr>
                         @endforeach
-                    </div>
+                        </tbody>
+                    </table>
+
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('thuetb')}}">Xem chi tiết...</a>
                     </div>
@@ -214,16 +216,25 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_thuetn as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                                <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                                <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_thuetn as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->tendv}}</td>
+                                <td><a href="{{url('thuetn?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
+                            </tr>
                         @endforeach
-                    </div>
+                        </tbody>
+                    </table>
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('thuetn')}}">Xem chi tiết...</a>
                     </div>
@@ -254,16 +265,26 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_tdg as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                                <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                                <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_tdg as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->tendv}}</td>
+                                <td><a href="{{url('thamdg?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
+                            </tr>
                         @endforeach
-                    </div>
+                        </tbody>
+                    </table>
+
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('thamdg')}}">Xem chi tiết...</a>
                     </div>
@@ -294,16 +315,25 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_cbg as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->tendv}}</h3></p>
-                                <p><i class="fa fa-map-marker"></i> {{$xk->diachi}}</p>
-                                <p><i class="fa fa-phone"></i> {{$xk->tel}}</p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_cbg as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->tendv}}</td>
+                                <td><a href="{{url('congbg?nam='.date('Y').'&pb='.$xk->mahuyen)}}">Xem báo cáo</a></td>
+                            </tr>
                         @endforeach
-                    </div>
+                        </tbody>
+                    </table>
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('congbg')}}">Xem chi tiết...</a>
                     </div>
@@ -334,14 +364,25 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_vtd as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->vitri}}</h3></p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover table-dulieubang">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center" width="5%">STT</th>
+                            <th style="text-align: center" width="75%">Tên đơn vị</th>
+                            <th style="text-align: center" width="20%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_vtd as $key=>$xk)
+                            <tr>
+                                <td align="center">{{$key+1}}</td>
+                                <td>{{$xk->vitri}}</td>
+                                <td><a href="{{url('vtdat?maso='.$xk->maso)}}">Xem giá đất</a></td>
+                            </tr>
                         @endforeach
-                    </div>
+                        </tbody>
+                    </table>
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('vtdat?maso=ALL')}}">Xem chi tiết...</a>
                     </div>
@@ -372,14 +413,35 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="row list-separated">
-                        @foreach($model_vbpl as $xk)
-                            <div class="col-md-3">
-                                <img src="{{ url('images/avatar/'.$xk->avatar)}}" width="96" >
-                                <p><h3 style="color: #18bc9c">{{$xk->dvbanhanh}}</h3></p>
-                            </div>
+                    <table class="table table-striped table-bordered table-hover" id="sample_3">
+                        <thead>
+                        <tr>
+                            <th width="2%" style="text-align: center">STT</th>
+                            <th style="text-align: center">Đơn vị</br>ban hành</th>
+                            <th style="text-align: center" width="10">Loại văn</br>bản</th>
+                            <th style="text-align: center" width="15%">Ngày ban hành/<br>Ngày áp dụng</th>
+                            <th style="text-align: center">Số hiệu văn bản</th>
+                            <th style="text-align: center">Nội dung</th>
+                            <th style="text-align: center" width="10%">Thao tác</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($model_vbpl as $key=>$tt)
+                            <tr>
+                                <td style="text-align: center">{{$key + 1}}</td>
+                                <td class="active">{{$tt->dvbanhanh}}</td>
+                                <td style="text-align: center">{{$tt->tenloaivanban}}</td>
+                                <td style="text-align: center">{{getDayVn($tt->ngaybh)}} || {{getDayVn($tt->ngayad)}}</td>
+                                <td class="success">{{$tt->khvb}}</td>
+                                <td>{{$tt->tieude}}</td>
+                                <td><a href="{{url('/vbpl')}}">Xem nội dung</a></td>
+
+                            </tr>
                         @endforeach
-                    </div>
+
+                        </tbody>
+                    </table>
+
                     <div class="actions" style="text-align: right">
                         <a href="{{url('vbpl')}}">Xem chi tiết...</a>
                     </div>

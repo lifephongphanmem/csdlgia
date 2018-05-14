@@ -25,13 +25,19 @@ class CbHHTTController extends Controller
     public function index(Request $request)
     {
         $inputs = $request->all();
-        $model = HsGiaHhTt::where('mathoidiem',$inputs['thoidiem'])
-            ->where('nam',$inputs['nam'])
+        $model = HsGiaHhTt::where('nam',$inputs['nam'])
             ->where('trangthai','Hoàn tất')
             ->get();
+
+        if (!isset($inputs['thoidiem'])){
+            $inputs['thoidiem'] = $model->first()->mathoidiem;
+        }
+
         if($inputs['pb'] != 'all'){
             $model = $model->where('mahuyen',$inputs['pb']);
         }
+
+        $model = $model->where('mathoidiem',$inputs['thoidiem']);
 
         $modelpb = District::all();
 

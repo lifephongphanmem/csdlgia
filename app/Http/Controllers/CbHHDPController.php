@@ -25,20 +25,25 @@ class CbHHDPController extends Controller
     public function index(Request $request)
     {
         $inputs = $request->all();
-        $model = HsGiaHangHoa::where('mathoidiem',$inputs['thoidiem'])
-            ->where('nam',$inputs['nam'])
+        $model = HsGiaHangHoa::where('nam',$inputs['nam'])
             ->where('phanloai','DP')
             ->where('trangthai','Hoàn tất')
             ->get();
+        if (!isset($inputs['thoidiem'])){
+            $inputs['thoidiem'] = $model->first()->mathoidiem;
+        }
+
         if($inputs['pb'] != 'all'){
             $model = $model->where('mahuyen',$inputs['pb']);
         }
 
         $modelpb = District::all();
+        $model = $model->where('mathoidiem',$inputs['thoidiem']);
 
         foreach($model as $tt){
             $this->getTtPhongBan($modelpb,$tt);
         }
+
 
         return view('congbo.hhdp.index')
             ->with('model',$model)

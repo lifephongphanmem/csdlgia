@@ -137,6 +137,6 @@
         </div>
     </div>
     <div style="text-align: center">
-        <a href="{{url('/thuetn')}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
+        <a href="{{url('/thuetn?nam='.date('Y').'&pb=all')}}" class="btn btn-danger"><i class="fa fa-reply"></i>&nbsp;Quay lại</a>
     </div>
 @stop 

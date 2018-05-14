@@ -10,11 +10,15 @@ use App\Http\Controllers\Controller;
 
 class CbCBGController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $model = HsCongBoGia::where('nam',date('Y'))
+        $inputs = $request->all();
+        $model = HsCongBoGia::where('nam',$inputs['nam'])
             ->where('trangthai','Hoàn tất')
             ->get();
+        if($inputs['pb'] != 'all'){
+            $model = $model->where('mahuyen',$inputs['pb']);
+        }
         $modelpb = District::all();
 
         foreach($model as $tt){
@@ -22,7 +26,9 @@ class CbCBGController extends Controller
         }
 
         return view('congbo.congbogia.index')
+            ->with('inputs',$inputs)
             ->with('model',$model)
+            ->with('modelpb',$modelpb)
             ->with('pageTitle','Thông tin hồ sơ công bố giá');
     }
 
