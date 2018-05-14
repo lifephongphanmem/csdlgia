@@ -44,6 +44,21 @@ class HomeController extends Controller
     MAIL_USERNAME=giadvvinhphuc@gmail.com
     MAIL_PASSWORD=giadvvinhphuc123456
     MAIL_ENCRYPTION=tls
+
+    1. Please download the full version of the software at:
+https://www.swordsky.com/F/PRO4/7FWODF59DF/dwfull/
+
+2. Install the full version of the software on your computer.
+** Administrator user is recommended
+
+3. Start up the software and enter your registration information.
+
+Your registration information is:
+
+User name: Viet Hai Nguyen
+User email: hainv@outlook.com
+License code: PRO4-69G6Q4M-8YGNXX-M2N8-KCHVWYK
+
      * */
     public function index()
     {
